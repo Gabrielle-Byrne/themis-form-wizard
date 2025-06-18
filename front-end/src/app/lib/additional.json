@@ -1,0 +1,285 @@
+{
+    "steps": [{
+        "name": "Shelters",
+        "icon": "House",
+        "fields": [{
+                "name": "Gignoo Aboriginal Transition House",
+                "description": "Support for First Nation women and children who are survivors of domestic violence",
+                "location": "Fredericton",
+                "email": " gignoo@nbnet.nb.ca",
+                "website": "https://gignoohouse.ca/",
+                "phoneNumber": "(800)-565-6878 | 24/7 Helpline",
+                "phoneNumberAlt": "(506)-458-1224 | Local Crisis Line",
+                "notes": "Women Only, First Nations",
+                "category":"Shelters"
+            },
+            {
+                "name": "Grace House for Women",
+                "description": "Temporary Housing with support from resident support workers and a transition planner",
+                "location": "Fredericton",
+                "phoneNumber": "(506)-450-3001",
+                "email": "info@theshelters.ca",
+                "website": "https://www.theshelters.ca/our-spaces/grace-house/",
+                "notes": "Women Only",
+                "category":"Shelters"
+            },
+            {
+                "name": "Oak Centre",
+                "description": "Supportive housing complex primarily for individuals facing or having experienced homelessness",
+                "location": "Fredericton",
+                "phoneNumber": "(506)-206-0667",
+                "website": "https://johnhowardfredericton.ca/housing-programs/",
+                "category":"Shelters"
+            },
+            {
+                "name": "Outflow Men's Shelter",
+                "description": "24/7 free-of-charge shelter with 30 beds, provides a light meal, showers, laundry, and breakfast",
+                "location": "Saint John",
+                "phoneNumber": "(506)-658-8050",
+                "website": "https://outflowsj.com/",
+                "notes": "Faith-based",
+                "category":"Shelters"
+            },
+            {
+                "name": "Saint John House",
+                "description": "Downtown emergency shelter to up to 27 individuals, offering laundry and showering services, a resident phone, Wi-Fi, computers, access to donation, and support from Resident Support Workers, a Transition Planner and Manager",
+                "location": "Fredericton",
+                "email": "info@theshelters.ca",
+                "phoneNumber": "(506)-450-1102",
+                "website": "https://www.theshelters.ca/our-spaces/st-john-house/",
+                "category":"Shelters"
+            },
+            {
+                "name": "Sanctuary House",
+                "description": "Temporary housing for women and children who are victims of domestic violence",
+                "location": "Woodstock",
+                "phoneNumber": "(506)-325-9452",
+                "phoneNumberAlt": "1-866-377-3577 | Toll-free",
+                "website":"https://www.sanctuaryhouse.ca/",
+                "category":"Shelters",
+                "notes": "Women Only"
+            },
+            {
+                "name": "Women in Transition",
+                "description": "Shelter for women who have experienced domestic and intimate partner violence, provides accommodations for up to 19 women and their children",
+                "location": "Fredericton",
+                "email": "transhouse1@nb.aibn.com",
+                "phoneNumber": "(506)-459-2300",
+                "website": "https://www.womenintransitionhouse.ca/",
+                "notes": "Women Only",
+                "category":"Shelters"
+            }
+        ]},
+        {
+        "name": "Rehabilitation",
+        "icon": "BookOpen",
+        "fields": [
+            {
+                "name": "Harvest House - Community Centre & Shelter",
+                "description": "Community center offering three meals a day and emergency shelter",
+                "location": "Moncton",
+                "phoneNumber": "(506) 855-0626 | Atlantic Office",
+                "phoneNumberAlt": "(506) 388-4357 | Community Centre & Shelter",
+                "website": "https://harvesthouseatlantic.org/",
+                "category":"Rehabilitation"
+            },
+            {
+                "name": "Youth Impact Jeunesse",
+                "description": "Offers residential services for youths between two and twenty-five, as well as outreach programs for youths aged 16 or older",
+                "location": "Moncton",
+                "phoneNumber": "(506)-869-6333",
+                "website": "https://youthimpact.org/",
+                "notes": "Youth & Young Adult, Bilingual Services",
+                "category":"Rehabilitation"
+            },
+            {
+                "name": "Naomi & Ruth",
+                "description": "Faith-based one year program offering a supportive environment with  medical treatment, therapy, mentorship, financial counseling, fitness programs, stress management, and life skills training",
+                "location": "Shediac",
+                "phoneNumber": "(506) 875-5371",
+                "website": "https://naomiandruth.ca/",
+                "notes": "Women Only, Faith-based",
+                "category":"Rehabilitation"
+            },
+            {
+                "name": "Portage",
+                "description": "Residential drug addiction rehabilitation centre for youth between 14 and 21",
+                "location": "Cassidy Lake",
+                "phoneNumber": "(506)-839-1200",
+                "website": "https://portage.ca/en/atlantic/",
+                "notes": "Youth & Young Adult, Bilingual Services",
+                "category":"Rehabilitation"
+            },
+            {
+                "name": "Riverstone Recovery Outpatient",
+                "description": "Outpatient services for individuals struggling with substance use",
+                "location": "Fredericton",
+                "phoneNumber": "(506) 447-9634",
+                "website": "https://www.facebook.com/riverstonerecoverycentre/",
+                "category":"Rehabilitation"
+            },
+            {
+                "name": "Teen Challenge",
+                "description": "12-month in-residence alcohol and drug addiction rehabilitation programs for adults 18 or older",
+                "location": "Memramcook",
+                "phoneNumber": "(506) 758-2377",
+                "website": "https://www.teenchallenge.ca/",
+                "notes": "Youth",
+                "category":"Rehabilitation"
+            },
+            {
+                "name": "Village of Hope",
+                "description": "10-month Christianity-based program centred on drug and alcohol addiction recovery",
+                "location": "Upper Tracy",
+                "phoneNumber": "(506)-368-2600",
+                "email": "info@villageofhopenb.ca",
+                "website": "https://villageofhope.ca/",
+                "notes": "Faith-based ",
+                "category":"Rehabilitation"
+            }
+        ]},
+        {
+        "name": "First Nations",
+        "icon": "Info",
+        "fields": [
+            {
+                "name": "Addictions/Mental-Wellness St Mary's",
+                "description": "Healthcare services centered on indigenous values, including in-person medical visits at the St. Mary’s Veterans Memorial Health Centre and crisis counseling ",
+                "location": "St. Mary's First Nation",
+                "phoneNumber": "(506) 452-2750",
+                "email": "chrisbrooks@smfn.ca",
+                "category":"First Nations"
+            },
+            {
+                "name": "Apatawsuwikuwam",
+                "description": "Addiction strategy and recovery for Indigenous individuls",
+                "location": "St. Mary's First Nation",
+                "phoneNumber": "(506)-206-1005",
+                "email": "admin@apatawsuwikuwam.com",
+                "website": "https://www.facebook.com/Apatawsuwikuwam/",
+                "category":"First Nations"
+            },
+            {
+                "name": "Elsipogtog Health & Wellness Centre",
+                "description": "Healthcare services to the Elsipogtog First Nation community",
+                "location": "Elsipogtog",
+                "phoneNumber": "(506)-523-8227",
+                "website": "https://ehwc.ca/",
+                "category":"First Nations"
+            },
+            {
+                "name": "Rising Sun Treatment Centre",
+                "description": "Culture-focused and harm reduction-based addiction support with 10-bed residence and mental health counseling",
+                "location": "Eel Ground",
+                "phoneNumber": "(833)-444-4626",
+                "email": "info@risingsuntreatment.ca",
+                "website": "https://www.risingsuntreatment.ca/",
+                "category":"First Nations"
+            },
+            {
+                "name": "Wolastoqewiyik Healing Lodge - Outpatient",
+                "description": "Provides holistic and high-quality care for the Neqotkuk community",
+                "location": "Tobique",
+                "phoneNumber": "(506) 273-5403",
+                "website": "https://healing-lodge.ca",
+                "category":"First Nations"
+            }
+        ]},
+        {
+        "name": "Legal and Referral Services",
+        "icon": "Scale",
+        "fields": [
+            {
+                "name": "Fredericton Legal Advice Clinic",
+                "description": "Run by volunteer lawyers providing advice in person or through online contact form",
+                "phoneNumber": "(506) 476-0024",
+                "email": "flac.nb@gmail.com",
+                "website": "https://flac.cliogrow.com/",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Investigations of Complaints - Employment Standards",
+                "description": "Handles employment-related complaints, with officers screening and investigating issues that may escalate to the New Brunswick Labour & Employment Board",
+                "phoneNumber": "1-888-452-2687",
+                "email": "petl.epft@gnb.ca",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Landlord and Tenant Relations Office",
+                "description": "Provides information and resources on rental agreements, dispute resolution, and the Residential Tenancies Act",
+                "phoneNumber": "1-888-762-8600",
+                "email": "renting@gnb.ca",
+
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "New Brunswick Human Rights Commission",
+                "description": "Government agency responsible for administering the Human Rights Act, promoting equality, and eliminating discriminatory practices",
+                "phoneNumber": "1-888-471-2233 | Toll Free",
+                "phoneNumberAlt": "(506)-453-2301",
+                "email": "hrc.cdp@gnb.ca",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "New Brunswick Legal Aid Services Commission (NBLASC)",
+                "description": "Provides legal representation for child support and child custody for qualifying individuals",
+                "phoneNumber": "506-444-2777",
+                "website": "https://www.legalaid-aidejuridique-nb.ca/home/",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Family Law Advice Lawyer",
+                "description": "Offers up to two hours of assistance for family law paperwork and basic advice",
+                "phoneNumber": "855-266-0266",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Public Legal Education Information Services NB (PLEIS)",
+                "description": "Provides family law information line and legal information line",
+                "phoneNumber": "1-888-236-2444 | Family Law Information Line (toll-free)",
+                "phoneNumberAlt": "(506)-453-5369 | Legal Information Line",
+                "website": "https://www.legal-info-legale.nb.ca/",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "New Brunswick Real Estate Association (NBREA)",
+                "description": "Provincial association of REALTORS® working to promote professional standards and protect public interest",
+                "phoneNumber": "506-459-8055",
+                "phoneNumberAlt": "1-800-762-1677",
+                "email": "info@nbrea.ca",
+                "website": "www.nbrea.ca/",
+                "notes": "Bilingual Services",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Stewart McKelvey - Will Project",
+                "description": "Partnership with UNB Law and Pro Bono students to create wills for people of limited means",
+                "phoneNumber": "506-458-7037",
+                "email": "willsproject@unb.ca",
+                "website": "https://unbprobono.ca/wills-project/",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Public Trustee",
+                "description": "Assistance for individuals like seniors or disabled persons regarding legal capacity",
+                "phoneNumber": "(506)-444-3688",
+                "email": "Public.trustee@gnb.ca",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "NB Refugee Clinic",
+                "description": "Assists with Basis of Claim forms, immigration hearings, and related refugee issues",
+                "phoneNumber": "506-204-5781",
+                "email": "info@nbrc-crnb.ca",
+                "website": "https://nbrc-crnb.ca/",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Fine Option Program",
+                "description": "Allows young or adult offenders to do volunteer work in lieu of paying a monetary fine",
+                "email": "DPS-MSP.Information@gnb.ca",
+                "category":"LegalAndReferralServices"
+            }
+        ]
+    }]
+}
