@@ -216,7 +216,7 @@ export default function LegalClinicForm() {
 
       const result = await res.json();
       setSubmissionId(result.submissionId);
-      //setShowSuccess(true);
+      setShowSuccess(true);
       setSubmitStatus({ loading: false, error: null });
     } catch (error) {
         setSubmitStatus({ 

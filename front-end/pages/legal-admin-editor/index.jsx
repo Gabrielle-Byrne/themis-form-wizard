@@ -9,7 +9,7 @@ export default function AdminEditor() {
   const [authenticated, setAuthenticated] = useState(false);
   const [enteredCode, setEnteredCode] = useState('');
   // Static secret code for now - in production, use an environment variable
-  const secretCode = 'your-secret-code-here';
+  const secretCode = process.env.LEG_PASSWORD;
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -56,13 +56,22 @@ export default function AdminEditor() {
     }
   }, [authenticated]);
 
-  const handleAuthenticate = (e) => {
+  const handleAuthenticate = async (e) => {
     e.preventDefault();
-    if (enteredCode === secretCode) {
-      setAuthenticated(true);
+    const res = await fetch('/api/editorAccess', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ enteredCode }),
+    });
+
+    const data = await res.json();
+    console.log('Authentication response:', data);
+
+    if (res.ok && data.success && data.role==="editorD") {
+      setAuthenticated(true);  
       setMessage('');
     } else {
-      setMessage('Invalid code');
+      setMessage('Invalid password');
     }
   };
 

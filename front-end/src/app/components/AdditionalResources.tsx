@@ -313,15 +313,6 @@ const ResourceCard = ({ resource, getCategoryIcon }) => {
           </div>
         )}
         
-        {/* {resource.matters && (
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-              <Tag className="w-4 h-4 text-blue-600" />
-            </div>
-            <span className="text-gray-600">{resource.matters}</span>
-          </div>
-        )} */}
-
         {resource.location && (
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
@@ -432,18 +423,7 @@ const ResourceListItem = ({ resource, getCategoryIcon }) => {
                 </div>
               </div>
             )}
-            
-            {/* {resource.matters && (
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <Tag className="w-4 h-4 text-blue-600" />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500">Services</div>
-                  <div className="text-sm text-gray-700">{resource.matters}</div>
-                </div>
-              </div>
-            )} */}
+
             
             {resource.location && (
               <div className="flex items-center gap-3">

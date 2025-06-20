@@ -1,5 +1,5 @@
 // components/api/server.js
-import { generateEmailHTML } from '../../src/lib/email-template'; // if you're using baseUrl in tsconfig
+import { generateEmailHTML } from '../../src/lib/email-template';
 import { randomUUID } from 'crypto'; 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';

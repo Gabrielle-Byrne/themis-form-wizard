@@ -206,7 +206,7 @@ const FormEditor = () => {
   
   // Authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [secretCode, setSecretCode] = useState('');
+  const [enteredCode, setSecretCode] = useState('');
   const [showCode, setShowCode] = useState(false);
   const [error, setError] = useState('');
   const [attempts, setAttempts] = useState(0);
@@ -214,7 +214,6 @@ const FormEditor = () => {
   const [lockTimer, setLockTimer] = useState(0);
   
   // Authentication constants
-  const CORRECT_SECRET_CODE = 'LegalAccess2025resources'; // Your secret code
   const MAX_ATTEMPTS = 5;
   const LOCK_TIME = 60; // Seconds
   const STORAGE_KEY = 'formEditorAuthenticated';
@@ -339,12 +338,20 @@ const FormEditor = () => {
     
 
   // Authentication form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (isLocked) return;
 
-    if (secretCode === CORRECT_SECRET_CODE) {
+    const res = await fetch('/api/editorAccess', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ enteredCode }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data.success && data.role==="editorC") {
       setIsAuthenticated(true);
       setError('');
       // Store authentication state in session storage
@@ -540,15 +547,15 @@ const FormEditor = () => {
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="secretCode" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="enteredCode" className="block text-sm font-medium text-gray-700 mb-2">
                 Secret Code
               </label>
               <div className="relative">
                 <input
-                  id="secretCode"
-                  name="secretCode"
+                  id="enteredCode"
+                  name="enteredCode"
                   type={showCode ? "text" : "password"}
-                  value={secretCode}
+                  value={enteredCode}
                   onChange={(e) => setSecretCode(e.target.value)}
                   disabled={isLocked}
                   className="w-full pr-10 py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"

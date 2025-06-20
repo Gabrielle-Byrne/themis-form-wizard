@@ -2,7 +2,7 @@
 import { list, put } from '@vercel/blob';
 
 // Secret code for admin access
-const secretCode = 'your-secret-code-here';
+const secretCode = process.env.LEG_PASSWORD;
 const contentKey = 'content.json';
 
 // Default content

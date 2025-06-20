@@ -53,6 +53,7 @@
                 "name": "Sanctuary House",
                 "description": "Temporary housing for women and children who are victims of domestic violence",
                 "location": "Woodstock",
+                "email": "sanctuary@nb.aibn.com",
                 "phoneNumber": "(506)-325-9452",
                 "phoneNumberAlt": "1-866-377-3577 | Toll-free",
                 "website":"https://www.sanctuaryhouse.ca/",
@@ -215,7 +216,7 @@
             {
                 "name": "New Brunswick Human Rights Commission",
                 "description": "Government agency responsible for administering the Human Rights Act, promoting equality, and eliminating discriminatory practices",
-                "phoneNumber": "1-888-471-2233 | Toll Free",
+                "phoneNumber": "1-888-471-2233",
                 "phoneNumberAlt": "(506)-453-2301",
                 "email": "hrc.cdp@gnb.ca",
                 "category":"LegalAndReferralServices"
