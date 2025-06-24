@@ -619,10 +619,10 @@ const FormEditor = () => {
       activationConstraint: {
         distance: 8,
       },
-    }),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
     })
+    // useSensor(KeyboardSensor, {
+    //   coordinateGetter: sortableKeyboardCoordinates,
+    // })
   );
 
   // Check for authentication from session storage

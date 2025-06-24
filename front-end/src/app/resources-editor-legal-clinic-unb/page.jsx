@@ -49,7 +49,6 @@ import {
 import { saveFormData, getFormData } from './formHelper';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-
 // Icon mapping for categories
 const ICONS = {
   User,
@@ -218,17 +217,52 @@ const FormEditor = () => {
   const LOCK_TIME = 60; // Seconds
   const STORAGE_KEY = 'formEditorAuthenticated';
 
-  // Configure DnD sensors
-  const sensors = useSensors(
-    useSensor(PointerSensor, {
-      activationConstraint: {
+  // // Configure DnD sensors
+  // const sensors = useSensors(
+  //   useSensor(PointerSensor, {
+  //     activationConstraint: {
+  //       distance: 8,
+  //     },
+  //   }),
+  //   useSensor(KeyboardSensor, {
+  //     coordinateGetter: sortableKeyboardCoordinates,
+  //     activationConstraint: {
+  //       predicate: (event) => {
+  //         const target = event.target;
+  //         if (
+  //           target instanceof HTMLInputElement ||
+  //           target instanceof HTMLTextAreaElement ||
+  //           target.isContentEditable
+  //         ) {
+  //           return false; // Don't activate drag
+  //         }
+  //         return true;
+  //       }
+  //     }
+  //   })
+  // );
+
+// 👇 Custom KeyboardSensor that ignores inputs/textareas
+const keyboardSensor = useSensor(KeyboardSensor, {
+  activationConstraint: {
+    // This predicate prevents keyboard drag when focused on an input
+    predicate: (event) => {
+      const target = event.target;
+      return !(
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target.isContentEditable
+      );
+    }
+  }
+});
+
+const pointerSensor = useSensor(PointerSensor, {activationConstraint: {
         distance: 8,
-      },
-    }),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
-    })
-  );
+      }});
+
+const sensors = useSensors(pointerSensor);
+
 
   // Check for authentication from session storage
   useEffect(() => {
