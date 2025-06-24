@@ -417,25 +417,38 @@ export default function IntakeForm() {
   };
 
   const handleSubmit = async () => {
-    if (validateStep(currentStep)) {
-      setSubmitStatus({ loading: true, error: null });
-      try {
-        const response = await submitFormWithOutFiles(formData);
-        setSubmitStatus({ loading: true, error: null });
+    if (!validateStep(currentStep)) {
+      return;
+    }
 
-        setSubmissionId(response.submissionId);
-        setShowSuccess(true);
-        // Optional: Reset form or redirect
-        setSubmitted(true);
-      } catch (error) {
-        setSubmitStatus({
-          loading: false,
-          error: 'Failed to submit form. Please try again.'
-        });
-        alert("contact admin")
-        console.log(error)
-        setSubmitted(false)
+    const submitData = new FormData();
+
+    // Append individual fields from formData (best approach)
+    for (const [key, value] of Object.entries(formData)) {
+      if (typeof value === 'string' || value instanceof Blob) {
+        submitData.append(key, value);
+      } else {
+        submitData.append(key, JSON.stringify(value)); //  fallback
       }
+    }
+    
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        body: JSON.stringify({
+          formData
+        }),  
+      });
+
+      const result = await res.json();
+      setSubmissionId(result.submissionId);
+      setShowSuccess(true);
+      setSubmitStatus({ loading: false, error: null });
+    } catch (error) {
+        setSubmitStatus({ 
+          loading: false, 
+          error: 'Failed to submit form. Please try again.' 
+        });
     }
   };
 

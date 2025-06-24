@@ -200,12 +200,6 @@ export default function LegalClinicForm() {
         submitData.append(key, JSON.stringify(value)); //  fallback
       }
     }
-    // Append multiple files (same key = valid)
-    if (selectedFiles && selectedFiles.length > 0) {
-      selectedFiles.forEach((file) => {
-        submitData.append('files', file); // 'files' stays same for all files
-      });
-    }
     try {
       const res = await fetch('/api/send-email', {
         method: 'POST',

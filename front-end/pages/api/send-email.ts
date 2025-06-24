@@ -36,7 +36,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
   try {
-    fs.writeFileSync('encrypt.asc', emailContent);
     await transporter.sendMail(mailOptions);
     return res.status(200).json({ message: 'Email sent successfully', submissionId  });
   } catch (err: any) {
