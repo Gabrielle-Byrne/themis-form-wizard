@@ -2529,6 +2529,11 @@ const FormEditor = () => {
     const parts = version.split('.');
     const lastPart = parseInt(parts[parts.length - 1]) + 1;
     parts[parts.length - 1] = lastPart.toString();
+    if(lastPart > 9){
+      parts[parts.length - 1] = '0';
+      const secondToLastPart = parseInt(parts[parts.length - 2]) + 1;
+      parts[parts.length - 2] = secondToLastPart.toString();
+    }
     return parts.join('.');
   };
   
