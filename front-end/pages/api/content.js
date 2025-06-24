@@ -24,7 +24,7 @@ const defaultContent = {
       hours: "Mon-Fri, 9am-5pm"
     },
     calendlyLink: "https://calendly.com/your-account/your-event",
-    logoUrl: "/uploads/logo-09c10f70-f30f-4bcb-8853-dd02197e0173.jpg" // Updated to your actual logo path
+    logoUrl: "../../src/app/components/legallogo.png" // Updated to your actual logo path
   },
   announcements: [
     {

@@ -245,8 +245,6 @@ const FormPreview = ({ formData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateStep()) {
-      // console.log('Form submitted:', formValues);
-      // Handle form submission
     }
   };
 
