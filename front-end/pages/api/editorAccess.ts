@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-console.log('REQ:', req);
 // Safely access req.body
   if (!req.body || !req.body.enteredCode) {
     return res.status(400).json({ success: false, message: 'No code provided' });
@@ -15,9 +14,6 @@ console.log('REQ:', req);
   if (req.method !== 'POST') {
     return res.status(405).end(); // Method Not Allowed
   }
-
-    // console.log('Entered:', password);
-    // console.log('Legal Admin:', EDITOR_D_PASSWORD);
 
   if (password === EDITOR_A_PASSWORD) {
     return res.status(200).json({ success: true, role: 'editorA' });

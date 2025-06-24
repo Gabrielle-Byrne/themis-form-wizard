@@ -9,35 +9,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  // const openpgp = require('openpgp');
   const fs = require('fs');
   const submissionId = randomUUID();
   const formdata = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
   const emailContent = generateEmailHTML(formdata.formData);
-  // const pkArmor = fs.readFileSync('pages/api/publicKey.asc', 'utf8');
-
-  // const publicKey = await openpgp.readKey({ armoredKey: pkArmor });
-
-  // const encrypted = await openpgp.encrypt({
-  //   message: await openpgp.createMessage({ text: emailContent }),
-  //   encryptionKeys: publicKey
-  // });
-
-      // fs.writeFileSync('encrypt.asc', encrypted);
-
-
+  
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: parseInt(process.env.EMAIL_PORT),
-    secure: true,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD, // App password
-    },
+  host: process.env.EMAIL_HOST, // 'smtp.office365.com'
+  port: parseInt(process.env.EMAIL_PORT), //587,
+  secure: false, // true for port 465, false for 587
+  auth: {
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD, // App password
+  },
+  tls: {
+    ciphers: 'SSLv3'
+  }
   });
 
   const mailOptions = {
-    from: `"Eligibility Screening" <${process.env.EMAIL_TO}>`,
+    from: `"Eligibility Screening" <${process.env.EMAIL_USERNAME}>`,
     to: process.env.EMAIL_TO, 
     subject: `New Eligibility Form Submission: ${submissionId}`,
     html: emailContent,

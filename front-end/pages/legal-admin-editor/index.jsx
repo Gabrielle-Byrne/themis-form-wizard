@@ -65,7 +65,6 @@ export default function AdminEditor() {
     });
 
     const data = await res.json();
-    console.log('Authentication response:', data);
 
     if (res.ok && data.success && data.role==="editorD") {
       setAuthenticated(true);  

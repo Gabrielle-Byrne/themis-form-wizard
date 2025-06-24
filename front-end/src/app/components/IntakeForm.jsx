@@ -418,7 +418,6 @@ export default function IntakeForm() {
 
   const handleSubmit = async () => {
     if (validateStep(currentStep)) {
-      // console.log('Form submitted:', formData);
       setSubmitStatus({ loading: true, error: null });
       try {
         const response = await submitFormWithOutFiles(formData);
@@ -434,7 +433,7 @@ export default function IntakeForm() {
           error: 'Failed to submit form. Please try again.'
         });
         alert("contact admin")
-        // console.log(error)
+        console.log(error)
         setSubmitted(false)
       }
     }

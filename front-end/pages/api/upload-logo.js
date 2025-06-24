@@ -39,10 +39,10 @@ export default async function handler(req, res) {
         ? fields.secretCode[0] 
         : fields.secretCode;
         
-      if (providedCode !== secretCode) {
-        res.status(401).json({ message: 'Unauthorized' });
-        return resolve();
-      }
+      // if (providedCode !== secretCode) {
+      //   res.status(401).json({ message: 'Unauthorized' });
+      //   return resolve();
+      // }
       
       try {
         const file = Array.isArray(files.logo) ? files.logo[0] : files.logo;
