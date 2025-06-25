@@ -359,7 +359,7 @@
             "name": "preferredName",
             "label": "Preferred Name (if distinct from legal name)",
             "type": "text",
-            "requird": false
+            "required": false
           },
           {
             "name": "address",
@@ -738,7 +738,7 @@
           {
             "name": "employmentIncome",
             "label": "Employment (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -749,7 +749,7 @@
           {
             "name": "spouseIncome",
             "label": "Spouse's Income (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -760,7 +760,7 @@
           {
             "name": "socialAssistance",
             "label": "Social Assistance (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -772,7 +772,7 @@
           {
             "name": "ei",
             "label": "E.I. (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -783,7 +783,7 @@
           {
             "name": "wcbCppDisability",
             "label": "WCB/CPP Disability (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -794,7 +794,7 @@
           {
             "name": "pensions",
             "label": "Pension(s) (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -805,7 +805,7 @@
           {
             "name": "supportPayments",
             "label": "Child or Spousal Support (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -816,7 +816,7 @@
           {
             "name": "rentalIncome",
             "label": "Rental Income (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -827,7 +827,7 @@
           {
             "name": "childTaxCredit",
             "label": "Child Tax Credit (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -838,7 +838,7 @@
           {
             "name": "otherIncome",
             "label": "Other Income (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -849,7 +849,7 @@
           {
             "name": "totalMonthlyIncome",
             "label": "Total Income per month",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -862,7 +862,7 @@
           {
             "name": "childcareExpenses",
             "label": "Childcare Expenses (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -873,7 +873,7 @@
           {
             "name": "medicalExpenses",
             "label": "Medical Expenses (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -884,7 +884,7 @@
           {
             "name": "supportPaymentsDeduction",
             "label": "Child or Spousal Support (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -895,7 +895,7 @@
           {
             "name": "totalDeductions",
             "label": "Total Allowable deductions per month",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -907,7 +907,7 @@
           {
             "name": "cashAndBank",
             "label": "Cash / Bank Accounts",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -918,7 +918,7 @@
           {
             "name": "investments",
             "label": "Investments",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -929,7 +929,7 @@
           {
             "name": "otherAssets",
             "label": "Other Liquid Assets or Resources",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [
@@ -940,7 +940,7 @@
           {
             "name": "totalAssets",
             "label": "Total Assets Available",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": [

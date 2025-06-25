@@ -294,6 +294,12 @@
             }
           },
           {
+            "name": "preferredName",
+            "label": "Preferred Name (if distinct from legal name)",
+            "type": "text",
+            "required": false
+          },
+          {
             "name": "address",
             "label": "Address",
             "type": "text",
@@ -399,6 +405,31 @@
             ]
           },
           {
+            "name": "disability",
+            "label": "Do you identify as a person with a disability?",
+            "type": "radio",
+            "required": true,
+            "validation": {
+              "rules": [
+                "required"
+              ]
+            },
+            "options": [
+              {
+                "value": "yes",
+                "label": "Yes"
+              },
+              {
+                "value": "no",
+                "label": "No"
+              },
+              {
+                "value": "prefer-not-to-answer",
+                "label": "Prefer not to answer"
+              }
+            ]
+          },
+          {
             "name": "unbStudent",
             "label": "Are you currently a UNB Student?",
             "type": "radio",
@@ -498,7 +529,7 @@
           {
             "name": "employmentIncome",
             "label": "Employment (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -507,7 +538,7 @@
           {
             "name": "spouseIncome",
             "label": "Spouse's Income (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -516,7 +547,7 @@
           {
             "name": "socialAssistance",
             "label": "Social Assistance (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -525,7 +556,7 @@
           {
             "name": "ei",
             "label": "E.I. (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -534,7 +565,7 @@
           {
             "name": "wcbCppDisability",
             "label": "WCB/CPP Disability (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -543,7 +574,7 @@
           {
             "name": "pensions",
             "label": "Pension(s) (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -552,7 +583,7 @@
           {
             "name": "supportPayments",
             "label": "Child or Spousal Support (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -561,7 +592,7 @@
           {
             "name": "rentalIncome",
             "label": "Rental Income (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -570,7 +601,7 @@
           {
             "name": "childTaxCredit",
             "label": "Child Tax Credit (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -579,7 +610,7 @@
           {
             "name": "otherIncome",
             "label": "Other Income (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -588,7 +619,7 @@
           {
             "name": "totalMonthlyIncome",
             "label": "Total Income per month",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric", "totalMonthlyIncome"]
@@ -598,7 +629,7 @@
           {
             "name": "childcareExpenses",
             "label": "Childcare Expenses (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -607,7 +638,7 @@
           {
             "name": "medicalExpenses",
             "label": "Medical Expenses (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -616,7 +647,7 @@
           {
             "name": "supportPaymentsDeduction",
             "label": "Child or Spousal Support (Total Amount per month)",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -625,7 +656,7 @@
           {
             "name": "totalDeductions",
             "label": "Total Allowable deductions per month",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -635,7 +666,7 @@
           {
             "name": "cashAndBank",
             "label": "Cash / Bank Accounts",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -644,7 +675,7 @@
           {
             "name": "investments",
             "label": "Investments",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -653,7 +684,7 @@
           {
             "name": "otherAssets",
             "label": "Other Liquid Assets or Resources",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric"]
@@ -662,7 +693,7 @@
           {
             "name": "totalAssets",
             "label": "Total Assets Available",
-            "type": "number",
+            "type": "currency",
             "required": true,
             "validation": {
               "rules": ["numeric", "totalAssets"]

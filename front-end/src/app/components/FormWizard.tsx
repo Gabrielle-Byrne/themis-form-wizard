@@ -525,22 +525,9 @@ export default function LegalClinicForm() {
         </div>
       );
     }
-    //SHOW IF HANDLING
-    // if (field.showif) {
-    //     const [dependentField, expectedValue] = field.showIf.split(' === ');
-    //     if (formData[dependentField] !== expectedValue.replace(/['"]/g, '')) {
-    //       continue;
-    //     }
-    //   }
-    // }
 
     // Special handling for number fields with currency
-    if (field.type === 'number') {
-       if(
-        field.name.toLowerCase().includes('income') || 
-        field.name.toLowerCase().includes('expense') || 
-        field.label.toLowerCase().includes('amount') || 
-        field.name.toLowerCase().includes('assets')) {
+    if (field.type.toLowerCase() === 'currency') {
         return (
           <div className="relative">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
@@ -551,19 +538,6 @@ export default function LegalClinicForm() {
               className={`${commonClasses} pl-8`}
               min="0"
               step="0.01"
-            />
-          </div>
-        );
-      }
-      return (
-          <div className="relative">
-            <input
-              type="number"
-              value={formData[field.name] || ''}
-              onChange={(e) => handleFieldChange(field.name, e.target.value)}
-              className={`${commonClasses}`}
-              min="0"
-              step="1"
             />
           </div>
         );
