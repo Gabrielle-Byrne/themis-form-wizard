@@ -14,7 +14,6 @@ import validator from 'validator';
       rules?: string[];
     };
     options?: Array<{ value: string; label: string }>;
-    // You can add more validation rules here if needed (minLength, pattern, etc.)
   }
 
   interface Step {

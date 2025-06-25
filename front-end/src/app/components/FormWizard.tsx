@@ -172,19 +172,7 @@ export default function LegalClinicForm() {
     return isValid;
   };
 
-  // const handleFileSelect = (event) => {
-  //   const files = Array.from(event.target.files);
-  //   setSelectedFiles(prev => [...prev, ...files]);
-  //   if (fileInputRef.current) {
-  //     fileInputRef.current.value = '';
-  //   }
-  // };
-
-  // const removeFile = (fileIndex) => {
-  //   setSelectedFiles(prev => prev.filter((_, index) => index !== fileIndex));
-  // };
-
-  // FOR EMAIL
+  // Handles submission
   const handleSubmit = async () => {
     if (!validateStep(currentStep)) {
       return;
@@ -196,7 +184,7 @@ export default function LegalClinicForm() {
       if (typeof value === 'string' || value instanceof Blob) {
         submitData.append(key, value);
       } else {
-        submitData.append(key, JSON.stringify(value)); //  fallback
+        submitData.append(key, JSON.stringify(value)); 
       }
     }
     try {
@@ -212,8 +200,8 @@ export default function LegalClinicForm() {
 
       const result = await res.json();
       setSubmissionId(result.submissionId);
-      // setShowSuccess(true);
-      // setSubmitStatus({ loading: false, error: null });
+      setShowSuccess(true);
+      setSubmitStatus({ loading: false, error: null });
     } catch (error) {
         setSubmitStatus({ 
           loading: false, 

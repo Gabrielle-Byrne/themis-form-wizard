@@ -1,4 +1,3 @@
-// components/api/server.js
 import { generateEmailHTML } from '../../src/lib/email-template';
 import { randomUUID } from 'crypto'; 
 import { validateAndSanitizeForm } from './validateClean';
@@ -36,7 +35,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     subject: `New Eligibility Form Submission: ${submissionId}`,
     html: emailContent,
   };
-
 
   try {
     await transporter.sendMail(mailOptions);
