@@ -485,6 +485,28 @@ const handleToggleAnnouncementActive = async (id) => {
                       aboutText: e.target.value
                     }
                   })}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Tab') {
+                      e.preventDefault();
+                      const { selectionStart, selectionEnd } = e.target;
+                      const value = content.info?.about || '';
+                      const newValue =
+                        value.substring(0, selectionStart) + '\t' + value.substring(selectionEnd);
+
+                      setContent({
+                        ...content,
+                        info: {
+                          ...content.info,
+                          about: newValue,
+                        },
+                      });
+
+                      // Optional: Move cursor after inserted tab
+                      setTimeout(() => {
+                        e.target.selectionStart = e.target.selectionEnd = selectionStart + 1;
+                      }, 0);
+                    }
+                  }}
                   className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                 ></textarea>
               </div>
