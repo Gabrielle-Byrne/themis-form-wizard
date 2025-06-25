@@ -763,10 +763,9 @@
           {
             "name": "deadlineDetails",
             "label": "Court/Hearing Date",
-            "type": "text",
+            "type": "date",
             "required": false,
-            "guidance": "Court Name- YYYY-MM-DD",
-            "showIf": "hasDeadline === 'yes'"
+            "guidance": "Court Name- YYYY-MM-DD"
           },
           {
             "name": "documentsSubmitted",

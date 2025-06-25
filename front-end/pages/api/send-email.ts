@@ -1,7 +1,7 @@
 // components/api/server.js
 import { generateEmailHTML } from '../../src/lib/email-template';
 import { randomUUID } from 'crypto'; 
-import { validateAndSanitizeInput } from './validateClean';
+import { validateAndSanitizeForm } from './validateClean';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
@@ -10,27 +10,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: 'Method not allowed' });
   }
   
-  const [dataForm, setData] = useState(null);
-  try {
-      const res = await fetch('/api/eligibility');
-      const data = await res.json();
-      setData(data[data.length-1]);
-    } catch (error) {
-      console.error('Failed to validate form', error);
-    }
-
   const submissionId = randomUUID();
-  const formdata = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-  const cleanData = validateAndSanitizeInput(formdata.formData);
+  const formData = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+  
+  const uncleanData: Record<string, any> = formData.formData as Record<string, any>;
+  const cleanData = validateAndSanitizeForm(uncleanData, formData.formConfig);
   const emailContent = generateEmailHTML(cleanData);
   
   const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST, // 'smtp.office365.com'
-  port: parseInt(process.env.EMAIL_PORT), //587,
-  secure: false, // true for port 465, false for 587
+  host: process.env.EMAIL_HOST,
+  port: parseInt(process.env.EMAIL_PORT), 
+  secure: false, 
   auth: {
     user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD, // App password
+    pass: process.env.EMAIL_PASSWORD, 
   },
   tls: {
     ciphers: 'SSLv3'
@@ -52,4 +45,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.error('Email error:', err);
     res.status(500).json({ message: 'Failed to send email', error: err.message, submissionId });
   }
+  return null;
 }

@@ -1821,6 +1821,7 @@ const FormStepsEditor = ({ formConfig, onChange }) => {
       id: `step_${newSteps.length + 1}`,
       title: 'New Step',
       icon: 'User',
+      required: true,
       fields: [],
       substeps: []
     };

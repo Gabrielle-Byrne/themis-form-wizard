@@ -202,6 +202,9 @@ export default function LegalClinicForm() {
     try {
       const res = await fetch('/api/send-email', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           formData
         }),  
@@ -209,8 +212,8 @@ export default function LegalClinicForm() {
 
       const result = await res.json();
       setSubmissionId(result.submissionId);
-      setShowSuccess(true);
-      setSubmitStatus({ loading: false, error: null });
+      // setShowSuccess(true);
+      // setSubmitStatus({ loading: false, error: null });
     } catch (error) {
         setSubmitStatus({ 
           loading: false, 

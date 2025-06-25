@@ -1,92 +1,145 @@
-import validator from 'validator';
 import xss from 'xss';
+import validator from 'validator';
 
-export function validateAndSanitizeInput(
-  formData: Record<string, any>,
-) {
-  const fields: Array<{
+  type FieldType = 'string' | 'text' |'textarea' | 'number' | 'currency'| 'boolean' | 'date' | 'radio' | 'checkbox' | 'select' | 'textarea' | 'email' | 'tel';
+
+  interface FieldSchema {
     name: string;
-    type: string;
+    type: FieldType;
     required?: boolean;
-    options?: string[];
-  }>
-  const errors: Record<string, string> = {};
-  const clean: Record<string, any> = {};
-
-  for (const field of fields) {
-    let value = formData[field.name];
-
-    // Convert to string (if it's not an array or boolean)
-    if (typeof value === 'string') {
-      value = value.trim();
-    }
-
-    if (field.required && (value === undefined || value === '' || value === false)) {
-      errors[field.name] = `${field.name} is required`;
-      continue;
-    }
-
-    if (value !== undefined) {
-      switch (field.type) {
-        case 'email':
-          if (!validator.isEmail(value)) {
-            errors[field.name] = 'Invalid email';
-            continue;
-          }
-          break;
-        case 'checkbox':
-          if (value !== true && value !== 'true') {
-            errors[field.name] = 'This must be checked';
-            continue;
-          }
-          value = true;
-          break;
-        case 'date':
-          if (!validator.isDate(value, { format: 'YYYY-MM-DD', strictMode: true })) {
-            errors[field.name] = 'Invalid date format';
-          }
-          break;
-        case 'tel':
-          if (!validator.isDate(value, { format: 'YYYY-MM-DD', strictMode: true })) {
-            errors[field.name] = 'Invalid date format';
-          }
-          break;
-        case 'number':
-          if (!validator.isNumeric(value)) {
-            errors[field.name] = 'Must be a number';
-            continue;
-          }
-          break;
-        case 'currency':
-          if (!validator.isNumeric(value)) {
-            errors[field.name] = 'Must be a number';
-            continue;
-          }
-          break;
-        case 'select':
-        case 'radio':
-          if (field.options && !field.options.includes(value)) {
-            errors[field.name] = 'Invalid option selected';
-            continue;
-          }
-          break;
-        case 'checkbox':
-          if (!Array.isArray(value)) {
-            value = [value];
-          }
-          value = value.filter((v: string) => field.options?.includes(v));
-          break;
-      }
-
-      // Sanitize
-      if (typeof value === 'string') {
-        value = xss(value);
-        value = validator.escape(value);
-      }
-
-      clean[field.name] = value;
-    }
+    label: String;
+    critical?: boolean,
+    guidance?: string;
+    validation?: {
+      rules?: string[];
+    };
+    options?: Array<{ value: string; label: string }>;
+    // You can add more validation rules here if needed (minLength, pattern, etc.)
   }
 
-  return { clean, errors };
+  interface Step {
+    id: string;
+    title: string,
+    critical: boolean,
+    icon: string,
+    guidance: string;
+    fields: FieldSchema[];
+  }
+
+  interface FormConfig {
+    steps: Step[];
+  }
+
+export function validateAndSanitizeForm(
+    formData: Record<string, any>,
+    formConfig: FormConfig
+  ): Record<string, string> {
+    const sanitizedData: Record<string, string> = {};
+
+    for (const category of formConfig.steps) {
+      for (const field of category.fields) {
+      
+        const value = formData[field.name];
+
+        if (field.required && (value === undefined || value === null || value === '')) {
+          throw new Error(`Field "${field.name}" is required.`);
+        }
+
+        if (!field.required && (value === undefined || value === null || value === '')) {
+          sanitizedData[field.name] = '';
+          continue;
+        }
+
+        const rawValue = typeof value === 'string' ? value.trim() : value;
+        let sanitizedValue = '';
+
+        switch (field.type) {
+          case 'string':
+          case 'text':
+          case 'textarea':
+          case 'radio':
+            if (typeof rawValue !== 'string') {
+              throw new Error(`Field "${field.name}" must be a string.`);
+            }
+            sanitizedValue = validator.escape(xss(rawValue));
+            break;
+
+          case 'number':
+            const num = Number(rawValue);
+            if (isNaN(num)) {
+              throw new Error(`Field "${field.name}" must be a valid number.`);
+            }
+            sanitizedValue = String(num);
+            break;
+
+          case 'currency':
+            const cur = Number(rawValue);
+            if (isNaN(cur)) {
+              throw new Error(`Field "${field.name}" must be a valid number.`);
+            }
+            sanitizedValue = String(cur);
+            break;
+          case 'select':
+            if (typeof rawValue !== 'string' || !field.options?.some(option => option.value === rawValue)) {
+              throw new Error(`Field "${field.name}" must be a valid option.`); 
+            }
+            sanitizedValue = rawValue;
+            break;
+          case 'checkbox':
+            if (typeof rawValue !== 'boolean' && !Array.isArray(rawValue)) {
+              throw new Error(`Field "${field.name}" must be a boolean or an array of values.`);
+            }
+            if (Array.isArray(rawValue)) {
+              sanitizedValue = rawValue.map(val => validator.escape(xss(String(val)))).join(', ');
+            } else {
+              sanitizedValue = rawValue ? 'true' : 'false';
+            }
+            break;
+          case 'radio':
+            if (typeof rawValue !== 'string' || !field.options?.some(option => option .value === rawValue)) {
+              throw new Error(`Field "${field.name}" must be a valid option.`);
+            }
+            sanitizedValue = rawValue;  
+            break;
+          case 'boolean':
+            if (
+              typeof rawValue === 'boolean' ||
+              rawValue === 'true' ||
+              rawValue === 'false'
+            ) {
+              sanitizedValue =
+                rawValue === true || rawValue === 'true' ? 'true' : 'false';
+            } else {
+              throw new Error(`Field "${field.name}" must be a boolean.`);
+            }
+            break;
+
+          case 'date':
+            if (typeof rawValue !== 'string' || !validator.isISO8601(rawValue)) {
+              throw new Error(`Field "${field.name}" must be a valid ISO 8601 date.`);
+            }
+            sanitizedValue = rawValue;
+            break;
+          
+          case 'email':
+            if (typeof rawValue !== 'string' || !validator.isEmail(rawValue)) {
+              throw new Error(`Field "${field.name}" must be a valid email address.`);
+            }
+            sanitizedValue = validator.normalizeEmail(rawValue) || '';
+            break;
+          case 'tel':
+            if (typeof rawValue !== 'string' || !validator.isMobilePhone(rawValue, 'any', { strictMode: false })) {
+              throw new Error(`Field "${field.name}" must be a valid phone number.`);  
+            }
+            sanitizedValue = rawValue;
+            break;
+          default:
+            throw new Error(`Unsupported type "${field.type}" for field "${field.name}".`);
+        }
+
+        sanitizedData[field.name] = sanitizedValue;
+      }
+    }
+
+    return sanitizedData;
 }
