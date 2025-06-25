@@ -82,15 +82,6 @@
                 "category":"Rehabilitation"
             },
             {
-                "name": "Youth Impact Jeunesse",
-                "description": "Offers residential services for youths between two and twenty-five, as well as outreach programs for youths aged 16 or older",
-                "location": "Moncton",
-                "phoneNumber": "(506)-869-6333",
-                "website": "https://youthimpact.org/",
-                "notes": "Youth & Young Adult, Bilingual Services",
-                "category":"Rehabilitation"
-            },
-            {
                 "name": "Naomi & Ruth",
                 "description": "Faith-based one year program offering a supportive environment with  medical treatment, therapy, mentorship, financial counseling, fitness programs, stress management, and life skills training",
                 "location": "Shediac",
@@ -133,6 +124,15 @@
                 "email": "info@villageofhopenb.ca",
                 "website": "https://villageofhope.ca/",
                 "notes": "Faith-based ",
+                "category":"Rehabilitation"
+            },
+            {
+                "name": "Youth Impact Jeunesse",
+                "description": "Offers residential services for youths between two and twenty-five, as well as outreach programs for youths aged 16 or older",
+                "location": "Moncton",
+                "phoneNumber": "(506)-869-6333",
+                "website": "https://youthimpact.org/",
+                "notes": "Youth & Young Adult, Bilingual Services",
                 "category":"Rehabilitation"
             }
         ]},
@@ -187,6 +187,20 @@
         "name": "Legal and Referral Services",
         "icon": "Scale",
         "fields": [
+             {
+                "name": "Family Law Advice Lawyer",
+                "description": "Offers up to two hours of assistance for family law paperwork and basic advice",
+                "phoneNumber": "855-266-0266",
+                "website": "https://www.legalaid-aidejuridique-nb.ca/family-law-advice-lawyer/",
+                "category":"LegalAndReferralServices"
+            },
+            {
+                "name": "Fine Option Program",
+                "description": "Allows young or adult offenders to do volunteer work in lieu of paying a monetary fine",
+                "email": "DPS-MSP.Information@gnb.ca",
+                "website": "https://www2.gnb.ca/content/gnb/en/services/services_renderer.201050.Fine_Option_Program.html",
+                "category":"LegalAndReferralServices"
+            },
             {
                 "name": "Fredericton Legal Advice Clinic",
                 "description": "Run by volunteer lawyers providing advice in person or through online contact form",
@@ -199,7 +213,7 @@
                 "name": "Investigations of Complaints - Employment Standards",
                 "description": "Handles employment-related complaints, with officers screening and investigating issues that may escalate to the New Brunswick Labour & Employment Board",
                 "phoneNumber": "1-888-452-2687",
-                "email": "petl.epft@gnb.ca",
+                "email": "employmentstandards@gnb.ca",
                 "category":"LegalAndReferralServices"
             },
             {
@@ -222,12 +236,7 @@
                 "description": "Provides legal representation for child support and child custody for qualifying individuals",
                 "phoneNumber": "506-444-2777",
                 "website": "https://www.legalaid-aidejuridique-nb.ca/home/",
-                "category":"LegalAndReferralServices"
-            },
-            {
-                "name": "Family Law Advice Lawyer",
-                "description": "Offers up to two hours of assistance for family law paperwork and basic advice",
-                "phoneNumber": "855-266-0266",
+                "notes": "Bilingual Services",
                 "category":"LegalAndReferralServices"
             },
             {
@@ -235,6 +244,7 @@
                 "description": "Provides family law information line and legal information line",
                 "phoneNumber": "1-888-236-2444",
                 "website": "https://www.legal-info-legale.nb.ca/",
+                "notes": "Bilingual Services",
                 "category":"LegalAndReferralServices"
             },
             {
@@ -259,6 +269,8 @@
                 "description": "Assistance for individuals like seniors or disabled persons regarding legal capacity",
                 "phoneNumber": "(506)-444-3688",
                 "email": "Public.trustee@gnb.ca",
+                "notes": "Bilingual Services",
+                "website": "https://socialsupportsnb.ca/en/program/public-trustee-new-brunswick",
                 "category":"LegalAndReferralServices"
             },
             {
@@ -267,12 +279,6 @@
                 "phoneNumber": "506-204-5781",
                 "email": "info@nbrc-crnb.ca",
                 "website": "https://nbrc-crnb.ca/",
-                "category":"LegalAndReferralServices"
-            },
-            {
-                "name": "Fine Option Program",
-                "description": "Allows young or adult offenders to do volunteer work in lieu of paying a monetary fine",
-                "email": "DPS-MSP.Information@gnb.ca",
                 "category":"LegalAndReferralServices"
             }
         ]

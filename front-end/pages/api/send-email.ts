@@ -1,6 +1,7 @@
 // components/api/server.js
 import { generateEmailHTML } from '../../src/lib/email-template';
 import { randomUUID } from 'crypto'; 
+import { validateAndSanitizeInput } from './validateClean';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
@@ -8,11 +9,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
+  
+  const [dataForm, setData] = useState(null);
+  try {
+      const res = await fetch('/api/eligibility');
+      const data = await res.json();
+      setData(data[data.length-1]);
+    } catch (error) {
+      console.error('Failed to validate form', error);
+    }
 
-  const fs = require('fs');
   const submissionId = randomUUID();
   const formdata = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-  const emailContent = generateEmailHTML(formdata.formData);
+  const cleanData = validateAndSanitizeInput(formdata.formData);
+  const emailContent = generateEmailHTML(cleanData);
   
   const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST, // 'smtp.office365.com'

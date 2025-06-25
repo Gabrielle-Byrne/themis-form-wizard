@@ -172,17 +172,17 @@ export default function LegalClinicForm() {
     return isValid;
   };
 
-  const handleFileSelect = (event) => {
-    const files = Array.from(event.target.files);
-    setSelectedFiles(prev => [...prev, ...files]);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
+  // const handleFileSelect = (event) => {
+  //   const files = Array.from(event.target.files);
+  //   setSelectedFiles(prev => [...prev, ...files]);
+  //   if (fileInputRef.current) {
+  //     fileInputRef.current.value = '';
+  //   }
+  // };
 
-  const removeFile = (fileIndex) => {
-    setSelectedFiles(prev => prev.filter((_, index) => index !== fileIndex));
-  };
+  // const removeFile = (fileIndex) => {
+  //   setSelectedFiles(prev => prev.filter((_, index) => index !== fileIndex));
+  // };
 
   // FOR EMAIL
   const handleSubmit = async () => {
@@ -192,7 +192,6 @@ export default function LegalClinicForm() {
 
     const submitData = new FormData();
 
-    // Append individual fields from formData (best approach)
     for (const [key, value] of Object.entries(formData)) {
       if (typeof value === 'string' || value instanceof Blob) {
         submitData.append(key, value);
