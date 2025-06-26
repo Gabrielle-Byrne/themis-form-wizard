@@ -1,31 +1,36 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import crypto from 'crypto';
+import validator from 'validator';
+
+const timingSafeCompare = (a: string, b: string): boolean => {
+  const bufA = Buffer.from(a);
+  const bufB = Buffer.from(b);
+  return (
+    bufA.length === bufB.length &&
+    crypto.timingSafeEqual(bufA, bufB)
+  );
+};
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-// Safely access req.body
-  if (!req.body || !req.body.enteredCode) {
-    return res.status(400).json({ success: false, message: 'No code provided' });
-  }
-  const password = req.body.enteredCode;
-  const EDITOR_A_PASSWORD = process.env.ELI_PASSWORD;
-  const EDITOR_B_PASSWORD = process.env.IN_PASSWORD;
-  const EDITOR_C_PASSWORD = process.env.RES_PASSWORD;
-  const EDITOR_D_PASSWORD = process.env.LEG_PASSWORD;
+  if (req.method !== 'POST') return res.status(405).end('Method Not Allowed');
 
-  if (req.method !== 'POST') {
-    return res.status(405).end(); // Method Not Allowed
+  const inputPassword = validator.trim(req.body?.enteredCode || '');
+
+  const roles = [
+    { role: 'editorD', secret: process.env.LEG_PASSWORD },
+    { role: 'editorA', secret: process.env.ELI_PASSWORD },
+    { role: 'editorB', secret: process.env.IN_PASSWORD },
+    { role: 'editorC', secret: process.env.RES_PASSWORD }
+  ];
+
+  const matched = roles.find(({ secret }) =>
+    timingSafeCompare(inputPassword, secret || '')
+  );
+
+  if (!matched) {
+    return res.status(401).json({ error: 'Invalid password' });
   }
 
-  if (password === EDITOR_A_PASSWORD) {
-    return res.status(200).json({ success: true, role: 'editorA' });
-  } else if (password === EDITOR_B_PASSWORD) {
-    return res.status(200).json({ success: true, role: 'editorB' });
-  } else if (password === EDITOR_B_PASSWORD) {
-    return res.status(200).json({ success: true, role: 'editorB' });
-  } else if (password === EDITOR_C_PASSWORD) {
-    return res.status(200).json({ success: true, role: 'editorC' });
-  } else if (password === EDITOR_D_PASSWORD) {
-    return res.status(200).json({ success: true, role: 'editorD' });
-  } else {
-    return res.status(401).json({ success: false, message: 'Invalid password' });
-  }
+  // You could set a session, return token, or respond with role
+  return res.status(200).json({ success: true, role: matched.role });
 }

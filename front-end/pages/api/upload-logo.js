@@ -13,7 +13,7 @@ export const config = {
 
 export default async function handler(req, res) {
   // The secret code - in a real app, use an environment variable
-  const secretCode = process.env.LEG_PASSWORD;
+  // const secretCode = process.env.LEG_PASSWORD;
 
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
@@ -35,9 +35,9 @@ export default async function handler(req, res) {
       }
       
       // Verify the secret code
-      const providedCode = Array.isArray(fields.secretCode) 
-        ? fields.secretCode[0] 
-        : fields.secretCode;
+      // const providedCode = Array.isArray(fields.secretCode) 
+      //   ? fields.secretCode[0] 
+      //   : fields.secretCode;
         
       // if (providedCode !== secretCode) {
       //   res.status(401).json({ message: 'Unauthorized' });

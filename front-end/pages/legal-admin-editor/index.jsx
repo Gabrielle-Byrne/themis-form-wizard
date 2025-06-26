@@ -9,7 +9,6 @@ export default function AdminEditor() {
   const [authenticated, setAuthenticated] = useState(false);
   const [enteredCode, setEnteredCode] = useState('');
   // Static secret code for now - in production, use an environment variable
-  const secretCode = process.env.LEG_PASSWORD;
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -85,9 +84,7 @@ export default function AdminEditor() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          content,
-          secretCode // Send the secret code to verify the request
-        }),
+          content        }),
       });
       
       if (!response.ok) {
@@ -179,7 +176,7 @@ const handleToggleAnnouncementActive = async (id) => {
       body: JSON.stringify({
         announcementId: id,
         active: newActiveStatus,
-        secretCode
+        enteredCode
       }),
     });
     
@@ -226,7 +223,6 @@ const handleToggleAnnouncementActive = async (id) => {
     // Create a FormData object
     const formData = new FormData();
     formData.append('logo', file);
-    formData.append('secretCode', secretCode);
     
     try {
       const response = await fetch('/api/upload-logo', {
@@ -297,7 +293,6 @@ const handleToggleAnnouncementActive = async (id) => {
     // Create a FormData object
     const formData = new FormData();
     formData.append('logo', file);
-    formData.append('secretCode', secretCode);
     
     try {
       const response = await fetch('/api/upload-logo', {

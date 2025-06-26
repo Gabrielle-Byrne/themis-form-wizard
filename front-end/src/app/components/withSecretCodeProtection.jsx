@@ -17,7 +17,7 @@ const withSecretCodeProtection = (
 ) => {
   // Default options that can be overridden
   const {
-    secretCode = 'LegalAccess2025',
+    secretCode = process.env.LEG_PASSWORD,
     maxAttempts = 5,
     lockTime = 60,
     storageKey = 'secretCodeAuthenticated',

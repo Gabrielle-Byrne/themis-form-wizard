@@ -2,6 +2,7 @@ import { generateEmailHTML } from '../../src/lib/email-template';
 import { randomUUID } from 'crypto'; 
 import { validateAndSanitizeForm } from './validateClean';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getFormData } from '../../src/app/eligibility-editor-legal-clinic-unb/formHelper';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -11,9 +12,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   
   const submissionId = randomUUID();
   const formData = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-  
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:4000';
+
+  const configet = await fetch(`${BASE_URL}/api/eligibility`);
+  const data = await configet.json();
+  if (!configet.ok) {
+    throw new Error(`Error fetching data: ${data || 'Unknown error'}`);
+  }
+  const dataForm = data[data.length-1];
+
   const uncleanData: Record<string, any> = formData.formData as Record<string, any>;
-  const cleanData = validateAndSanitizeForm(uncleanData, formData.formConfig);
+  
+  const cleanData = validateAndSanitizeForm(uncleanData, dataForm.formConfig);
   const emailContent = generateEmailHTML(cleanData);
   
   const transporter = nodemailer.createTransport({

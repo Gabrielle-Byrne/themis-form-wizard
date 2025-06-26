@@ -2,7 +2,7 @@
 import { list, put } from '@vercel/blob';
 
 // Secret code for admin access
-const secretCode = process.env.LEG_PASSWORD;
+//const secretCode = process.env.LEG_PASSWORD;
 const contentKey = 'content.json';
 
 // Default content
@@ -81,7 +81,7 @@ export default async function handler(req, res) {
   // Handle POST request - update the content
   if (req.method === 'POST') {
     try {
-      const { content, secretCode: providedCode } = req.body;
+      const { content } = req.body;
       
       // Verify secret code
       // if (providedCode !== secretCode) {
