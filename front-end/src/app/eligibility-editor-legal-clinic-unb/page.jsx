@@ -2435,7 +2435,7 @@ const FormEditor = () => {
   const [isLocked, setIsLocked] = useState(false);
   const [lockTimer, setLockTimer] = useState(0);
   const MAX_ATTEMPTS = 5;
-  const LOCK_TIME = 60; // Seconds
+  const LOCK_TIME = 180; // Seconds
   const STORAGE_KEY = 'formEditorAuthenticated';
   
   const loadOriginalEligibilityJson = async () => {

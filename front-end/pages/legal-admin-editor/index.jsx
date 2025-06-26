@@ -13,6 +13,11 @@ export default function AdminEditor() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
+  const [attempts, setAttempts] = useState(0);
+  const [isLocked, setIsLocked] = useState(false);
+  const [lockTimer, setLockTimer] = useState(0);
+  const MAX_ATTEMPTS = 5;
+  const LOCK_TIME = 180; // Seconds
   
   // Tab state for editor sections
   const [activeTab, setActiveTab] = useState('general');
@@ -24,6 +29,19 @@ export default function AdminEditor() {
     type: 'info',
     active: true
   });
+
+  // Handle lock timer countdown
+    useEffect(() => {
+      let interval;
+      if (isLocked && lockTimer > 0) {
+        interval = setInterval(() => {
+          setLockTimer(prevTime => prevTime - 1);
+        }, 1000);
+      } else if (lockTimer === 0 && isLocked) {
+        setIsLocked(false);
+      }
+      return () => clearInterval(interval);
+    }, [isLocked, lockTimer]);
 
   useEffect(() => {
     // Fetch the content when authenticated
@@ -68,8 +86,18 @@ export default function AdminEditor() {
     if (res.ok && data.success && data.role==="editorD") {
       setAuthenticated(true);  
       setMessage('');
-    } else {
-      setMessage('Invalid password');
+    } 
+    else {
+      const newAttempts = attempts + 1;
+      setAttempts(newAttempts);
+      //setError('Invalid secret code. Please try again.');
+      
+      // Lock the form after MAX_ATTEMPTS
+      if (newAttempts >= MAX_ATTEMPTS) {
+        setIsLocked(true);
+        setLockTimer(LOCK_TIME);
+        //setError(`Too many failed attempts. Access locked for ${LOCK_TIME} seconds.`);
+      }
     }
   };
 
@@ -351,6 +379,7 @@ const handleToggleAnnouncementActive = async (id) => {
               </label>
               <input
                 type="password"
+                disabled={isLocked}
                 value={enteredCode}
                 onChange={(e) => setEnteredCode(e.target.value)}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -368,7 +397,15 @@ const handleToggleAnnouncementActive = async (id) => {
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >
-                Access Editor
+                 {isLocked ? (
+                  <>
+                    Too Many Failed Attempts: Locked ({lockTimer}s)
+                  </>
+                ) : (
+                  <>
+                    Access Editor
+                  </>
+                )}
               </button>
             </div>
           </form>
@@ -783,21 +820,21 @@ const handleToggleAnnouncementActive = async (id) => {
             <div className="flex flex-col items-center mb-6">
               <div className="mb-4 border p-4 rounded-md bg-gray-50">
               {content.clinicInfo?.logoUrl ? (
-  <img 
-    src={`${content.clinicInfo.logoUrl}?t=${Date.now()}`} 
-    alt="Current Logo" 
-    className="max-w-xs max-h-40 object-contain"
-    onError={(e) => {
-      console.error('Error loading image:', e);
-      // Retry with a different cache-busting approach if first fails
-      e.target.src = `${content.clinicInfo.logoUrl}?reload=${Math.random()}`;
-    }}
-  />
-) : (
-  <div className="w-40 h-40 bg-gray-200 flex items-center justify-center">
-    <span className="text-gray-500">No logo set</span>
-  </div>
-)}
+            <img 
+              src={`${content.clinicInfo.logoUrl}?t=${Date.now()}`} 
+              alt="Current Logo" 
+              className="max-w-xs max-h-40 object-contain"
+              onError={(e) => {
+                console.error('Error loading image:', e);
+                // Retry with a different cache-busting approach if first fails
+                e.target.src = `${content.clinicInfo.logoUrl}?reload=${Math.random()}`;
+              }}
+            />
+          ) : (
+            <div className="w-40 h-40 bg-gray-200 flex items-center justify-center">
+              <span className="text-gray-500">No logo set</span>
+            </div>
+          )}
            
               </div>
               

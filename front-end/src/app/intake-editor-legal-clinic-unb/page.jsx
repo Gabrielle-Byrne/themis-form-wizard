@@ -574,7 +574,6 @@ const FormEditor = () => {
   const [saveStatus, setSaveStatus] = useState('');
   const [isInitialized, setIsInitialized] = useState(false);
   const [activeId, setActiveId] = useState(null);
-  const [activeField, setActiveField] = useState(null);
   const [draggedItemType, setDraggedItemType] = useState(null);
   const [draggedItem, setDraggedItem] = useState(null);
   const resetIntakeSimple = async () => {
@@ -608,7 +607,7 @@ const FormEditor = () => {
   
   // Authentication constants
   const MAX_ATTEMPTS = 5;
-  const LOCK_TIME = 60; // Seconds
+  const LOCK_TIME = 180; // Seconds
   const STORAGE_KEY = 'formEditorAuthenticated';
 
   // Configure DnD sensors

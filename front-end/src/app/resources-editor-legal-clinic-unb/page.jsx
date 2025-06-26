@@ -12,7 +12,6 @@ import {
 import {
   arrayMove,
   SortableContext,
-  sortableKeyboardCoordinates,
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
@@ -105,9 +104,6 @@ const SortableField = ({ field, fieldId, children }) => {
   );
 };
 
-
-  
-
 // SortableStep component
 const SortableStep = ({ step, stepIndex, children }) => {
   const {
@@ -179,7 +175,6 @@ const FormEditor = () => {
   const [saveStatus, setSaveStatus] = useState('');
   const [isInitialized, setIsInitialized] = useState(false);
   const [activeId, setActiveId] = useState(null);
-  const [activeField, setActiveField] = useState(null);
   const [draggedItemType, setDraggedItemType] = useState(null);
   const [draggedItem, setDraggedItem] = useState(null);
   const resetSimple = async () => {
@@ -214,7 +209,7 @@ const FormEditor = () => {
   
   // Authentication constants
   const MAX_ATTEMPTS = 5;
-  const LOCK_TIME = 60; // Seconds
+  const LOCK_TIME = 180; // Seconds
   const STORAGE_KEY = 'formEditorAuthenticated';
 
   // // Configure DnD sensors
