@@ -2436,7 +2436,7 @@ const FormEditor = () => {
   const [lockTimer, setLockTimer] = useState(0);
   const MAX_ATTEMPTS = 5;
   const LOCK_TIME = 180; // Seconds
-  const STORAGE_KEY = 'formEditorAuthenticated';
+  //const STORAGE_KEY = 'formEditorAuthenticated';
   
   const loadOriginalEligibilityJson = async () => {
     try {
@@ -2539,12 +2539,12 @@ const FormEditor = () => {
   };
   
   // Check for authentication from session storage
-  useEffect(() => {
-    const storedAuth = sessionStorage.getItem(STORAGE_KEY);
-    if (storedAuth === 'true') {
-      setIsAuthenticated(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedAuth = sessionStorage.getItem(STORAGE_KEY);
+  //   if (storedAuth === 'true') {
+  //     setIsAuthenticated(true);
+  //   }
+  // }, []);
 
   // Handle lock timer countdown
   useEffect(() => {
@@ -2614,7 +2614,7 @@ const FormEditor = () => {
       setIsAuthenticated(true);
       setError('');
       // Store authentication state in session storage
-      sessionStorage.setItem(STORAGE_KEY, 'true');
+      // sessionStorage.setItem(STORAGE_KEY, 'true');
     } else {
       const newAttempts = attempts + 1;
       setAttempts(newAttempts);
@@ -2632,7 +2632,7 @@ const FormEditor = () => {
   // Handle logout
   const handleLogout = () => {
     setIsAuthenticated(false);
-    sessionStorage.removeItem(STORAGE_KEY);
+    //sessionStorage.removeItem(STORAGE_KEY);
   };
   
   // Helper function to get counts of elements
