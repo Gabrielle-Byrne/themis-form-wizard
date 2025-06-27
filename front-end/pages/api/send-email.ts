@@ -2,7 +2,6 @@ import { generateEmailHTML } from '../../src/lib/email-template';
 import { randomUUID } from 'crypto'; 
 import { validateAndSanitizeForm } from './validateClean';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getFormData } from '../../src/app/eligibility-editor-legal-clinic-unb/formHelper';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

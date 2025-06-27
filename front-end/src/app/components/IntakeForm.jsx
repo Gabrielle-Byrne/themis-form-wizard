@@ -14,9 +14,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Progress } from '@/components/ui/progress';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { submitFormWithOutFiles } from '../lib/api';
 // Resource definitions
-import configData from '../intake-editor-legal-clinic-unb/api/dummy.json';
+import configData from '../lib/intake.json';
 
 const RESOURCES = {
   Shelters: [

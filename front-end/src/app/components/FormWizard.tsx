@@ -26,11 +26,8 @@ import {
 } from 'lucide-react';
 
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import configData from '../eligibility-editor-legal-clinic-unb/api/dummy.json';
+import configData from '../lib/formConfig.json';
 import { validationRules, combineValidations } from '../lib/validationRules';
-
-import { submitFormWithFiles } from '../lib/api';
-import { saveFormData } from './formHelper';
 
 export default function LegalClinicForm() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -40,12 +37,12 @@ export default function LegalClinicForm() {
   const [visitedSteps, setVisitedSteps] = useState(new Set([0]));
   const [activeResources, setActiveResources] = useState(null);
   const [showEmergencyAlert, setShowEmergencyAlert] = useState(false);
-  const [selectedFiles, setSelectedFiles] = useState([]);
+  // const [selectedFiles, setSelectedFiles] = useState([]);
   const [submitStatus, setSubmitStatus] = useState({ loading: false, error: null });
   const [showSuccess, setShowSuccess] = useState(false);
   const [submissionId, setSubmissionId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const fileInputRef = useRef(null);
+  // const fileInputRef = useRef(null);
   const formRef = useRef(null);
   const [ formConfig , setConfig] = useState(configData.formConfig);
   const [RESOURCES, setResources] = useState(null);
@@ -99,7 +96,6 @@ export default function LegalClinicForm() {
     setErrors({});
     setCurrentStep(0);
     setVisitedSteps(new Set([0]));
-    setSelectedFiles([]);
     setSubmitStatus({ loading: false, error: null });
     setShowSuccess(false);
     setSubmissionId(null);

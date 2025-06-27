@@ -11,7 +11,6 @@ export async function saveFormData(formData) {
       },
       body: JSON.stringify(safeData),
     });
-
     const result = await response.json();
     if (!response.ok) {
       throw new Error(result.error || 'Failed to save data');

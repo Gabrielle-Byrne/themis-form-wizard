@@ -582,7 +582,7 @@ const FormEditor = () => {
         setSaveStatus('Resetting...');
         
         // Load the original JSON file
-        const intakeJson = await import('../lib/intake.json');
+        const intakeJson = await import('./api/dummy.json');
         
         // Reset only the form data
         setFormData(intakeJson.default);

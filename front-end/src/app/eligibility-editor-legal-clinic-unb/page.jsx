@@ -2438,58 +2438,14 @@ const FormEditor = () => {
   const LOCK_TIME = 180; // Seconds
   //const STORAGE_KEY = 'formEditorAuthenticated';
   
-  const loadOriginalEligibilityJson = async () => {
-    try {
-      setIsLoading(true);
-      // Dynamic import of the original eligibility JSON
-      const eligibilityJson = await import('../lib/formConfig.json');
-      return eligibilityJson.default;
-    } catch (error) {
-      console.error('Error loading original eligibility JSON:', error);
-      throw error;
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
-  //Returns the form to the last known entry
-  const restoreLastSaveSimple = async () => {
-    if (window.confirm('Are you sure you want to reset to the previous form configuration?')) {
-      try {
-        setSaveStatus('Resetting...');
-        
-        // Load the original JSON file
-        const response = await fetch('/api/eligibility')
-        //Gets collection
-        if (!response.ok) {
-          // If API fails, use initial state
-          console.warn('Failed to load form data, using initial state');
-          setFormData(initialState);
-          return;
-        }
-
-        const data = await response.json()
-        setFormData(data[0]);
-        
-        // Reset form data
-        
-        setSaveStatus('Reset complete!');
-        setTimeout(() => setSaveStatus(''), 3000);
-      } catch (error) {
-        console.error('Failed to reset eligibility form:', error);
-        setSaveStatus('Reset failed');
-        setTimeout(() => setSaveStatus(''), 3000);
-      }
-    }
-  };
-  
   const resetEligibilitySimple = async () => {
     if (window.confirm('Are you sure you want to reset to the original form configuration?')) {
       try {
         setSaveStatus('Resetting...');
         
         // Load the original JSON file
-        const eligibilityJson = await import('../lib/formConfig.json');
+        const eligibilityJson = await import('./api/dummy.json');
         
         // Reset form data
         setFormData(eligibilityJson.default);
@@ -2844,22 +2800,6 @@ const FormEditor = () => {
                 )}
               </button>
 
-              {/* <button
-                onClick={restoreLastSaveSimple}
-                disabled={isLoading}
-                className="flex items-center gap-2 px-2 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition-colors disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <>
-                    <RefreshCcw size={14} className="animate-spin" /> Loading...
-                  </>
-                ) : (
-                  <>
-                    <RefreshCcw size={14} /> Restore Last Save
-                  </>
-                )}
-              </button>
-               */}
               <span className={`text-sm ${
                 saveStatus.includes('Error') ? 'text-red-500' : 'text-green-500'
               }`}>

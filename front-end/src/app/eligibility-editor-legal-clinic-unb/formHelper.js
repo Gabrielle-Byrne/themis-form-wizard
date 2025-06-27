@@ -1,4 +1,5 @@
 // Pushes form data to the server and retrieves it.
+import sanitizeFormConfig from './sanitize';
 const allowedOrigin = '/api/eligibility';
 
 export async function saveFormData(formData) {
@@ -18,8 +19,9 @@ export async function saveFormData(formData) {
     }
 
     return { success: true, data: result };
+
   } catch (error) {
-    console.error('Error saving form data (HELLO):', error);
+    console.error('Error saving form data:', error);
     return { success: false, error: error.message };
   }
 }

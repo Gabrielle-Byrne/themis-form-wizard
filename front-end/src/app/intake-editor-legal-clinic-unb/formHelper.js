@@ -1,4 +1,4 @@
-
+import sanitizeFormConfig from "./sanitize";
 const allowedOrigin = '/api/intake';
 
 export async function saveFormData(formData) {

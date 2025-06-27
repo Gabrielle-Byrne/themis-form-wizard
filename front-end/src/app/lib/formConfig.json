@@ -184,7 +184,7 @@
   },
   "formConfig": {
     "metadata": {
-      "version": "2.2.3",
+      "version": "1.0.0",
       "lastUpdated": "2024-12-06",
       "clinic": {
         "name": "Eligibility Screening Form",
@@ -765,7 +765,7 @@
             "label": "Court/Hearing Date",
             "type": "date",
             "required": false,
-            "guidance": "Court Name- YYYY-MM-DD"
+            "guidance": "Court Name - YYYY-MM-DD"
           },
           {
             "name": "documentsSubmitted",

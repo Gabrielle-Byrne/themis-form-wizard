@@ -303,27 +303,6 @@ const sensors = useSensors(pointerSensor);
     loadData();
   }, [isAuthenticated]);
 
-  const resetEligibilitySimple = async () => {
-    if (window.confirm('Are you sure you want to reset to the original form configuration?')) {
-      try {
-        setSaveStatus('Resetting...');
-        
-        // Load the original JSON file
-        const originalJSON = await import('./api/dummy.json');
-        
-        // Reset form data
-        setFormData(originalJSON.default);
-        
-        setSaveStatus('Reset complete!');
-        setTimeout(() => setSaveStatus(''), 3000);
-      } catch (error) {
-        console.error('Failed to reset eligibility form:', error);
-        setSaveStatus('Reset failed');
-        setTimeout(() => setSaveStatus(''), 3000);
-      }
-    }
-  };
-
   // Auto-save functionality
   // useEffect(() => {
   //   if (!isInitialized || !isAuthenticated) return;

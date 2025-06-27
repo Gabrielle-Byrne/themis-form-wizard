@@ -2,7 +2,17 @@
 
 // Import config for constants and resources
 import configData from './formConfig.json';
-const { CONSTANTS, RESOURCES } = configData;
+
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:4000';
+
+  const configet = await fetch(`${BASE_URL}/api/eligibility`);
+  const data = await configet.json();
+  if (!configet.ok) {
+    throw new Error(`Error fetching data: ${data || 'Unknown error'}`);
+  }
+  const dataForm = data[data.length-1];
+
+  const { CONSTANTS, RESOURCES } = dataForm;
 
 export const validationRules = {
   // Emergency Assessment Validation Rules

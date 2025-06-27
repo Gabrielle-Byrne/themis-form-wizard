@@ -1,4 +1,3 @@
-// src/app/lib/config.js
 export const getApiUrl = () => {
     // return process.env.NODE_ENV === 'development' 
     //   ? 'http://localhost:3001' 
