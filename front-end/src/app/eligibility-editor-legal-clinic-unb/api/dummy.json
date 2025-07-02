@@ -198,13 +198,15 @@
         "name": "Emergency Services",
         "phoneNumber": "911",
         "category": "emergency",
-        "description": "For immediate danger"
+        "description": "For immediate danger",
+        "descriptionFR": "En cas de danger immédiat"
       },
       {
         "name": "Mental Health Crisis Line",
         "phoneNumber": "1-800-667-5005",
         "category": "emergency",
-        "description": "24/7 crisis support"
+        "description": "24/7 crisis support",
+        "descriptionFR": "Soutien en cas de crise 24/7"
       }
     ]
   },

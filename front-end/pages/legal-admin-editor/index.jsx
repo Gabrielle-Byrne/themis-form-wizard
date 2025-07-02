@@ -502,6 +502,25 @@ const handleToggleAnnouncementActive = async (id) => {
                   className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
+
+              <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Clinic Name (French)
+                </label>
+                <input
+                  type="text"
+                  value={content.clinicInfo?.nameFR || ''}
+                  onChange={(e) => setContent({
+                    ...content,
+                    clinicInfo: {
+                      ...content.clinicInfo,
+                      nameFR: e.target.value
+                    }
+                  })}
+                  className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                />
+              </div>
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -532,11 +551,38 @@ const handleToggleAnnouncementActive = async (id) => {
                           about: newValue,
                         },
                       });
+                    }
+                  }}
+                  className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                ></textarea>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  About Text
+                </label>
+                <textarea
+                  rows="4"
+                  value={content.clinicInfo?.aboutTextFR || ''}
+                  onChange={(e) => setContent({
+                    ...content,
+                    clinicInfo: {
+                      ...content.clinicInfo,
+                      aboutTextFR: e.target.value
+                    }
+                  })}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Tab') {
+                      e.preventDefault();
+                      const { selectionStart, selectionEnd } = e.target;
+                      const value = content.info?.about || '';
+                      const newValue =
+                        value.substring(0, selectionStart) + '\t' + value.substring(selectionEnd);
 
-                      // Optional: Move cursor after inserted tab
-                      setTimeout(() => {
-                        e.target.selectionStart = e.target.selectionEnd = selectionStart + 1;
-                      }, 0);
+                      setContent({
+                        ...content,
+                        info: {
+                          ...content.info,
+                          about: newValue,
+                        },
+                      });
                     }
                   }}
                   className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
@@ -545,7 +591,7 @@ const handleToggleAnnouncementActive = async (id) => {
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Services (one per line)
+                 Services (one per line) 
                 </label>
                 <textarea
                   rows="5"
@@ -555,6 +601,22 @@ const handleToggleAnnouncementActive = async (id) => {
                     clinicInfo: {
                       ...content.clinicInfo,
                       services: e.target.value.split('\n').filter(s => s.trim())
+                    }
+                  })}
+                  className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                ></textarea>
+                
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Services (one per line) (French)
+                </label>
+                <textarea
+                  rows="5"
+                  value={content.clinicInfo?.servicesFR?.join('\n') || ''}
+                  onChange={(e) => setContent({
+                    ...content,
+                    clinicInfo: {
+                      ...content.clinicInfo,
+                      servicesFR: e.target.value.split('\n').filter(s => s.trim())
                     }
                   })}
                   className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
@@ -659,10 +721,93 @@ const handleToggleAnnouncementActive = async (id) => {
                   </div>
                 </div>
               </div>
+
+            {/* French Services*/}
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Contact Information (French)</h3>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Adresse</label>
+                    <input
+                      type="text"
+                      value={content.clinicInfo?.contactInfo?.addressFR || ''}
+                      onChange={(e) => setContent({
+                        ...content,
+                        clinicInfo: {
+                          ...content.clinicInfo,
+                          contactInfo: {
+                            ...(content.clinicInfo?.contactInfo || {}),
+                            addressFR: e.target.value
+                          }
+                        }
+                      })}
+                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Phone</label>
+                    <input
+                      type="text"
+                      value={content.clinicInfo?.contactInfo?.phoneFR || ''}
+                      onChange={(e) => setContent({
+                        ...content,
+                        clinicInfo: {
+                          ...content.clinicInfo,
+                          contactInfo: {
+                            ...(content.clinicInfo?.contactInfo || {}),
+                            phoneFR: e.target.value
+                          }
+                        }
+                      })}
+                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Email</label>
+                    <input
+                      type="text"
+                      value={content.clinicInfo?.contactInfo?.emailFR || ''}
+                      onChange={(e) => setContent({
+                        ...content,
+                        clinicInfo: {
+                          ...content.clinicInfo,
+                          contactInfo: {
+                            ...(content.clinicInfo?.contactInfo || {}),
+                            emailFR: e.target.value
+                          }
+                        }
+                      })}
+                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Heures</label>
+                    <input
+                      type="text"
+                      value={content.clinicInfo?.contactInfo?.hoursFR || ''}
+                      onChange={(e) => setContent({
+                        ...content,
+                        clinicInfo: {
+                          ...content.clinicInfo,
+                          contactInfo: {
+                            ...(content.clinicInfo?.contactInfo || {}),
+                            hoursFR: e.target.value
+                          }
+                        }
+                      })}
+                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          </div>
         )}
-        
+
         {/* Announcements Tab */}
         {activeTab === 'announcements' && (
           <div className="bg-white shadow rounded-lg p-6">

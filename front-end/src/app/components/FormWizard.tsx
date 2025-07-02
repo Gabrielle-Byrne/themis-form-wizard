@@ -30,7 +30,7 @@ import configData from '../lib/formConfig.json';
 import { validationRules, combineValidations } from '../lib/validationRules';
 import { steps } from 'framer-motion';
 
-export default function LegalClinicForm() {
+export default function LegalClinicForm({ language }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
@@ -48,7 +48,6 @@ export default function LegalClinicForm() {
   const [ formConfig , setConfig] = useState(configData.formConfig);
   const [RESOURCES, setResources] = useState(null);
   const [MONTHLY_THRESHOLDS, setThresholds] = useState(null);
-  const [language, setLanguage] = useState('en'); // Default language
 
 
   // Gets the form template from the api
@@ -728,13 +727,6 @@ export default function LegalClinicForm() {
                   <Home className="w-4 h-4 text-blue-500 mr-1" /> 
                   {formConfig.metadata.clinic.address}
                 </span>
-              </div>
-              <div className="flex flex-col items-center mb-2 mt-6">
-                  <div className="text-2xl font-semibold text-blue-800 mb-3 inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
-                  <button
-                    onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
-                  > {language === "fr" ? "English" : "Français"}</button>
-                </div>
               </div>
             </CardDescription>
           </CardHeader>

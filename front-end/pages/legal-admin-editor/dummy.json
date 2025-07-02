@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "clinicName": "UNB Legal Clinic Services",
+    "clinicNameFR": "Services de la Clinique Juridique de l'UNB",
+    "aboutUs": "1.0.0",
+    "aboutUsFR": "1.0.0",
+    "calendlylink": "https://calendly.com/unb-legal-clinic"
+  },
+  "contactInfo": {
+    "address": "123 Legal Street, Suite 101",
+    "phone": "+1 (506) 123-4567",
+    "email": "",
+    "hours": ""
+  },
+  "services": [
+    {
+      "name": "Family law consultations",
+      "nameFR": "Consultations en droit de la famille"
+    },
+    {
+      "name": "Landlord-tenant dispute resolution",
+      "nameFR": "Résolution des conflits entre locataires et propriétaires"
+    },
+    {
+      "name": "Immigration assistance",
+      "nameFR": "Immigration assistance"
+    }
+  ]
+}

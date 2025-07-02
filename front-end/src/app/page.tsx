@@ -95,15 +95,15 @@ export default function Home() {
         <div className="space-y-6">
           {/* About section */}
           <div className="bg-blue-50 p-6 rounded-lg shadow-sm">
-            <h2 className="text-xl font-bold text-blue-800 mb-3">About Us</h2>
+            <h2 className="text-xl font-bold text-blue-800 mb-3">{language === "fr" ? "À Propos de Nous" : "About Us"}</h2>
             <pre className="text-gray-700 whitespace-pre-wrap">
-              {content?.clinicInfo?.aboutText || "Information not available."}
+              {content?.clinicInfo?.aboutText || (language === "fr" ? "Information non disponible." : "Information not available.")}
             </pre>
           </div>
           
           {/* Services section */}
           <div>
-            <h2 className="text-xl font-bold text-blue-800 mb-3">Our Services</h2>
+            <h2 className="text-xl font-bold text-blue-800 mb-3">{language === "fr" ? "Nos Services" : "Our Services"}</h2>
             {content?.clinicInfo?.services && content.clinicInfo.services.length > 0 ? (
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {content.clinicInfo.services.map((service, index) => (
@@ -114,29 +114,29 @@ export default function Home() {
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-500">No services listed at this time.</p>
+              <p className="text-gray-500">{language === "fr" ? "Aucun service listé pour le moment." : "No services listed at this time."}</p>
             )}
           </div>
           
           {/* Contact information */}
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h2 className="text-xl font-bold text-blue-800 mb-3">Contact Us</h2>
+            <h2 className="text-xl font-bold text-blue-800 mb-3">{language === "fr" ? "Contactez-Nous" : "Contact Us"}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <p className="text-sm font-medium text-gray-500">Address</p>
-                <p>{content?.clinicInfo?.contactInfo?.address || "Not available"}</p>
+                <p className="text-sm font-medium text-gray-500">{language === "fr" ? "Adresse" : "Address"}</p>
+                <p>{content?.clinicInfo?.contactInfo?.address || (language === "fr" ? "Non disponible" : "Not available")}</p>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500">Phone</p>
-                <p>{content?.clinicInfo?.contactInfo?.phone || "Not available"}</p>
+                <p className="text-sm font-medium text-gray-500">{language === "fr" ? "Téléphone" : "Phone"}</p>
+                <p>{content?.clinicInfo?.contactInfo?.phone || (language === "fr" ? "Non disponible" : "Not available")}</p>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500">Email</p>
-                <p>{content?.clinicInfo?.contactInfo?.email || "Not available"}</p>
+                <p className="text-sm font-medium text-gray-500">{language === "fr" ? "Email" : "Email"}</p>
+                <p>{content?.clinicInfo?.contactInfo?.email || (language === "fr" ? "Non disponible" : "Not available")}</p>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500">Hours</p>
-                <p>{content?.clinicInfo?.contactInfo?.hours || "Not available"}</p>
+                <p className="text-sm font-medium text-gray-500">{language === "fr" ? "Heures" : "Hours"}</p>
+                <p>{content?.clinicInfo?.contactInfo?.hours || (language === "fr" ? "Non disponible" : "Not available")}</p>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function Home() {
            {/* Display active announcements */}
       {content?.announcements && content.announcements.length > 0 && (
         <div className="bg-gray-50 py-2">
-          <h2 className="text-xl font-bold text-blue-800 mb-3 px-3">Announcements</h2>
+          <h2 className="text-xl font-bold text-blue-800 mb-3 px-3">{language === "fr" ? "Annonces" : "Announcements"}</h2>
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="space-y-2">
               {content.announcements
@@ -172,7 +172,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
               >
-                Schedule an Appointment
+                {language==="fr" ? "Planifier un rendez-vous" : "Schedule an Appointment"}
               </a>
             </div>
           )}
@@ -184,14 +184,14 @@ export default function Home() {
       label: "Intake Form",
       icon: "📝",
       description: "Check if you qualify for our services",
-      component: () => <FormWizard />
+      component: () => <FormWizard language={language} />
     },
     {
       id: 2,
       label: "Resources",
       icon: "📚",
       description: "Access helpful legal resources",
-      component: () => <AdditionalResources resources={resourceData} />
+      component: () => <AdditionalResources resources={resourceData} lang={language} />
     }
   ];
 
@@ -209,14 +209,14 @@ export default function Home() {
         >
           <div className="p-6">
             {/* Tab Navigation */}
-            {/* <div className="flex flex-col items-center mb-2">
-              <div className="inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
+            <div className="flex flex-col items-center mb-2 mt-6">
+                <div className="text-2xl font-semibold text-blue-800 mb-3 inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
                   <button
                     onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
                   > {language === "fr" ? "English" : "Français"}</button>
 
               </div>
-            </div> */}
+            </div>
             <div className="flex flex-col items-center mb-6">
               <div className="inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
                 {tabItems.map((tab) => (
@@ -271,7 +271,7 @@ export default function Home() {
             © {new Date().getFullYear()} {content?.clinicInfo?.name || "Legal Clinic Services"}
             </a>
             <span className="flex items-center justify-center">
-              <span className="mr-2 text-gray-900">Developed by</span>
+              <span className="mr-2 text-gray-900">{language === "fr" ? "Développé par" : "Developed by"}</span>
               <a href="https://themiscore.com">
               <Image 
                 src={tclogo}
@@ -286,7 +286,7 @@ export default function Home() {
           </p>
           {content?.lastUpdated && (
             <p className="text-xs text-gray-500 mt-2">
-              Last updated: {new Date(content.lastUpdated).toLocaleDateString()}
+              {language === "fr" ? "Dernière mise à jour :" : "Last updated:"} {new Date(content.lastUpdated).toLocaleDateString()}
             </p>
           )}
         </footer>

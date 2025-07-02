@@ -12,21 +12,20 @@
                 "email": "housing@crossroadsforwomen.ca",
                 "website": "https://crossroadsforwomen.ca/",
                 "phoneNumber": "1-844-853-0811",
-                "notesFR": "Réservé aux femmes",
-                "notes": "Women Only",
+                "notesFR": "Réservé aux femmes, Accessible en fauteuil roulant",
+                "notes": "Women Only, Wheelchair Accessible",
                 "category":"Shelters",
                 "categoryFR": "Refuges"
             },
              {
                 "name": "Escale MadaVic",
-                "descriptionFR": "Refuge, centre de soutien aux victimes de violence sexuelle et programme de logement de deuxième étape",
-                "description": "Shelter, sexual violence support centre, and second stage housing program",
-                "location": "Moncton",
-                "email": "housing@crossroadsforwomen.ca",
-                "website": "https://crossroadsforwomen.ca/",
-                "phoneNumber": "506-739-6265",
-                "notesFR": "Réservé aux femmes",
-                "notes": "Women Only",
+                "descriptionFR": "Refuge pour femmes et leurs enfants victimes de violence domestique",
+                "description": "Shelter for women and their children who are victims of domestic violence",
+                "location": "Madawaska/Victoria",
+                "website": "https://www.escalemadavic.com/",
+                "phoneNumber": "506 739-6265",
+                "notesFR": "Réservé aux femmes, Accessible en fauteuil roulant, Services bilingues",
+                "notes": "Women Only, Wheelchair Accessible, Bilingual Services",
                 "category":"Shelters",
                 "categoryFR": "Refuges"
             },
@@ -473,14 +472,13 @@
             {
                 "name": "211",
                 "descriptionFR": "Collecte générale de la communauté, des services gouvernementaux et sociaux basée au Nouveau-Brunswick",
-                "description": "General collection community, government and social services based in New Brunswick",
+                "description": "General collection of community, government and social services based in New Brunswick",
                 "phoneNumber": "211",
                 "email": "211nb@findhelp.ca",
-                "website": "https://nb.211.ca/search/",
+                "website": "https://nb.211.ca/",
                 "category":"General",
                 "categoryFR": "Général"
             }
-
         ]
     }
     ]
