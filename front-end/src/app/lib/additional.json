@@ -56,7 +56,7 @@
                 "category":"Shelters",
                 "categoryFR": "Refuges"
             },
-             {
+            {
                 "name": "Hestia House",
                 "descriptionFR": "Maison de transition pour femmes",
                 "description": "Transitional house for women",
@@ -66,6 +66,19 @@
                 "phoneNumber": "506-634-7570",
                 "notesFR": "Réservé aux femmes",
                 "notes": "Women Only",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
+            },
+            {
+                "name": "Maison / House of Nazareth",
+                "descriptionFR": "Programmes d'hébergement d'urgence et de logement",
+                "description": "Emergency shelter and housing programs",
+                "location": "Moncton",
+                "email": "info@maisonnazareth.com",
+                "website": "https://maisonnazareth.com/en/",
+                "phoneNumber": "(506) 858-5702",
+                "notesFR": "Services bilingues",
+                "notes": "Bilingual Services",
                 "category":"Shelters",
                 "categoryFR": "Refuges"
             },
@@ -451,5 +464,23 @@
                 "categoryFR": "Services Juridiques"
             }
         ]
-    }]
+    },
+    {
+        "name": "General",
+        "nameFR": "Général",
+        "icon": "AlertCircle",
+        "fields": [
+            {
+                "name": "211",
+                "descriptionFR": "Collecte générale de la communauté, des services gouvernementaux et sociaux basée au Nouveau-Brunswick",
+                "description": "General collection community, government and social services based in New Brunswick",
+                "phoneNumber": "211",
+                "email": "211nb@findhelp.ca",
+                "website": "https://nb.211.ca/search/",
+                "category":"General",
+                "categoryFR": "Général"
+            }
+        ]
+    }
+    ]
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Shield, DollarSign, BriefcaseIcon, FileText, Search, Scale, Filter, Layers, Phone, Mail, Tag, MapPin, Globe, Info, AlertTriangle, ChevronDown, Grid, List, BookOpen, House } from 'lucide-react';
+import { User, Shield, DollarSign, BriefcaseIcon, FileText, Search, Scale, Filter, Layers, Phone, Mail, Tag, MapPin, Globe, Info, AlertTriangle, ChevronDown, Grid, List, BookOpen, House, AlertCircle } from 'lucide-react';
 
 const AdditionalResources = ({ resources }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -9,6 +9,7 @@ const AdditionalResources = ({ resources }) => {
   const [language, setLanguage] = useState('en'); // Default language
 
   const ICONS = {
+    AlertCircle,
     User,
     Shield,
     House,
@@ -334,7 +335,7 @@ const ResourceCard = ({ resource, getCategoryIcon, language }) => {
       </div>
 
       {resource.notes && (
-        <div className="mt-4 pt-4 border-t border-blue-200">
+        <div className="mt-4 border-t border-blue-200">
           <div className="text-xs bg-gray-50 text-gray-700 p-2 rounded-md flex items-start gap-2">
             <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-blue-500" />
             <span>{language === "fr" ? resource.notesFR : resource.notes}</span>

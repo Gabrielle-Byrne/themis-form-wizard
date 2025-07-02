@@ -51,6 +51,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 // Icon mapping for categories
 const ICONS = {
   User,
+  AlertCircle,
   Shield,
   House,
   BookOpen,
