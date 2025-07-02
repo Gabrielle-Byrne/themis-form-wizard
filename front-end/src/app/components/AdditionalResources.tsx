@@ -32,11 +32,9 @@ const AdditionalResources = ({ resources }) => {
 
   const [totalResources, setResources] = useState(allResources);
 
-  // Filter resources based on search and category
+  // Filter resources based on search term and category
   const filteredResources = totalResources.filter(resource => 
-    (selectedCategory === 'all' || 
-      language === "fr" ? 
-     resource.categoryFR.toLowerCase().includes(selectedCategory.toLowerCase()) :
+     (selectedCategory === 'all' || 
      resource.category.toLowerCase().includes(selectedCategory.toLowerCase())) &&
     (resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
      (resource.description && resource.description.toLowerCase().includes(searchTerm.toLowerCase())))
@@ -358,7 +356,9 @@ const ResourceListItem = ({ resource, getCategoryIcon, language }) => {
           <div className="flex items-center gap-2 mb-1">
             <div className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs flex items-center gap-1">
               {getCategoryIcon(resource.category)}
-              {resource.category.replace(/([A-Z])/g, ' $1').trim()}
+              {language === "fr" ? 
+              resource.categoryFR.replace(/([A-Z])/g, ' $1').trim() :
+              resource.category.replace(/([A-Z])/g, ' $1').trim()}
             </div>
             
             {resource.emergency && (
