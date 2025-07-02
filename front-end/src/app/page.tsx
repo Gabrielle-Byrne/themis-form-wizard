@@ -9,9 +9,6 @@ import Image from 'next/image';
 import FormWizard from './components/FormWizard';
 import HomeHeader from './components/Home';
 import AdditionalResources from './components/AdditionalResources';
-
-// Important: Make sure these imports match your actual file structure
-// If you don't have this file, remove or replace this import
 import resourceData from "./lib/additional.json";
 
 // Added for announcements display
@@ -64,6 +61,7 @@ export default function Home() {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [language, setLanguage] = useState('en'); // Default language
 
   // Fetch content from API
   useEffect(() => {
@@ -211,6 +209,14 @@ export default function Home() {
         >
           <div className="p-6">
             {/* Tab Navigation */}
+            {/* <div className="flex flex-col items-center mb-2">
+              <div className="inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
+                  <button
+                    onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+                  > {language === "fr" ? "English" : "Français"}</button>
+
+              </div>
+            </div> */}
             <div className="flex flex-col items-center mb-6">
               <div className="inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
                 {tabItems.map((tab) => (
@@ -222,9 +228,6 @@ export default function Home() {
                   />
                 ))}
               </div>
-              {/* <p className="text-gray-600 text-sm">
-                {tabItems[activeTab].description}
-              </p> */}
             </div>
 
             {/* Content Area */}

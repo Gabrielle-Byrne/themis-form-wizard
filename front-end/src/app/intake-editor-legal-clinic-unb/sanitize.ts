@@ -1,23 +1,19 @@
 import validator from 'validator';
 import xss from 'xss';
 
-// Helper for text fields (escape + trim)
 function cleanText(value: string | undefined): string {
   return validator.escape(validator.trim(value || ''));
 }
 
-// Helper for email fields
 function cleanEmail(email: string | undefined): string {
   const trimmed = validator.trim(email || '');
   return validator.isEmail(trimmed) ? trimmed : '';
 }
 
-// Helper for optional rich text (e.g. help text)
 function cleanRichText(value: string | undefined): string {
   return xss(value || '');
 }
 
-// Helper for optional rich text (e.g. help text)
 function cleanBoolean(value: boolean | string | undefined): boolean {
   return value === true || value === 'true' ? true : false;
 }

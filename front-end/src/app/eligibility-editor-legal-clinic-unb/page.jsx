@@ -403,7 +403,6 @@ const FieldPropertiesEditor = ({ field, onSave, onCancel }) => {
 
   return (
     <div className="space-y-6 overflow-y-auto">
-      <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium mb-1">Field Name (ID)</label>
           <input
@@ -416,6 +415,7 @@ const FieldPropertiesEditor = ({ field, onSave, onCancel }) => {
             Unique identifier for this field
           </p>
         </div>
+        <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium mb-1">Field Label</label>
           <input
@@ -425,7 +425,19 @@ const FieldPropertiesEditor = ({ field, onSave, onCancel }) => {
             className="w-full p-2 border rounded"
           />
           <p className="text-xs text-gray-500 mt-1">
-            Text shown to the user
+            Text shown to the user (English)
+          </p>
+        </div>
+        <div>
+          <label className="block text-sm font-medium mb-1">Field Label (French)</label>
+          <input
+            type="text"
+            value={fieldData.labelFR || ''}
+            onChange={(e) => updateField('labelFR', e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+          <p className="text-xs text-gray-500 mt-1">
+            Text shown to the user (French)
           </p>
         </div>
       </div>
@@ -471,6 +483,15 @@ const FieldPropertiesEditor = ({ field, onSave, onCancel }) => {
           onChange={(e) => updateField('guidance', e.target.value)}
           className="w-full p-2 border rounded h-24"
           placeholder="Help text to guide the user"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium mb-1">Guidance Text (French)</label>
+        <textarea
+          value={fieldData.guidanceFR || ''}
+          onChange={(e) => updateField('guidanceFR', e.target.value)}
+          className="w-full p-2 border rounded h-24"
+          placeholder="Help text to guide the user (French)"
         />
       </div>
 
@@ -567,6 +588,17 @@ const FieldPropertiesEditor = ({ field, onSave, onCancel }) => {
                       className="w-full p-1 border rounded text-sm"
                       placeholder="Label"
                     />
+                    <input
+                      type="text"
+                      value={option.labelFR || ''}
+                      onChange={(e) => {
+                        const options = [...fieldData.options];
+                        options[index].labelFR = e.target.value;
+                        updateField('options', options);
+                      }}
+                      className="w-full p-1 border rounded text-sm"
+                      placeholder="Label (French)"
+                    />
                   </div>
                 </div>
                 <button 
@@ -581,7 +613,7 @@ const FieldPropertiesEditor = ({ field, onSave, onCancel }) => {
           
           <div className="flex items-end gap-2 border-t pt-3">
             <div className="flex-1">
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 <div>
                   <label className="block text-xs mb-1">Value</label>
                   <input
@@ -600,6 +632,16 @@ const FieldPropertiesEditor = ({ field, onSave, onCancel }) => {
                     onChange={(e) => setOptionToAdd({...optionToAdd, label: e.target.value})}
                     className="w-full p-1 border rounded text-sm"
                     placeholder="Option label"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs mb-1">Label (French)</label>
+                  <input
+                    type="text"
+                    value={optionToAdd.labelFR || ''}
+                    onChange={(e) => setOptionToAdd({...optionToAdd, labelFR: e.target.value})}
+                    className="w-full p-1 border rounded text-sm"
+                    placeholder="Option label (French)"
                   />
                 </div>
               </div>
@@ -2091,13 +2133,6 @@ const FormStepsEditor = ({ formConfig, onChange }) => {
                 </div>
               </div>
             )}
-            
-            {/* {field.showIf && (
-              <div>
-                <label className="block text-xs text-gray-500">Show If</label>
-                <p className="text-sm font-mono">{field.showIf}</p>
-              </div>
-            )} */}
           </div>
         )}
       </div>
@@ -2148,7 +2183,14 @@ const FormStepsEditor = ({ formConfig, onChange }) => {
                         <input
                           type="text"
                           value={step.title}
-                          onChange={(e) => updateStepTitle(stepIndex, e.target.value)}
+                          onChange={(e) => handleInputChange(stepIndex, e.target.value)}
+                          className="font-medium text-lg bg-transparent border-none focus:ring-1 focus:ring-blue-500 rounded px-1"
+                        />
+                        <span>/ </span>
+                        <input
+                          type="text"
+                          value={step.titleFR}
+                          onChange={(e) => handleInputChange(stepIndex, e.target.value)}
                           className="font-medium text-lg bg-transparent border-none focus:ring-1 focus:ring-blue-500 rounded px-1"
                         />
                       </div>
@@ -2194,7 +2236,27 @@ const FormStepsEditor = ({ formConfig, onChange }) => {
                   <div className="p-4">
                     {/* Step Fields Section */}
                     <div className="mb-6">
-                      <div className="flex justify-between items-center mb-4">
+                      <h3 className="font-medium flex items-center gap-2">
+                          <List size={16} className="text-blue-500" />
+                          Description
+                        </h3>
+                      <div className="flex justify-between items-center mb-4 gap-4">
+                        <textarea
+                          rows={3}
+                          className="w-full p-2 border rounded"
+                          placeholder="Enter step description or instructions for English users here..."
+                          value={step.guidance || ''}
+                          onChange={(e) => handleInputChange(stepIndex, e.target.value)}
+                        />
+                        <textarea
+                          rows={3}
+                          className="w-full p-2 border rounded"
+                          placeholder="Enter step description or instructions for French users here..."
+                          value={step.guidanceFR || ''}
+                          onChange={(e) => handleInputChange(stepIndex, e.target.value)}
+                        />
+                      </div>
+                      <div className="mb-6">
                         <h3 className="font-medium flex items-center gap-2">
                           <List size={16} className="text-blue-500" />
                           Main Fields
@@ -2206,7 +2268,6 @@ const FormStepsEditor = ({ formConfig, onChange }) => {
                           <Plus size={14} /> Add Field
                         </button>
                       </div>
-                      
                       <SortableContext
                         items={step.fields.map((_, fieldIndex) => `${stepIndex}-${fieldIndex}`)}
                         strategy={verticalListSortingStrategy}
@@ -2437,7 +2498,6 @@ const FormEditor = () => {
   const MAX_ATTEMPTS = 5;
   const LOCK_TIME = 180; // Seconds
   //const STORAGE_KEY = 'formEditorAuthenticated';
-  
 
   const resetEligibilitySimple = async () => {
     if (window.confirm('Are you sure you want to reset to the original form configuration?')) {

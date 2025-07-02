@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "clinic": {
       "name": "Legal Clinic Intake Form",
+      "nameFR": "Formulaire d'admission à la clinique juridique",
       "phone": "(506) 452-6313",
       "email": "lawclinic@unb.ca"
     }
@@ -11,42 +12,50 @@
     {
       "id": "disclaimer",
       "title": "Disclaimer",
+      "titleFR": "Avertissement",
       "icon": "Shield",
       "fields": [
         {
           "name": "disclaimer",
+          "labelFR": "",
           "label": "Disclaimer",
           "type": "radio",
           "required": true,
           "options": [
             {
               "value": "understand",
+              "labelFR": "Je comprends",
               "label": "I understand"
             }
           ],
-          "guidance": "Please be advised that the legal clinic is operated by third-year law students under the supervision of the clinic director and supervising lawyer. Our ability to accept cases depends on the availability of our students and resources within the clinic, with a limited waiting list capacity across New Brunswick. While we offer comprehensive services in Fredericton, Saint John, and Woodstock, our services in other areas are restricted to providing free advice and information. Individuals in those regions must complete this intake form to receive a call back or email response. If your matter is urgent, please contact us by telephone; however, we make no promises or guarantees of assistance, as we can only take on as many cases as our student capacity allows. Thank you for your understanding."
+          "guidance": "Please be advised that the legal clinic is operated by third-year law students under the supervision of the clinic director and supervising lawyer. Our ability to accept cases depends on the availability of our students and resources within the clinic, with a limited waiting list capacity across New Brunswick. While we offer comprehensive services in Fredericton, Saint John, and Woodstock, our services in other areas are restricted to providing free advice and information. Individuals in those regions must complete this intake form to receive a call back or email response. If your matter is urgent, please contact us by telephone; however, we make no promises or guarantees of assistance, as we can only take on as many cases as our student capacity allows. Thank you for your understanding.",
+          "guidanceFR": "Veuillez noter que la clinique juridique est gérée par des étudiants en droit de troisième année sous la supervision du directeur de la clinique et de l'avocat superviseur. Notre capacité à accepter des affaires dépend de la disponibilité de nos étudiants et des ressources au sein de la clinique, avec une capacité limitée de liste d'attente dans tout le Nouveau-Brunswick. Bien que nous offrions des services complets à Fredericton, Saint John et Woodstock, nos services dans d'autres régions sont limités à la fourniture de conseils et d'informations gratuits. Les personnes dans ces régions doivent remplir ce formulaire d'admission pour recevoir un rappel téléphonique ou une réponse par e-mail. Si votre affaire est urgente, veuillez nous contacter par téléphone ; cependant, nous ne faisons aucune promesse ni garantie d'assistance, car nous ne pouvons prendre en charge autant de cas que notre capacité étudiante le permet. Merci de votre compréhension."
         }
       ]
     },
     {
       "id": "personal",
+      "titleFR": "Informations personnelles",
       "title": "Personal Information",
       "icon": "User",
       "fields": [
         {
           "name": "fullName",
+          "labelFR": "Nom complet",
           "label": "Full Name",
           "type": "text",
           "required": true
         },
         {
           "name": "dateOfBirth",
+          "labelFR": "Date de naissance",
           "label": "Date of Birth",
           "type": "date",
           "required": true
         },
         {
           "name": "cityProvince",
+          "labelFR": "Ville/Province",
           "label": "City/Province",
           "type": "text",
           "required": true
@@ -54,22 +63,26 @@
       ]
     },
     {
-      "id": "contact",
+      "id": "contact", 
+      "titleFR": "Informations de contact",
       "title": "Contact Information",
       "icon": "Phone",
       "fields": [
         {
           "name": "phone",
+          "labelFR": "Numéro de téléphone",
           "label": "Cell Phone",
           "type": "tel",
           "required": true
         },
         {
           "name": "email",
+          "labelFR": "Adresse e-mail",
           "label": "Email Address",
           "type": "email",
           "required": true,
-          "guidance": "Please provide an accessible email address, as this will be our primary means of communication"
+          "guidance": "Please provide an accessible email address, as this will be our primary means of communication",
+          "guidanceFR": "Veuillez fournir une adresse e-mail accessible, car ce sera notre principal moyen de communication"
         }
       ]
     },
@@ -80,97 +93,118 @@
       "fields": [
         {
           "name": "monthlyIncome",
+          "labelFR": "Revenu mensuel",
           "label": "Total Income per month",
           "type": "number",
           "required": true,
-          "guidance": "Please enter numbers without commas or dollar signs. For example: 2000"
+          "guidance": "Please enter numbers without commas or dollar signs. For example: 2000",
+          "guidanceFR": "Veuillez entrer des chiffres sans virgules ni signes de dollar. Par exemple : 2000"
         },
         {
           "name": "monthlyExpenses",
+          "labelFR": "Dépenses mensuelles",
           "label": "Total Expenses per month",
           "type": "number",
           "required": true,
-          "guidance": "Please enter numbers without commas or dollar signs. For example: 2000"
+          "guidance": "Please enter numbers without commas or dollar signs. For example: 2000",
+          "guidanceFR": "Veuillez entrer des chiffres sans virgules ni signes de dollar. Par exemple : 2000"
         }
       ]
     },
     {
       "id": "legal",
+      "titleFR": "Informations juridiques",
       "title": "Legal Information",
       "icon": "Scale",
       "fields": [
         {
           "name": "legalIssueType",
+          "labelFR": "La question juridique est liée à laquelle des catégories suivantes",
           "label": "The legal matter is related to which one of the following categories",
           "type": "select",
           "required": true,
           "options": [
             {
               "value": "housing",
+              "labelFR": "Logement et location",
               "label": "Housing and Tenancy"
             },
             {
               "value": "benefits",
+              "labelFR": "Avantages provinciaux et fédéraux",
               "label": "Provincial and Federal benefits"
             },
             {
               "value": "employment",
+              "labelFR": "Droit du travail",
               "label": "Employment Law"
             },
             {
               "value": "human-rights",
+              "labelFR": "Droits de la personne",
               "label": "Human Rights"
             },
             {
               "value": "small-claims",
+              "labelFR": "Petites créances",
               "label": "Small Claims"
             },
             {
               "value": "notary",
+              "labelFR": "Services de notaire",
               "label": "Notary Services"
             },
             {
               "value": "divorce",
+              "labelFR": "Divorce sans opposition",
               "label": "Uncontested Divorce"
             },
             {
               "value": "offences",
+              "labelFR": "Infractions provinciales (amendes)",
               "label": "Provincial Offences (Tickets)"
             },
             {
               "value": "immigration",
+              "labelFR": "Immigration et protection des réfugiés",
               "label": "Immigration and Refugee Assistance"
             },
             {
               "value": "other",
+              "labelFR": "Autre",
               "label": "Other"
             }
           ]
         },
         {
           "name": "description",
+          "labelFR": "Veuillez décrire votre situation en autant de détails que possible",
           "label": "Please describe your matter in as much detail as possible",
           "type": "textarea",
           "required": true
         },
         {
           "name": "priorLegalAssistance",
+          "labelFR": "Avez-vous déjà demandé une assistance juridique pour ce problème ?",
           "label": "Have you previously sought legal assistance for this issue?",
           "type": "radio",
           "required": true,
           "options": [
             {
               "value": "yes",
+              "labelFR": "Oui",
               "label": "Yes"
             },
             {
               "value": "no",
+              "labelFR": "Non",
               "label": "No"
             }
           ]
         },
         {
           "name": "priorLegalDetails",
+          "labelFR": "Si oui, veuillez fournir des détails :",
           "label": "If yes, please provide details:",
           "type": "textarea",
           "required": false,
@@ -178,10 +212,12 @@
         },
         {
           "name": "opposingParty",
+          "labelFR": "Partie adverse",
           "label": "Opposing Party",
           "type": "textarea",
           "required": true,
-          "guidance": "Please write down the name(s) of all the opposing party(s) in this matter, if any. For example, If you're a tenant in a housing dispute- give the landlords' name. (Last name- First Name- Middle Name- Date of Birth)"
+          "guidance": "Please write down the name(s) of all the opposing party(s) in this matter, if any. For example, If you're a tenant in a housing dispute- give the landlords' name. (Last name- First Name- Middle Name- Date of Birth)",
+          "guidanceFR": "Veuillez indiquer le(s) nom(s) de la ou des parties adverses dans cette affaire, le cas échéant. Par exemple, si vous êtes locataire dans un litige locatif, indiquez le nom du propriétaire. (Nom de famille - Prénom - Deuxième prénom - Date de naissance)"
         }
       ]
     },
@@ -192,16 +228,19 @@
       "fields": [
         {
           "name": "finalConsent",
+          "labelFR": "Consentement",
           "label": "Consent",
           "type": "radio",
           "required": true,
           "options": [
             {
               "value": "understand",
+              "labelFR": "Je comprends",
               "label": "I understand"
             }
           ],
-          "guidance": "I consent to the collection and use of my information for the purpose of legal assistance and understand that this form does not create an attorney-client relationship."
+          "guidance": "I consent to the collection and use of my information for the purpose of legal assistance and understand that this form does not create an attorney-client relationship.",
+          "guidanceFR": "Je consens à la collecte et à l'utilisation de mes informations dans le but d'obtenir une assistance juridique et je comprends que ce formulaire ne crée pas de relation avocat-client."
         }
       ]
     }

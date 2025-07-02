@@ -91,6 +91,7 @@ export default function IntakeForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [submissionId, setSubmissionId] = useState(null);
   const [ formConfig , setConfig] = useState(configData);
+  const [language, setLanguage] = useState('en');
   
     useEffect(() => {
       async function fetchIntakeData() {
@@ -127,17 +128,18 @@ export default function IntakeForm() {
     setProgress(newProgress);
   }, [currentStep]);
 
+
   const validateField = (field, value, allData = formData) => {
     if (field.required && (!value || value === '')) {
       return {
         isValid: false,
-        message: `${field.label} is required`
+        message: `${language === "fr" ? field.labelFR : field.label} est requis`
       };
     }
 
     switch (field.name) {
       case 'dateOfBirth':
-        if (!value) return { isValid: false, message: 'Date of birth is required' };
+        if (!value) return { isValid: false, message: `${language === "fr" ? "Date de naissance" : "Date of birth"} est requis` };
 
         const dob = new Date(value);
         const today = new Date();
@@ -151,7 +153,7 @@ export default function IntakeForm() {
         if (age < 18) {
           return {
             isValid: false,
-            message: 'You must be at least 18 years old'
+            message: language === "fr" ? "Vous devez avoir au moins 18 ans" : 'You must be at least 18 years old'
           };
         }
 
@@ -161,14 +163,14 @@ export default function IntakeForm() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return {
           isValid: emailRegex.test(value),
-          message: emailRegex.test(value) ? '' : 'Please enter a valid email address'
+          message: emailRegex.test(value) ? '' : `${language === "fr" ? "Veuillez entrer une adresse e-mail valide" : "Please enter a valid email address"}`
         };
 
       case 'phone':
         const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
         return {
           isValid: phoneRegex.test(value),
-          message: phoneRegex.test(value) ? '' : 'Please enter a valid phone number'
+          message: phoneRegex.test(value) ? '' : `${language === "fr" ? "Veuillez entrer un numéro de téléphone valide" : "Please enter a valid phone number"}`
         };
 
       case 'monthlyIncome':
@@ -176,7 +178,7 @@ export default function IntakeForm() {
         const numValue = parseFloat(value);
         return {
           isValid: !isNaN(numValue) && numValue >= 0,
-          message: !isNaN(numValue) && numValue >= 0 ? '' : 'Please enter a valid amount'
+          message: !isNaN(numValue) && numValue >= 0 ? '' : `${language === "fr" ? "Veuillez entrer un montant valide" : "Please enter a valid amount"}`
         };
 
       default:
@@ -424,7 +426,7 @@ export default function IntakeForm() {
 
     // Append individual fields from formData (best approach)
     for (const [key, value] of Object.entries(formData)) {
-      if (typeof value === 'string' || value instanceof Blob) {
+      if (typeof value === 'string') {
         submitData.append(key, value);
       } else {
         submitData.append(key, JSON.stringify(value)); //  fallback
@@ -486,7 +488,7 @@ export default function IntakeForm() {
                     htmlFor={`${field.name}-${option.value}`} 
                     className="ml-3 font-medium text-gray-800 text-sm sm:text-base"
                   >
-                    {option.label}
+                    {language === "fr" ? option.labelFR : option.label}
                   </Label>
                 </div>
               ))}
@@ -513,7 +515,7 @@ export default function IntakeForm() {
               <SelectContent className="bg-white shadow-xl border-gray-200">
                 {field.options.map(option => (
                   <SelectItem key={option.value} value={option.value} className="focus:bg-blue-50 focus:text-blue-800">
-                    {option.label}
+                    {language === "fr" ? option.labelFR : option.label}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -536,7 +538,7 @@ export default function IntakeForm() {
               className={`min-h-[120px] transition-all border-gray-300 focus:border-blue-500 focus:ring-blue-200 ${
                 hasError ? 'border-red-500 ring-1 ring-red-200' : ''
               }`}
-              placeholder={field.placeholder || `Enter ${field.label.toLowerCase()} here...`}
+              placeholder={language === "fr" ? field.placeholder  || `Entrez ${field.labelFR.toLowerCase()} ici...` : field.placeholder || `Enter ${field.label.toLowerCase()} here...`}
             />
             {hasError && (
               <Alert variant="destructive" className="mt-2 bg-red-50 border-red-200 text-red-700">
@@ -557,7 +559,7 @@ export default function IntakeForm() {
               className={`transition-all border-gray-300 focus:border-blue-500 focus:ring-blue-200 ${
                 hasError ? 'border-red-500 ring-1 ring-red-200' : ''
               }`}
-              placeholder={field.placeholder || `Enter ${field.label.toLowerCase()} here...`}
+              placeholder={language === "fr" ? field.placeholder  || `Entrez ${field.labelFR.toLowerCase()} ici...` : field.placeholder || `Enter ${field.label.toLowerCase()} here...`}
             />
             {hasError && (
               <Alert variant="destructive" className="mt-2 bg-red-50 border-red-200 text-red-700">
@@ -634,6 +636,14 @@ export default function IntakeForm() {
               <span className="inline-flex items-center"><Info className="w-4 h-4 mr-1" /> {formConfig.metadata.clinic.email}</span> • 
               <span className="inline-flex items-center"><Home className="w-4 h-4 mr-1" /> {formConfig.metadata.clinic.address}</span>
             </CardDescription>
+            <div className="flex flex-col items-center mb-2 mt-6">
+                <div className="text-2xl font-semibold text-blue-800 mb-3 inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
+                  <button
+                    onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+                  > {language === "fr" ? "English" : "Français"}</button>
+
+              </div>
+            </div>
           </CardHeader>
         </Card>
 
@@ -713,14 +723,14 @@ export default function IntakeForm() {
                 {currentStepConfig.fields.map((field, index) => (
                   <div key={`${field.name}-${index}`} className="space-y-2">
                     <Label className="text-gray-800 text-base font-semibold block mb-2">
-                      {field.label}
+                      {language === "fr" ? field.labelFR : field.label}
                       {field.required && <span className="text-red-500 ml-1">*</span>}
                     </Label>
 
                     {field.guidance && (
                       <p className="text-sm text-gray-500 flex items-start gap-2 mb-3 bg-blue-50 p-3 rounded-lg">
                         <Info className="h-4 w-4 mt-0.5 text-blue-500" />
-                        <span>{field.guidance}</span>
+                        <span>{language === "fr" ? field.guidanceFR : field.guidance}</span>
                       </p>
                     )}
 
@@ -736,11 +746,11 @@ export default function IntakeForm() {
                       className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     >
                       <ChevronLeft className="mr-2 h-4 w-4" />
-                      Previous
+                      {language === "fr" ? "Précédent" : "Previous"}
                     </Button>
                   )}
 
-<Button
+                  <Button
                     onClick={handleNext}
                     className={clsx(
                       currentStep === 0 ? 'ml-auto' : '', // Ensure proper conditional logic
@@ -752,18 +762,18 @@ export default function IntakeForm() {
                         {submitStatus.loading ? (
                           <div className="flex items-center gap-2">
                             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin "></div>
-                            Submitting...
+                            {language === "fr" ? "Soumission en cours..." : "Submitting..."}
                           </div>
                         ) : (
                           <>
-                            Submit Application
+                            {language === "fr" ? "Soumettre la demande" : "Submit Application"}
                             <Send className="ml-2 h-4 w-4" />
                           </>
                         )}
                       </>
                     ) : (
                       <>
-                        Next
+                        {language === "fr" ? "Suivant" : "Next"}
                         <ChevronRight className="ml-2 h-4 w-4" />
                       </>
                     )}

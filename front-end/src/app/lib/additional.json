@@ -1,285 +1,412 @@
 {
     "steps": [{
         "name": "Shelters",
+        "nameFR": "Refuges",
         "icon": "House",
-        "fields": [{
+        "fields": [
+            {
+                "name": "Crossroads for Women Inc.",
+                "descriptionFR": "Fournit un logement de transition, un soutien par ligne de crise et des services de soutien aux victimes d'agression sexuelle",
+                "description": "Provides transitional housing, crisis line support, and sexual assault support services",
+                "location": "Moncton",
+                "email": "housing@crossroadsforwomen.ca",
+                "website": "https://crossroadsforwomen.ca/",
+                "phoneNumber": "1-844-853-0811",
+                "notesFR": "Réservé aux femmes",
+                "notes": "Women Only",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
+            },
+             {
+                "name": "Escale MadaVic",
+                "descriptionFR": "Refuge, centre de soutien aux victimes de violence sexuelle et programme de logement de deuxième étape",
+                "description": "Shelter, sexual violence support centre, and second stage housing program",
+                "location": "Moncton",
+                "email": "housing@crossroadsforwomen.ca",
+                "website": "https://crossroadsforwomen.ca/",
+                "phoneNumber": "506-739-6265",
+                "notesFR": "Réservé aux femmes",
+                "notes": "Women Only",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
+            },
+            {
                 "name": "Gignoo Aboriginal Transition House",
+                "descriptionFR": "Soutien aux femmes et enfants des Premières Nations qui sont victimes de violence domestique",
                 "description": "Support for First Nation women and children who are survivors of domestic violence",
                 "location": "Fredericton",
                 "email": " gignoo@nbnet.nb.ca",
                 "website": "https://gignoohouse.ca/",
                 "phoneNumber": "(800)-565-6878",
-                "notes": "Women Only, First Nations",
-                "category":"Shelters"
+                "notesFR": "Réservé aux femmes",
+                "notes": "Women Only",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             },
             {
                 "name": "Grace House for Women",
+                "descriptionFR": "Logement temporaire avec le soutien de travailleurs de soutien résidentiels et d'un planificateur de transition",
                 "description": "Temporary Housing with support from resident support workers and a transition planner",
                 "location": "Fredericton",
                 "phoneNumber": "(506)-450-3001",
                 "email": "info@theshelters.ca",
                 "website": "https://www.theshelters.ca/our-spaces/grace-house/",
+                "notesFR": "Réservé aux femmes",
                 "notes": "Women Only",
-                "category":"Shelters"
+                "category":"Shelters",
+                "categoryFR": "Refuges"
+            },
+             {
+                "name": "Hestia House",
+                "descriptionFR": "Maison de transition pour femmes",
+                "description": "Transitional house for women",
+                "location": "Saint John",
+                "email": "transition@hestiahouse.ca",
+                "website": "https://hestiahouse.ca/",
+                "phoneNumber": "506-634-7570",
+                "notesFR": "Réservé aux femmes",
+                "notes": "Women Only",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             },
             {
                 "name": "Oak Centre",
+                "descriptionFR": "Complexe de logement de soutien principalement pour les personnes confrontées ou ayant vécu l'itinérance",
                 "description": "Supportive housing complex primarily for individuals facing or having experienced homelessness",
                 "location": "Fredericton",
                 "phoneNumber": "(506)-206-0667",
+                "email": " jhsf@nb.aibn.com",
                 "website": "https://johnhowardfredericton.ca/housing-programs/",
-                "category":"Shelters"
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             },
             {
                 "name": "Outflow Men's Shelter",
+                "descriptionFR": "Refuge pour hommes offrant des services de soutien",
                 "description": "24/7 free-of-charge shelter with 30 beds, provides a light meal, showers, laundry, and breakfast",
                 "location": "Saint John",
                 "phoneNumber": "(506)-658-8050",
                 "website": "https://outflowsj.com/",
+                "notesFR": "Religieuse",
                 "notes": "Faith-based",
-                "category":"Shelters"
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             },
             {
                 "name": "Saint John House",
-                "description": "Downtown emergency shelter to up to 27 individuals, offering laundry and showering services, a resident phone, Wi-Fi, computers, access to donation, and support from Resident Support Workers, a Transition Planner and Manager",
+                "descriptionFR": "Refuge d'urgence au centre-ville pour 27 personnes, offrant des services de blanchisserie et de douche, un accès aux téléphones et aux ordinateurs, ainsi qu'un soutien aux résidents",
+                "description": "Downtown emergency shelter to up to 27 individuals, offering laundry and showering services, phone and computers access, and resident support",
                 "location": "Fredericton",
                 "email": "info@theshelters.ca",
                 "phoneNumber": "(506)-450-1102",
                 "website": "https://www.theshelters.ca/our-spaces/st-john-house/",
-                "category":"Shelters"
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             },
             {
                 "name": "Sanctuary House",
+                "descriptionFR": "Logement temporaire pour femmes et enfants victimes de violence domestique",
                 "description": "Temporary housing for women and children who are victims of domestic violence",
                 "location": "Woodstock",
                 "email": "sanctuary@nb.aibn.com",
                 "phoneNumber": "(506)-325-9452",
                 "website":"https://www.sanctuaryhouse.ca/",
                 "category":"Shelters",
+                "categoryFR": "Refuges",
+                "notesFR": "Réservé aux femmes",
                 "notes": "Women Only"
             },
             {
                 "name": "Women in Transition",
+                "descriptionFR": "Refuge pour femmes ayant subi des violences domestiques et de partenaires intimes, pouvant accueillir jusqu'à 19 femmes et leurs enfants",
                 "description": "Shelter for women who have experienced domestic and intimate partner violence, provides accommodations for up to 19 women and their children",
                 "location": "Fredericton",
                 "email": "transhouse1@nb.aibn.com",
                 "phoneNumber": "(506)-459-2300",
                 "website": "https://www.womenintransitionhouse.ca/",
+                "notesFR": "Réservé aux femmes",
                 "notes": "Women Only",
-                "category":"Shelters"
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             }
         ]},
         {
+        "nameFR": "Réhabilitation",
         "name": "Rehabilitation",
         "icon": "BookOpen",
         "fields": [
             {
+                "nameFR": "",
                 "name": "Harvest House - Community Centre & Shelter",
+                "descriptionFR": "Centre communautaire offrant trois repas par jour et un abri d'urgence",
                 "description": "Community center offering three meals a day and emergency shelter",
                 "location": "Moncton",
                 "phoneNumber": "(506) 855-0626",
                 "website": "https://harvesthouseatlantic.org/",
-                "category":"Rehabilitation"
+                "category":"Rehabilitation",
+                "categoryFR": "Réhabilitation"
             },
             {
+                "nameFR": "Naomi & Ruth",
                 "name": "Naomi & Ruth",
+                "descriptionFR": "Réservé aux femmes, Programme d'un an basé sur la foi offrant un environnement de soutien avec traitement médical, thérapie, mentorat, counseling financier, programmes de conditionnement physique, gestion du stress et formation aux compétences de vie",
                 "description": "Faith-based one year program offering a supportive environment with  medical treatment, therapy, mentorship, financial counseling, fitness programs, stress management, and life skills training",
                 "location": "Shediac",
                 "phoneNumber": "(506) 875-5371",
                 "website": "https://naomiandruth.ca/",
+                "notesFR": "Réservé aux femmes, Religieuse",
                 "notes": "Women Only, Faith-based",
-                "category":"Rehabilitation"
+                "category":"Rehabilitation",
+                "categoryFR": "Réhabilitation"
             },
             {
+                "nameFR": "Portage",
                 "name": "Portage",
+                "descriptionFR": "Centre de réhabilitation de la toxicomanie résidentiel pour les jeunes entre 14 et 21 ans",
                 "description": "Residential drug addiction rehabilitation centre for youth between 14 and 21",
                 "location": "Cassidy Lake",
                 "phoneNumber": "(506)-839-1200",
                 "website": "https://portage.ca/en/atlantic/",
+                "notesFR": "Jeunes et jeunes adultes, Services bilingues",
                 "notes": "Youth & Young Adult, Bilingual Services",
-                "category":"Rehabilitation"
+                "category":"Rehabilitation",
+                "categoryFR": "Réhabilitation"
             },
             {
+                "nameFR": "Riverstone Recovery Outpatient",
                 "name": "Riverstone Recovery Outpatient",
+                "descriptionFR": "Services ambulatoires pour les personnes aux prises avec des problèmes de consommation de substances",
                 "description": "Outpatient services for individuals struggling with substance use",
                 "location": "Fredericton",
                 "phoneNumber": "(506) 447-9634",
                 "website": "https://www.facebook.com/riverstonerecoverycentre/",
-                "category":"Rehabilitation"
+                "category":"Rehabilitation",
+                "categoryFR": "Réhabilitation"
             },
             {
+                "nameFR": "Teen Challenge",
                 "name": "Teen Challenge",
+                "descriptionFR": "12 mois de programmes de réhabilitation en résidence pour les adultes de 18 ans ou plus aux prises avec des problèmes d'alcool et de toxicomanie",
                 "description": "12-month in-residence alcohol and drug addiction rehabilitation programs for adults 18 or older",
                 "location": "Memramcook",
                 "phoneNumber": "(506) 758-2377",
                 "website": "https://www.teenchallenge.ca/",
+                "notesFR": "Jeunes et jeunes adultes",
                 "notes": "Youth",
-                "category":"Rehabilitation"
+                "category":"Rehabilitation",
+                "categoryFR": "Réhabilitation"
             },
             {
+                "nameFR": "Village of Hope",
                 "name": "Village of Hope",
+                "descriptionFR": "Programme de 10 mois basé sur le christianisme axé sur la réhabilitation de la toxicomanie et de l'alcoolisme",
                 "description": "10-month Christianity-based program centred on drug and alcohol addiction recovery",
                 "location": "Upper Tracy",
                 "phoneNumber": "(506)-368-2600",
                 "email": "info@villageofhopenb.ca",
                 "website": "https://villageofhope.ca/",
-                "notes": "Faith-based ",
-                "category":"Rehabilitation"
+                "notesFR": "Religieuse",
+                "notes": "Faith-based",
+                "category":"Rehabilitation",
+                "categoryFR": "Réhabilitation"
             },
             {
+                "nameFR": "Youth Impact Jeunesse",
                 "name": "Youth Impact Jeunesse",
+                "descriptionFR": "Offre des services résidentiels pour les jeunes de deux à vingt-cinq ans, ainsi que des programmes de sensibilisation pour les jeunes de 16 ans ou plus",
                 "description": "Offers residential services for youths between two and twenty-five, as well as outreach programs for youths aged 16 or older",
                 "location": "Moncton",
                 "phoneNumber": "(506)-869-6333",
                 "website": "https://youthimpact.org/",
+                "notesFR": "Jeunes et jeunes adultes, Services bilingues",
                 "notes": "Youth & Young Adult, Bilingual Services",
-                "category":"Rehabilitation"
+                "category":"Rehabilitation",
+                "categoryFR": "Réhabilitation"
             }
         ]},
         {
         "name": "First Nations",
+        "nameFR": "Premières Nations",
         "icon": "Info",
         "fields": [
             {
+                "nameFR": "Addictions/Mental-Wellness St Mary's",
                 "name": "Addictions/Mental-Wellness St Mary's",
+                "descriptionFR": "Services de santé centrés sur les valeurs autochtones, y compris les visites médicales en personne au St. Mary’s Veterans Memorial Health Centre et le counseling de crise",
                 "description": "Healthcare services centered on indigenous values, including in-person medical visits at the St. Mary’s Veterans Memorial Health Centre and crisis counseling ",
                 "location": "St. Mary's First Nation",
                 "phoneNumber": "(506) 452-2750",
                 "email": "chrisbrooks@smfn.ca",
-                "category":"First Nations"
+                "category":"First Nations",
+                "categoryFR": "Premières Nations"
             },
             {
+                "nameFR": "Apatawsuwikuwam",
                 "name": "Apatawsuwikuwam",
+                "descriptionFR": "Stratégie et rétablissement en matière de dépendance pour les individus autochtones",
                 "description": "Addiction strategy and recovery for Indigenous individuls",
                 "location": "St. Mary's First Nation",
                 "phoneNumber": "(506)-206-1005",
                 "email": "admin@apatawsuwikuwam.com",
                 "website": "https://www.facebook.com/Apatawsuwikuwam/",
-                "category":"First Nations"
+                "category":"First Nations",
+                "categoryFR": "Premières Nations"
             },
             {
+                "nameFR": "Elsipogtog Health & Wellness Centre",
                 "name": "Elsipogtog Health & Wellness Centre",
+                "descriptionFR": "Centre de santé et de bien-être d'Elsipogtog",
                 "description": "Healthcare services to the Elsipogtog First Nation community",
                 "location": "Elsipogtog",
                 "phoneNumber": "(506)-523-8227",
                 "website": "https://ehwc.ca/",
-                "category":"First Nations"
+                "category":"First Nations",
+                "categoryFR": "Premières Nations"
             },
             {
                 "name": "Rising Sun Treatment Centre",
                 "description": "Culture-focused and harm reduction-based addiction support with 10-bed residence and mental health counseling",
+                "descriptionFR": "Centre de traitement des dépendances axé sur la culture et la réduction des méfaits, avec hébergement de 10 lits et counseling en santé mentale",
                 "location": "Eel Ground",
                 "phoneNumber": "(833)-444-4626",
                 "email": "info@risingsuntreatment.ca",
                 "website": "https://www.risingsuntreatment.ca/",
-                "category":"First Nations"
+                "category":"First Nations",
+                "categoryFR": "Premières Nations"
             },
             {
                 "name": "Wolastoqewiyik Healing Lodge - Outpatient",
                 "description": "Provides holistic and high-quality care for the Neqotkuk community",
+                "descriptionFR": "Fournit des soins holistiques et de haute qualité à la communauté de Neqotkuk",
                 "location": "Tobique",
                 "phoneNumber": "(506) 273-5403",
                 "website": "https://healing-lodge.ca",
-                "category":"First Nations"
+                "category":"First Nations",
+                "categoryFR": "Premières Nations"
             }
         ]},
         {
+        "nameFR": "Services juridiques",
         "name": "Legal and Referral Services",
         "icon": "Scale",
         "fields": [
              {
                 "name": "Family Law Advice Lawyer",
                 "description": "Offers up to two hours of assistance for family law paperwork and basic advice",
+                "descriptionFR": "Offre jusqu'à deux heures d'assistance pour la paperasse en droit de la famille et des conseils de base",
                 "phoneNumber": "855-266-0266",
                 "website": "https://www.legalaid-aidejuridique-nb.ca/family-law-advice-lawyer/",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
+            },
+            {
+                "name": "Fine Option Program",
+                "descriptionFR": "Permet aux jeunes ou aux adultes contrevenants de faire du bénévolat au lieu de payer une amende monétaire",
+                "description": "Allows young or adult offenders to do volunteer work in lieu of paying a monetary fine",
+                "email": "DPS-MSP.Information@gnb.ca",
+                "website": "https://www2.gnb.ca/content/gnb/en/services/services_renderer.201050.Fine_Option_Program.html",
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "Fredericton Legal Advice Clinic",
+                "descriptionFR": "Géré par des avocats bénévoles offrant des conseils en personne ou par le biais d'un formulaire de contact en ligne",
                 "description": "Run by volunteer lawyers providing advice in person or through online contact form",
                 "phoneNumber": "(506) 476-0024",
                 "email": "flac.nb@gmail.com",
                 "website": "https://flac.cliogrow.com/",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "Investigations of Complaints - Employment Standards",
+                "descriptionFR": "Traite les plaintes liées à l'emploi, avec des agents qui filtrent et enquêtent sur les problèmes pouvant être portés devant la Commission du travail et de l'emploi du Nouveau-Brunswick",
                 "description": "Handles employment-related complaints, with officers screening and investigating issues that may escalate to the New Brunswick Labour & Employment Board",
                 "phoneNumber": "1-888-452-2687",
                 "email": "employmentstandards@gnb.ca",
-                "category":"LegalAndReferralServices"
-            },
-            {
-                "name": "Landlord and Tenant Relations Office",
-                "description": "Provides information and resources on rental agreements, dispute resolution, and the Residential Tenancies Act",
-                "phoneNumber": "1-888-762-8600",
-                "email": "renting@gnb.ca",
-
-                "category":"LegalAndReferralServices"
+                "website": "https://www.gnb.ca/en/topic/jobs-workplaces/labour-market-workforce/employment-standards.html",
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "New Brunswick Human Rights Commission",
+                "descriptionFR": "Agence gouvernementale responsable de l'application de la Loi sur les droits de la personne, de la promotion de l'égalité et de l'élimination des pratiques discriminatoires",
                 "description": "Government agency responsible for administering the Human Rights Act, promoting equality, and eliminating discriminatory practices",
                 "phoneNumber": "1-888-471-2233",
                 "email": "hrc.cdp@gnb.ca",
-                "category":"LegalAndReferralServices"
+                "website":"https://www2.gnb.ca/content/gnb/en/departments/nbhrc.html",
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques",
+                "notesFR": "Services bilingues",
+                "notes":"Bilingual Services"
             },
             {
                 "name": "New Brunswick Legal Aid Services Commission (NBLASC)",
+                "descriptionFR": "Fournit une représentation juridique pour la pension alimentaire et la garde d'enfants pour les personnes admissibles",
                 "description": "Provides legal representation for child support and child custody for qualifying individuals",
                 "phoneNumber": "506-444-2777",
+                "email": "info@legalaid.nb.ca",
                 "website": "https://www.legalaid-aidejuridique-nb.ca/home/",
+                "notesFR": "Services bilingues",
                 "notes": "Bilingual Services",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "Public Legal Education Information Services NB (PLEIS)",
+                "descriptionFR": "Fournit une ligne d'information sur le droit de la famille et une ligne d'information juridique",
                 "description": "Provides family law information line and legal information line",
                 "phoneNumber": "1-888-236-2444",
+                "email": "info@legalinfonb.ca",
                 "website": "https://www.legal-info-legale.nb.ca/",
+                "notesFR": "Services bilingues",
                 "notes": "Bilingual Services",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "New Brunswick Real Estate Association (NBREA)",
+                "descriptionFR": "Association provinciale de courtiers immobiliers travaillant à promouvoir des normes professionnelles et à protéger l'intérêt public",
                 "description": "Provincial association of REALTORS® working to promote professional standards and protect public interest",
                 "phoneNumber": "506-459-8055",
                 "email": "info@nbrea.ca",
                 "website": "www.nbrea.ca/",
+                "notesFR": "Services bilingues",
                 "notes": "Bilingual Services",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "Stewart McKelvey - Will Project",
+                "descriptionFR": "Partenariat avec la faculté de droit de l'UNB et des étudiants pro bono pour créer des testaments pour les personnes à revenu limité",
                 "description": "Partnership with UNB Law and Pro Bono students to create wills for people of limited means",
                 "phoneNumber": "506-458-7037",
                 "email": "willsproject@unb.ca",
                 "website": "https://unbprobono.ca/wills-project/",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "Public Trustee",
+                "descriptionFR": "Assistance pour les personnes comme les personnes âgées ou les personnes handicapées concernant la capacité juridique",
                 "description": "Assistance for individuals like seniors or disabled persons regarding legal capacity",
                 "phoneNumber": "(506)-444-3688",
                 "email": "Public.trustee@gnb.ca",
+                "notesFR": "Services bilingues",
                 "notes": "Bilingual Services",
                 "website": "https://socialsupportsnb.ca/en/program/public-trustee-new-brunswick",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             },
             {
                 "name": "NB Refugee Clinic",
+                "descriptionFR": "Assistance pour les formulaires de demande d'asile, les audiences d'immigration et les problèmes connexes liés aux réfugiés",
                 "description": "Assists with Basis of Claim forms, immigration hearings, and related refugee issues",
                 "phoneNumber": "506-204-5781",
                 "email": "info@nbrc-crnb.ca",
                 "website": "https://nbrc-crnb.ca/",
-                "category":"LegalAndReferralServices"
-            },
-            {
-                "name": "Fine Option Program",
-                "description": "Allows young or adult offenders to do volunteer work in lieu of paying a monetary fine",
-                "email": "DPS-MSP.Information@gnb.ca",
-                "website": "https://www2.gnb.ca/content/gnb/en/services/services_renderer.201050.Fine_Option_Program.html",
-                "category":"LegalAndReferralServices"
+                "category":"Legal And Referral Services",
+                "categoryFR": "Services juridiques"
             }
         ]
     }]

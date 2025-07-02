@@ -1,12 +1,10 @@
 import validator from 'validator';
 import xss from 'xss';
 
-// Helper for text fields (escape + trim)
 function cleanText(value: string | undefined): string {
   return validator.escape(validator.trim(value || ''));
 }
 
-// Sanitize the validation.rules array
 function sanitizeValidation(validation: any) {
   return {
     rules: Array.isArray(validation?.rules)
@@ -15,7 +13,6 @@ function sanitizeValidation(validation: any) {
   };
 }
 
-// Sanitize the options array
 function sanitizeOptions(options: any[]) {
   return Array.isArray(options)
     ? options.map(opt => ({
@@ -24,7 +21,6 @@ function sanitizeOptions(options: any[]) {
       }))
     : [];
 }
-// Helper for email fields
 function cleanEmail(email: string | undefined): string {
   const trimmed = validator.trim(email || '');
   return validator.isEmail(trimmed) ? trimmed : '';
@@ -34,7 +30,6 @@ function cleanBoolean(value: boolean | string | undefined): boolean {
   return value === true || value === 'true' ? true : false;
 }
 
-// Helper for optional rich text (e.g. help text)
 function cleanRichText(value: string | undefined): string {
   return xss(value || '');
 }

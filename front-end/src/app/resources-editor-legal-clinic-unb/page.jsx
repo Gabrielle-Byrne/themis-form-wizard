@@ -147,21 +147,25 @@ const FormEditor = () => {
     steps: [
       {
         name: "First Nations",
+        nameFR: "Premières Nations",
         icon: "Info",
         fields: []
       },
       {
         name: "Rehabilitation",
+        nameFR: "Réhabilitation",
         icon: "BookOpen",
         fields: []
       },
       {
         name: "Shelters",
+        nameFR: "Refuges",
         icon: "House",
         fields: []
       },
       {
         name: "Legal And Referral Services",
+        nameFR: "Services juridiques",
         icon: "Scale",
         fields: []
       }
@@ -456,14 +460,15 @@ const sensors = useSensors(pointerSensor);
       ...prev,
       steps: [...prev.steps, {
         name: `category_${prev.steps.length + 1}`,
+        nameFR: `catégorie_${prev.steps.length + 1}`,
         icon: "User",
         fields: []
       }]
     }));
   };
 
-  const removeStep = (stepIndex) => {
-    if (window.confirm('Are you sure you want to delete this category?')) {
+  const removeStep = (stepIndex, stepName) => {
+    if (window.confirm (`Are you sure you want to delete the category ${stepName}?`)) {
     setFormData(prev => ({
       ...prev,
       steps: prev.steps.filter((_, index) => index !== stepIndex)
@@ -475,6 +480,7 @@ const sensors = useSensors(pointerSensor);
   };
 
   const handleStepChange = (stepIndex, field, value) => {
+    if(field==="name"){
     setFormData(prev => {
       const newSteps = [...prev.steps];
       newSteps[stepIndex] = {
@@ -487,6 +493,27 @@ const sensors = useSensors(pointerSensor);
       };
       return { ...prev, steps: newSteps };
     });
+     }
+     else if(field==="nameFR"){
+        setFormData(prev => {
+          const newSteps = [...prev.steps];
+          newSteps[stepIndex] = {
+            ...newSteps[stepIndex],
+            [field]: value,
+            fields: newSteps[stepIndex].fields.map(f => ({
+              ...f,
+              categoryFR: value, 
+            })),
+          };
+          return { ...prev, steps: newSteps };
+        });
+     }
+     else{
+        setFormData(prev => {
+          const newSteps = [...prev.steps];
+          return { ...prev, steps: newSteps };
+        });
+     }
   };
 
   const addField = (stepIndex) => {
@@ -500,6 +527,7 @@ const sensors = useSensors(pointerSensor);
             type: 'text',
             name: `entry_${newSteps[stepIndex].fields.length + 1}`,
             category: `${newSteps[stepIndex].name}`,
+            categoryFR: `${newSteps[stepIndex].nameFR}`,
           }
         ]
       };
@@ -507,10 +535,10 @@ const sensors = useSensors(pointerSensor);
     });
   };
 
-  const removeField = (stepIndex, fieldIndex) => {
-    if (window.confirm('Are you sure you want to delete this entry?')) {
-    setFormData(prev => {
-      const newSteps = [...prev.steps];
+  const removeField = (stepIndex, fieldIndex, fieldName) => {
+    if (window.confirm(`Are you sure you want to delete the field${fieldName}?`)) {
+      setFormData(prev => {
+        const newSteps = [...prev.steps];
       newSteps[stepIndex] = {
         ...newSteps[stepIndex],
         fields: newSteps[stepIndex].fields.filter((_, i) => i !== fieldIndex)
@@ -683,6 +711,12 @@ const sensors = useSensors(pointerSensor);
                         onChange={(e) => handleStepChange(stepIndex, 'name', e.target.value)}
                         className="font-semibold p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
+                      <input
+                        type="text"
+                        value={step.nameFR}
+                        onChange={(e) => handleStepChange(stepIndex, 'nameFR', e.target.value)}
+                        className="font-semibold p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      />
                     </div>
                     <div className="flex items-center gap-2">
                       <select
@@ -695,7 +729,7 @@ const sensors = useSensors(pointerSensor);
                         ))}
                       </select>
                       <button
-                        onClick={() => removeStep(stepIndex)}
+                        onClick={() => removeStep(stepIndex, step.name)}
                         className="p-2 text-red-500 hover:bg-red-50 rounded-md transition-colors"
                       >
                         <Trash2 size={16} />
@@ -767,7 +801,7 @@ const sensors = useSensors(pointerSensor);
                                       {expandedField === `${stepIndex}-${fieldIndex}` ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                                     </button>
                                     <button
-                                      onClick={() => removeField(stepIndex, fieldIndex)}
+                                      onClick={() => removeField(stepIndex, fieldIndex, field.name)}
                                       className="p-1 text-red-500 hover:bg-red-50 rounded-md transition-colors"
                                     >
                                       <Trash2 size={16} />
@@ -788,11 +822,11 @@ const sensors = useSensors(pointerSensor);
                                         />
                                       </div>
                                       <div>
-                                        <label className="block text-sm font-medium mb-1">Email</label>
+                                        <label className="block text-sm font-medium mb-1">Name (French)</label>
                                         <input
                                           type="text"
-                                          value={field.email || ''}
-                                          onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'email', e.target.value)}
+                                          value={field.nameFR || ''}
+                                          onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'nameFR', e.target.value)}
                                           className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                                         />
                                       </div>
@@ -819,7 +853,16 @@ const sensors = useSensors(pointerSensor);
                                           />
                                         </div>
                                       </div>
-                                  
+                                                                        <div>
+                                      <label className="block text-sm font-medium mb-1">Email</label>
+                                        <input
+                                          type="text"
+                                          value={field.email || ''}
+                                          onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'email', e.target.value)}
+                                          className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        />
+                                      </div>
+
                                   <div className="grid grid-cols-1 gap-4">
                                       <div>
                                         <label className="block text-sm font-medium mb-1">Website</label>
@@ -834,8 +877,8 @@ const sensors = useSensors(pointerSensor);
 
                                   <div>
                                     <label className="block text-sm font-medium mb-1">Description</label>
-                                    <input
-                                      type="textarea"
+                                    <textarea
+                                      rows="2" 
                                       value={field.description || ''}
                                       onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'description', e.target.value)}
                                       className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -844,14 +887,38 @@ const sensors = useSensors(pointerSensor);
                                   </div>
 
                                   <div>
+                                    <label className="block text-sm font-medium mb-1">Description (French)</label>
+                                    <textarea
+                                      rows="2"
+                                      value={field.descriptionFR || ''}
+                                      onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'descriptionFR', e.target.value)}
+                                      className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                      placeholder=""
+                                    />
+                                  </div>
+
+                                   <div className="grid grid-cols-2 gap-4">
+                                  <div>
                                     <label className="block text-sm font-medium mb-1">Notes</label>
                                     <input
                                       type="text"
                                       value={field.notes || ''}
                                       onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'notes', e.target.value)}
                                       className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                      placeholder="Women only, Wheelchair-accessible, Faith-based, Bilingual Services..."
+                                      placeholder="Women only, Wheelchair-accessible, Bilingual Services..."
                                     />
+                                  </div>
+                                  
+                                  <div>
+                                    <label className="block text-sm font-medium mb-1">Notes (French)</label>
+                                    <input
+                                      type="text"
+                                      value={field.notesFR || ''}
+                                      onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'notesFR', e.target.value)}
+                                      className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                      placeholder="Femmes seulement, Accessible en fauteuil roulant, Services bilingues..."
+                                    />
+                                  </div>
                                   </div>
                                 </div>
                               )}

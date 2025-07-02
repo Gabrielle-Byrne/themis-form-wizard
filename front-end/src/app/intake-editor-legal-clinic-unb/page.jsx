@@ -230,6 +230,7 @@ const FormPreview = ({ formData }) => {
         newErrors[field.name] = `${field.label} is required`;
         isValid = false;
       }
+      
       if (field.validation?.rules) {
         validateField(field, formValues[field.name]);
         if (errors[field.name]) {
@@ -1234,13 +1235,22 @@ const FormEditor = () => {
   
                                 {expandedField === `${stepIndex}-${fieldIndex}` && (
                                   <div className="mt-4 space-y-4">
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-3 gap-4">
                                       <div>
                                         <label className="block text-sm font-medium mb-1">Label</label>
                                         <input
                                           type="text"
                                           value={field.label || ''}
                                           onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'label', e.target.value)}
+                                          className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        />
+                                      </div>
+                                      <div>
+                                        <label className="block text-sm font-medium mb-1">Label (FR)</label>
+                                        <input
+                                          type="text"
+                                          value={field.labelFR || ''}
+                                          onChange={(e) => handleFieldChange(stepIndex, fieldIndex, 'labelFR', e.target.value)}
                                           className="w-full p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                                         />
                                       </div>

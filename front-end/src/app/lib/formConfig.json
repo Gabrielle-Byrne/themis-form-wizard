@@ -16,156 +16,182 @@
     }
   },
   "MONTHLY_THRESHOLDS": {
-    "1": { "income": 1900, "assets": 5000 },
-    "2": { "income": 2800, "assets": 9000 },
-    "3": { "income": 2900, "assets": 10000 },
-    "4": { "income": 3100, "assets": 11000 },
-    "5": { "income": 3300, "assets": 12000 },
-    "6": { "income": 3500, "assets": 13000 }
+    "1": {
+      "income": 1900,
+      "assets": 5000
+    },
+    "2": {
+      "income": 2800,
+      "assets": 9000
+    },
+    "3": {
+      "income": 2900,
+      "assets": 10000
+    },
+    "4": {
+      "income": 3100,
+      "assets": 11000
+    },
+    "5": {
+      "income": 3300,
+      "assets": 12000
+    },
+    "6": {
+      "income": 3500,
+      "assets": 13000
+    }
   },
   "RESOURCES": {
     "Shelters": [
       {
         "name": "Oak Centre",
+        "description": "",
         "location": "Fredericton",
         "phoneNumber": "(506) 206-0667",
-        "category":"Shelters"
-    },
-    {
+        "category": "Shelters"
+      },
+      {
         "name": "Saint John House",
-        "location": "Fredericton", 
+        "description": "",
+        "location": "Fredericton",
         "phoneNumber": "(506) 450-1102",
-        "category":"Shelters"
-    },
-    {
+        "category": "Shelters"
+      },
+      {
         "name": "Outflow Men's Shelter",
+        "description": "",
         "location": "Saint John",
         "phoneNumber": "(506) 658-8050",
-        "category":"Shelters"
-    },
-    {
+        "category": "Shelters"
+      },
+      {
         "name": "Women in Transition",
+        "description": "",
         "location": "Fredericton",
         "phoneNumber": "(506) 459-2300",
         "notes": "Women Only",
-        "category":"Shelters"
-    },
-    {
+        "category": "Shelters"
+      },
+      {
         "name": "Grace House for Women",
+        "description": "",
         "phoneNumber": "(506) 450-3001",
         "notes": "Women Only",
-        "category":"Shelters"
-    },
-    {
+        "category": "Shelters"
+      },
+      {
         "name": "Gignoo Aboriginal Transition House",
-        "phoneNumber": "(800) 565-6878 - (506) 458-1224",
+        "description": "",
+        "phoneNumber": "(800) 565-6878",
         "notes": "Women Only, First Nations",
-        "category":"Shelters"
-    },
-    {
+        "category": "Shelters"
+      },
+      {
         "name": "Sanctuary House",
+        "description": "",
         "location": "Woodstock",
         "phoneNumber": "(506) 325-9452",
-        "category":"Shelters"
-    }
+        "category": "Shelters"
+      }
     ],
     "legal": [
       {
         "name": "Fredericton Legal Advice Clinic",
         "description": "Run by volunteer lawyers providing advice in person or through online contact form",
         "phoneNumber": "N/A",
-        "email": "Online Form",
-        "matters": "General",
-         "category":"legal"
-    },
-    {
+        "location": "",
+        "email": "flac.nb@gmail.com",
+        "category": "legal"
+      },
+      {
         "name": "Investigations of Complaints - Employment Standards",
         "description": "Handles employment-related complaints, with officers screening and investigating issues that may escalate to the New Brunswick Labour & Employment Board",
         "phoneNumber": "1-888-452-2687",
         "email": "petl.epft@gnb.ca",
         "matters": "Employment",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "Landlord and Tenant Relations Office",
         "description": "Provides information and resources on rental agreements, dispute resolution, and the Residential Tenancies Act",
         "phoneNumber": "1-888-762-8600",
         "email": "renting@gnb.ca",
         "matters": "Tenancies and Landlords",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "New Brunswick Human Rights Commission",
         "description": "Government agency responsible for administering the Human Rights Act, promoting equality, and eliminating discriminatory practices",
         "phoneNumber": "1-888-471-2233",
         "email": "hrc.cdp@gnb.ca",
         "matters": "Human Rights",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "New Brunswick Legal Aid Services Commission (NBLASC)",
         "description": "Provides legal representation for child support and child custody for qualifying individuals",
         "phoneNumber": "506-444-2777",
         "email": "N/A",
         "matters": "Family Law",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "Family Law Advice Lawyer",
         "description": "Offers up to two hours of assistance for family law paperwork and basic advice",
         "phoneNumber": "855-266-0266",
         "email": "N/A",
         "matters": "Family Law",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "Public Legal Education Information Services NB (PLEIS)",
         "description": "Provides family law information line and legal information line",
         "phoneNumber": "Family Law Information Line (toll-free): 1-888-236-2444, Legal Information Line: (506) 453-5369",
         "email": "N/A",
         "matters": "Family Law, Estate Advice",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "New Brunswick Real Estate Association (NBREA)",
         "description": "Provincial association of REALTORS® working to promote professional standards and protect public interest",
         "phoneNumber": "506-459-8055 / 1-800-762-1677",
         "email": "info@nbrea.ca",
+        "website": "www.nbrea.ca/",
         "matters": "Real Estate Complaints",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "Steward McKelvey - Will Project",
         "description": "Partnership with UNB Law and Pro Bono students to create wills for people of limited means",
         "phoneNumber": "506-458-7037",
         "email": "willsproject@unb.ca",
         "matters": "Will or Power of Attorney",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "Public Trustee",
         "description": "Assistance for individuals like seniors or disabled persons regarding legal capacity",
         "phoneNumber": "(506) 444-3688",
         "email": "Public.trustee@gnb.ca",
         "matters": "Other",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "NB Refugee Clinic",
         "description": "Assists with Basis of Claim forms, immigration hearings, and related refugee issues",
         "phoneNumber": "506-204-5781",
-        "email": "Online Form",
+        "email": "info@nbrc-crnb.ca",
         "matters": "Refugee or Immigration Issues",
-        "category":"legal"
-    },
-    {
+        "category": "legal"
+      },
+      {
         "name": "Fine Option Program",
         "description": "Allows young or adult offenders to do volunteer work in lieu of paying a monetary fine",
         "phoneNumber": "300 Saint Mary's Street",
         "email": "DPS-MSP.Information@gnb.ca",
         "matters": "Other",
-        "category":"legal"
-    }
+        "category": "legal"
+      }
     ],
     "emergency": [
       {
@@ -185,7 +211,7 @@
   "formConfig": {
     "metadata": {
       "version": "1.0.0",
-      "lastUpdated": "2024-12-06",
+      "lastUpdated": "2025-05-23T19:14:27.270Z",
       "clinic": {
         "name": "Eligibility Screening Form",
         "phone": "(506) 452-6313",
@@ -196,216 +222,361 @@
     "steps": [
       {
         "id": "emergency",
+        "titleFR": "Évaluation d'urgence",
         "title": "Emergency Assessment",
         "critical": true,
         "icon": "AlertCircle",
+        "guidanceFR": "Votre sécurité est notre priorité. Veuillez nous informer si vous avez besoin d'une assistance immédiate.",
         "guidance": "Your safety is our primary concern. Please let us know if you need immediate assistance.",
         "fields": [
           {
             "name": "immediateRisk",
+            "labelFR": "Êtes-vous en danger immédiat ?",
             "label": "Are you in immediate danger?",
             "type": "radio",
             "required": true,
             "critical": true,
             "validation": {
-              "rules": ["immediateRisk"]
+              "rules": [
+                "immediateRisk"
+              ]
             },
             "options": [
-              { "value": "yes", "label": "Yes, I need immediate help" },
-              { "value": "no", "label": "No, I am safe" }
+              {
+                "value": "yes",
+                "labelFR": "Oui, j'ai besoin d'aide immédiatement",
+                "label": "Yes, I need immediate help"
+              },
+              {
+                "value": "no",
+                "labelFR": "Non, je suis en sécurité",
+                "label": "No, I am safe"
+              }
             ]
           },
           {
             "name": "shelterNeeded",
+            "labelFR": "Avez-vous besoin d'un hébergement d'urgence ?",
             "label": "Do you need emergency shelter?",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["shelterNeeded"]
+              "rules": [
+                "shelterNeeded"
+              ]
             },
             "options": [
-              { "value": "yes", "label": "Yes" },
-              { "value": "no", "label": "No" }
+              {
+                "value": "yes",
+                "labelFR": "Oui",
+                "label": "Yes"
+              },
+              {
+                "value": "no",
+                "labelFR": "Non",
+                "label": "No"
+              }
             ]
           }
         ]
       },
       {
         "id": "disclaimers",
+        "titleFR": "Avis de non-responsabilité et consentement",
         "title": "Disclaimers and Consent",
         "icon": "FileText",
         "critical": true,
         "fields": [
           {
             "name": "intakeDisclaimer",
+            "labelFR": "Avis de non-responsabilité",
             "label": "Intake Disclaimer",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["intakeDisclaimer"]
+              "rules": [
+                "intakeDisclaimer"
+              ]
             },
             "options": [
-              { "value": "agree", "label": "I agree" },
-              { "value": "disagree", "label": "I do not agree" }
+              {
+                "value": "agree",
+                "labelFR": "Je suis d'accord",
+                "label": "I agree"
+              },
+              {
+                "value": "disagree",
+                "labelFR": "Je ne suis pas d'accord",
+                "label": "I do not agree"
+              }
             ]
           },
           {
             "name": "emailCommunicationConsent",
+            "labelFR": "Autorisation de communication par courrier électronique",
             "label": "Email Communication Authorization",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["emailCommunicationConsent"]
+              "rules": [
+                "emailCommunicationConsent"
+              ]
             },
             "options": [
-              { "value": "accept", "label": "I accept" },
-              { "value": "decline", "label": "I decline" }
+              {
+                "value": "accept",
+                "labelFR": "J'accepte",
+                "label": "I accept"
+              },
+              {
+                "value": "decline",
+                "labelFR": "Je refuse",
+                "label": "I decline"
+              }
             ]
           }
         ]
       },
       {
         "id": "demographic",
+        "titleFR": "Informations démographiques",
         "title": "Demographic Information",
         "icon": "User",
         "fields": [
           {
             "name": "firstName",
+            "labelFR": "Prénom",
             "label": "First Name",
             "type": "text",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             }
           },
           {
             "name": "middleName",
+            "labelFR": "Deuxième prénom",
             "label": "Middle Name",
             "type": "text",
             "required": false
           },
           {
             "name": "lastName",
+            "labelFR": "Nom de famille",
             "label": "Last Name",
             "type": "text",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             }
           },
           {
             "name": "preferredName",
+            "labelFR": "Nom préféré (si distinct du nom légal)",
             "label": "Preferred Name (if distinct from legal name)",
             "type": "text",
             "required": false
           },
           {
             "name": "address",
+            "labelFR": "Adresse",
             "label": "Address",
             "type": "text",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             }
           },
           {
             "name": "cityProvince",
+            "labelFR": "Ville/Province",
             "label": "City/Province",
             "type": "text",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             }
           },
           {
             "name": "postalCode",
+            "labelFR": "Code Postal",
             "label": "Postal Code",
             "type": "text",
             "required": true,
             "validation": {
-              "rules": ["postalCode"]
+              "rules": [
+                "postalCode"
+              ]
             }
           },
           {
             "name": "phoneNumber",
+            "labelFR": "Numéro de téléphone",
             "label": "Phone Number",
             "type": "tel",
             "required": true,
             "validation": {
-              "rules": ["phoneNumber"]
+              "rules": [
+                "phoneNumber"
+              ]
             }
           },
           {
             "name": "phoneType",
+            "labelFR": "Ce numéro de téléphone est mon...",
             "label": "This phone number is my",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "home", "label": "Home phone number" },
-              { "value": "work", "label": "Work phone number" },
-              { "value": "cell", "label": "Cell phone number" }
+              {
+                "value": "home",
+                "labelFR": "Téléphone à domicile",
+                "label": "Home phone number"
+              },
+              {
+                "value": "work",
+                "labelFR": "Téléphone au travail",
+                "label": "Work phone number"
+              },
+              {
+                "value": "cell",
+                "labelFR": "Téléphone cellulaire",
+                "label": "Cell phone number"
+              }
             ]
           },
           {
             "name": "phoneMessagePermission",
+            "labelFR": "Si nous appelons et que quelqu'un d'autre répond, pouvons-nous dire à la personne qui répond que nous appelons de la Clinique juridique de l'UNB?",
             "label": "If we call and someone else answers, can we tell the person who answers that we are calling from the UNB Legal Clinic?",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "yes", "label": "Yes" },
-              { "value": "no", "label": "No" }
+              {
+                "value": "yes",
+                "labelFR": "Oui",
+                "label": "Yes"
+              },
+              {
+                "value": "no",
+                "labelFR": "Non",
+                "label": "No"
+              }
             ]
           },
           {
             "name": "dateOfBirth",
+            "labelFR": "Date de naissance",
             "label": "Date of Birth",
             "type": "date",
             "required": true,
             "validation": {
-              "rules": ["dateOfBirth"]
+              "rules": [
+                "dateOfBirth"
+              ]
             },
-            "guidance": "Must be between 18 and 85 years old"
+            "guidanceFR": "Doit être entre 18 et 120 ans",
+            "guidance": "Must be between 18 and 120 years old"
           },
           {
             "name": "gender",
+            "labelFR": "Genre",
             "label": "Gender",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "female", "label": "Female" },
-              { "value": "male", "label": "Male" },
-              { "value": "nonbinary", "label": "Non-binary" },
-              { "value": "prefer-not-to-say", "label": "Prefer not to say" },
-              { "value": "other", "label": "Other" }
+              {
+                "value": "female",
+                "labelFR": "féminin",
+                "label": "Female"
+              },
+              {
+                "value": "male",
+                "labelFR": "masculin",
+                "label": "Male"
+              },
+              {
+                "value": "nonbinary",
+                "labelFR": "non-binaire",
+                "label": "Non-binary"
+              },
+              {
+                "value": "prefer-not-to-say",
+                "labelFR": "je préfère ne pas le dire",
+                "label": "Prefer not to say"
+              },
+              {
+                "value": "other",
+                "labelFR": "autre",
+                "label": "Other"
+              }
             ]
           },
           {
             "name": "indigenous",
+            "labelFR": "Identifiez-vous comme une personne autochtone?",
             "label": "Do you identify as an Indigenous person?",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "first-nations", "label": "Yes, First Nations (e.g., Mi'kmaq or Wolastoqiyik)" },
-              { "value": "metis", "label": "Yes, Métis" },
-              { "value": "inuit", "label": "Yes, Inuit" },
-              { "value": "no", "label": "No" },
-              { "value": "prefer-not-to-answer", "label": "Prefer not to answer" }
+              {
+                "value": "first-nations",
+                "labelFR": "Oui, Premières Nations (par exemple, Mi'kmaq ou Wolastoqiyik)",
+                "label": "Yes, First Nations (e.g., Mi'kmaq or Wolastoqiyik)"
+              },
+              {
+                "value": "metis",
+                "labelFR": "Oui, Métis",
+                "label": "Yes, Métis"
+              },
+              {
+                "value": "inuit",
+                "labelFR": "Oui, Inuit",
+                "label": "Yes, Inuit"
+              },
+              {
+                "value": "no",
+                "labelFR": "Non",
+                "label": "No"
+              },
+              {
+                "value": "prefer-not-to-answer",
+                "labelFR": "Je préfère ne pas le dire",
+                "label": "Prefer not to answer"
+              }
             ]
           },
           {
             "name": "disability",
+            "labelFR": "Identifiez-vous comme une personne en situation de handicap?",
             "label": "Do you identify as a person with a disability?",
             "type": "radio",
             "required": true,
@@ -417,428 +588,696 @@
             "options": [
               {
                 "value": "yes",
+                "labelFR": "Oui",
                 "label": "Yes"
               },
               {
                 "value": "no",
+                "labelFR": "Non",
                 "label": "No"
               },
               {
                 "value": "prefer-not-to-answer",
+                "labelFR": "Je préfère ne pas le dire",
                 "label": "Prefer not to answer"
               }
             ]
           },
           {
             "name": "unbStudent",
+            "labelFR": "Êtes-vous actuellement étudiant à l'Université du Nouveau-Brunswick?",
             "label": "Are you currently a UNB Student?",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "yes", "label": "Yes" },
-              { "value": "no", "label": "No" }
+              {
+                "value": "yes",
+                "labelFR": "Oui",
+                "label": "Yes"
+              },
+              {
+                "value": "no",
+                "labelFR": "Non",
+                "label": "No"
+              }
             ]
           },
           {
             "name": "nbResidency",
+            "labelFR": "Depuis combien de temps vivez-vous au Nouveau-Brunswick?",
             "label": "How long have you lived in New Brunswick?",
             "type": "select",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "less-than-1", "label": "Less than 1 year" },
-              { "value": "1-3", "label": "1-3 years" },
-              { "value": "4-6", "label": "4-6 years" },
-              { "value": "7-10", "label": "7-10 years" },
-              { "value": "more-than-10", "label": "More than 10 years" },
-              { "value": "not-in-canada", "label": "I do not live in Canada" }
+              {
+                "value": "less-than-1",
+                "labelFR": "Moins d'un an",
+                "label": "Less than 1 year"
+              },
+              {
+                "value": "1-3",
+                "labelFR": "1 à 3 ans",
+                "label": "1-3 years"
+              },
+              {
+                "value": "4-6",
+                "labelFR": "4 à 6 ans",
+                "label": "4-6 years"
+              },
+              {
+                "value": "7-10",
+                "labelFR": "7 à 10 ans",
+                "label": "7-10 years"
+              },
+              {
+                "value": "more-than-10",
+                "labelFR": "Plus de 10 ans",
+                "label": "More than 10 years"
+              },
+              {
+                "value": "not-in-canada",
+                "labelFR": "Je ne vis pas au Nouveau-Brunswick",
+                "label": "I do not live in New Brunswick"
+              }
             ]
           },
           {
             "name": "maritalStatus",
+            "labelFR": "État matrimonial actuel",
             "label": "Present Marital Status",
             "type": "select",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "single", "label": "Single" },
-              { "value": "common-law", "label": "Common-Law" },
-              { "value": "married", "label": "Married" },
-              { "value": "divorced", "label": "Divorced" },
-              { "value": "separated", "label": "Separated" },
-              { "value": "widowed", "label": "Widowed" }
+              {
+                "value": "single",
+                "labelFR": "Célibataire",
+                "label": "Single"
+              },
+              {
+                "value": "common-law",
+                "labelFR": "Union libre",
+                "label": "Common-Law"
+              },
+              {
+                "value": "married",
+                "labelFR": "Marié",
+                "label": "Married"
+              },
+              {
+                "value": "divorced",
+                "labelFR": "Divorcé",
+                "label": "Divorced"
+              },
+              {
+                "value": "separated",
+                "labelFR": "Séparé",
+                "label": "Separated"
+              },
+              {
+                "value": "widowed",
+                "labelFR": "Veuf/Veuve",
+                "label": "Widowed"
+              }
             ]
           },
           {
             "name": "preferredLanguage",
+            "labelFR": "Quelle est votre langue préférée pour communiquer avec la clinique?",
             "label": "What is your preferred language to communicate with the clinic?",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "english", "label": "English" },
-              { "value": "french", "label": "French" }
+              {
+                "value": "english",
+                "labelFR": "Anglais",
+                "label": "English"
+              },
+              {
+                "value": "french",
+                "labelFR": "Français",
+                "label": "French"
+              }
             ]
           },
           {
             "name": "householdSize",
+            "labelFR": "Taille du ménage",
             "label": "How many people live in your home?",
             "type": "select",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "1", "label": "1" },
-              { "value": "2", "label": "2" },
-              { "value": "3", "label": "3" },
-              { "value": "4", "label": "4" },
-              { "value": "5", "label": "5" },
-              { "value": "6", "label": "6 or more" }
+              {
+                "value": "1",
+                "labelFR": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "labelFR": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "labelFR": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "labelFR": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "labelFR": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "labelFR": "6 ou plus",
+                "label": "6 or more"
+              }
             ]
           },
           {
             "name": "employed",
+            "labelFR": "Êtes-vous actuellement employé?",
             "label": "Are you currently employed?",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "yes", "label": "Yes" },
-              { "value": "no", "label": "No" }
+              {
+                "value": "yes",
+                "labelFR": "Oui",
+                "label": "Yes"
+              },
+              {
+                "value": "no",
+                "labelFR": "Non",
+                "label": "No"
+              }
             ]
           }
         ]
       },
       {
         "id": "financial",
+        "titleFR": "Informations financières",
         "title": "Financial Information",
         "icon": "DollarSign",
         "fields": [
           {
             "name": "employmentIncome",
+            "labelFR": "Revenu d'emploi (Montant total par mois)",
             "label": "Employment (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "spouseIncome",
+            "labelFR": "Revenu du conjoint (Montant total par mois)",
             "label": "Spouse's Income (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "socialAssistance",
+            "labelFR": "Aide sociale (Montant total par mois)",
             "label": "Social Assistance (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
-            }
+              "rules": [
+                "numeric"
+              ]
+            },
+            "guidanceFR": "Mettez 0 si vous n'avez pas de conjoint",
+            "guidance":"Put 0 if you do not have a spouse"
           },
           {
             "name": "ei",
+            "labelFR": "E.I. (Montant total par mois)",
             "label": "E.I. (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "wcbCppDisability",
+            "labelFR": "WCB/CPP Invalidité (Montant total par mois)",
             "label": "WCB/CPP Disability (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "pensions",
+            "labelFR": "Pension(s) (Montant total par mois)",
             "label": "Pension(s) (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "supportPayments",
+            "labelFR": "Pension alimentaire ou de conjoint (Montant total par mois)",
             "label": "Child or Spousal Support (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "rentalIncome",
+            "labelFR": "Revenu locatif (Montant total par mois)",
             "label": "Rental Income (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "childTaxCredit",
+            "labelFR": "Crédit d'impôt pour enfants (Montant total par mois)",
             "label": "Child Tax Credit (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "otherIncome",
+            "labelFR": "Autres revenus (Montant total par mois)",
             "label": "Other Income (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "totalMonthlyIncome",
+            "labelFR": "Revenu total par mois",
             "label": "Total Income per month",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric", "totalMonthlyIncome"]
+              "rules": [
+                "numeric",
+                "totalMonthlyIncome"
+              ]
             },
-            "guidance": "Add the number Zero if you have no income"
+            "guidanceFR": "Mettez 0 si vous n'avez pas de conjoint",
+            "guidance": "Put 0 if you have currently have no income"
           },
           {
             "name": "childcareExpenses",
+            "labelFR": "Frais de garde d'enfants (Montant total par mois)",
             "label": "Childcare Expenses (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "medicalExpenses",
+            "labelFR": "Frais médicaux (Montant total par mois)",
             "label": "Medical Expenses (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "supportPaymentsDeduction",
+            "labelFR": "Pension alimentaire ou de conjoint (Montant total par mois)",
             "label": "Child or Spousal Support (Total Amount per month)",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "totalDeductions",
+            "labelFR": "Deductions totales (Montant total par mois)",
             "label": "Total Allowable deductions per month",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             },
-            "guidance": "Add the number Zero if you have no deductions"
+            "guidanceFR": "Mettez 0 si vous n'avez pas de déductions",
+            "guidance":"Put 0 if you have no deductions"
           },
           {
             "name": "cashAndBank",
+            "labelFR": "Espèces et comptes bancaires",
             "label": "Cash / Bank Accounts",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "investments",
+            "labelFR": "Investissements",
             "label": "Investments",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "otherAssets",
+            "labelFR": "Autres actifs liquides ou ressources",
             "label": "Other Liquid Assets or Resources",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric"]
+              "rules": [
+                "numeric"
+              ]
             }
           },
           {
             "name": "totalAssets",
+            "labelFR": "Actifs totaux disponibles",
             "label": "Total Assets Available",
             "type": "currency",
             "required": true,
             "validation": {
-              "rules": ["numeric", "totalAssets"]
+              "rules": [
+                "numeric",
+                "totalAssets"
+              ]
             },
-            "guidance": "Add the number Zero if you have no Assets"
+            "guidanceFR": "Mettez 0 si vous n'avez actuellement aucun actif",
+            "guidance":"put 0 if you currently have no assets"
           }
         ]
       },
       {
         "id": "legalIssue",
+        "titleFR": "Votre problème juridique",
         "title": "Your Legal Issue",
         "icon": "Scale",
         "fields": [
           {
             "name": "legalIssueType",
+            "labelFR": "Quel type de problème juridique avez-vous?",
             "label": "Which one of the following categories best applies to your legal issue?",
             "type": "select",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "housing", "label": "Housing and Tenancy" },
-              { "value": "benefits", "label": "Provincial and Federal benefits" },
-              { "value": "employment", "label": "Employment Law" },
-              { "value": "human-rights", "label": "Human Rights" },
-              { "value": "small-claims", "label": "Small Claims" },
-              { "value": "notary", "label": "Notary / Commissioner of Oaths Services" },
-              { "value": "divorce", "label": "Uncontested Divorce" },
-              { "value": "provincial-offences", "label": "Provincial Offences (Tickets)" },
-              { "value": "immigration", "label": "Immigration" }
+              {
+                "value": "housing",
+                "labelFR": "Logement et location",
+                "label": "Housing and Tenancy"
+              },
+              {
+                "value": "benefits",
+                "labelFR": "Prestations",
+                "label": "Provincial and Federal benefits"
+              },
+              {
+                "value": "employment",
+                "labelFR": "Droit du travail",
+                "label": "Employment Law"
+              },
+              {
+                "value": "human-rights",
+                "labelFR": "Droits de la personne",
+                "label": "Human Rights"
+              },
+              {
+                "value": "small-claims",
+                "labelFR": "Petites créances",
+                "label": "Small Claims"
+              },
+              {
+                "value": "notary",
+                "labelFR": "Notaire / Commissaire à l'assermentation",
+                "label": "Notary / Commissioner of Oaths Services"
+              },
+              {
+                "value": "divorce",
+                "labelFR": "Divorce sans opposition",
+                "label": "Uncontested Divorce"
+              },
+              {
+                "value": "provincial-offences",
+                "labelFR": "Infractions provinciales",
+                "label": "Provincial Offences (Tickets)"
+              },
+              {
+                "value": "immigration",
+                "labelFR": "Immigration",
+                "label": "Immigration"
+              }
             ]
           },
           {
             "name": "issueDescription",
+            "labelFR": "Veuillez fournir une description détaillée de votre problème juridique",
             "label": "Please provide a detailed description of your legal matter",
             "type": "textarea",
             "required": true,
             "validation": {
-              "rules": ["issueDescription"]
+              "rules": [
+                "issueDescription"
+              ]
             },
-            "guidance": "Include: 1. Relevant Background Information 2. Parties Involved 3. Current Status 4. Desired Outcome"
+            "guidanceFR": "Veuillez inclure : 1. Informations de base pertinentes 2. Parties impliquées 3. État actuel 4. Résultat souhaité",
+            "guidance":"Include: 1. Relevant Background Information 2. Parties Involved 3. Current Status 4. Desired Outcome"
           },
           {
             "name": "opposingParties",
+            "labelFR": "Parties adverses",
             "label": "Opposing Parties",
             "type": "textarea",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
+            "guidanceFR": "Veuillez fournir le nom des parties qui pourraient avoir un intérêt opposé au vôtre dans cette affaire",
             "guidance": "Please provide the name(s) of any parties who may have an opposing interest to your own in this matter"
           },
           {
             "name": "hasDeadline",
+            "labelFR": "Avez-vous une date d'audience ou une autre échéance qui approche?",
             "label": "Do you have a court/hearing date or other deadline approaching?",
             "type": "radio",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             },
             "options": [
-              { "value": "yes", "label": "Yes" },
-              { "value": "no", "label": "No" }
+              {
+                "value": "yes",
+                "labelFR": "Oui",
+                "label": "Yes"
+              },
+              {
+                "value": "no",
+                "labelFR": "Non",
+                "label": "No"
+              }
             ]
           },
           {
             "name": "deadlineDetails",
+            "labelFR": "Détails de l'échéance",
             "label": "Court/Hearing Date",
             "type": "date",
             "required": false,
+            "guidanceFR": "Veuillez fournir la date de l'audience ou de l'échéance, si disponible - YYYY-MM-DD",
             "guidance": "Court Name - YYYY-MM-DD"
           },
           {
             "name": "documentsSubmitted",
+            "labelFR": "Soumission de documents requis",
             "label": "Required Documents Submission",
             "type": "checkbox",
             "required": true,
             "validation": {
-              "rules": ["documentsSubmitted"]
+              "rules": [
+                "documentsSubmitted"
+              ]
             },
-            "guidance": "Please confirm you have emailed the required documents to lawclinic@unb.ca"
+            "guidanceFR": "Veuillez confirmer que vous avez envoyé les documents requis à lawclinic@unb.ca",
+            "guidance":"Please confirm you have emailed the required documents to lawclinic@unb.ca"
           }
         ]
       },
       {
         "id": "submissionInfo",
+        "titleFR": "Informations de soumission",
         "title": "Submission Information",
         "icon": "Send",
         "fields": [
           {
             "name": "submitterName",
+            "labelFR": "Nom de la personne qui a rempli ce formulaire",
             "label": "Name of Person who completed this form",
             "type": "text",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             }
           },
           {
             "name": "relationshipToClient",
+            "labelFR": "Relation avec le client potentiel",
             "label": "Relationship with the potential client",
             "type": "text",
             "required": true,
             "validation": {
-              "rules": ["required"]
+              "rules": [
+                "required"
+              ]
             }
           },
           {
             "name": "submitterEmail",
+            "labelFR": "Adresse e-mail",
             "label": "Email Address",
             "type": "email",
             "required": true,
             "validation": {
-              "rules": ["email"]
+              "rules": [
+                "email"
+              ]
             }
           },
           {
             "name": "submitterPhone",
+            "labelFR": "Numéro de téléphone",
             "label": "Phone Number",
             "type": "tel",
             "required": true,
             "validation": {
-              "rules": ["phoneNumber"]
+              "rules": [
+                "phoneNumber"
+              ]
             }
           },
           {
             "name": "evaluationConsent",
+            "labelFR": "Consentement à l'évaluation du service",
             "label": "Service Evaluation Consent",
             "type": "checkbox",
             "required": true,
             "validation": {
-              "rules": ["evaluationConsent"]
+              "rules": [
+                "evaluationConsent"
+              ]
             },
-            "guidance": "I understand that I may be contacted by a Legal Clinic representative to answer questions about the service I receive"
+            "guidanceFR": "Je comprends que je peux être contacté par un représentant de la Clinique juridique pour répondre à des questions sur le service que je reçois",
+            "guidance":"I understand that I may be contacted by a Legal Clinic representative to answer questions about the service I receive"
           },
           {
             "name": "informationDeclaration",
+            "labelFR": "Déclaration de Vérité",
             "label": "Declaration of Truth",
             "type": "checkbox",
             "required": true,
             "validation": {
-              "rules": ["informationDeclaration"]
+              "rules": [
+                "informationDeclaration"
+              ]
             },
-            "guidance": "I hereby declare that the information I have provided is true and correct"
+            "guidanceFR": "Je déclare que les informations fournies sont vraies et exactes.",
+            "guidance":"I hereby declare that the information I have provided is true and correct"
           }
         ]
       }

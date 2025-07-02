@@ -27,10 +27,7 @@ const HomeHeader = () => {
         if (response.ok) {
           const data = await response.json();
           if (data.clinicInfo?.logoUrl) {
-            // Either use this to fix the URL directly:
-            // setLogoSrc('https://hrslupcbk4ltavbb.public.blob.vercel-storage.com/logo.jpg');
-            
-            // Or use the URL from the content but with forced cache busting:
+
             setLogoSrc(`${data.clinicInfo.logoUrl}?t=${Date.now()}`);
             
             setIsCustomLogo(true);

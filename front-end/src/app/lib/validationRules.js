@@ -49,7 +49,7 @@ export const validationRules = {
 
   // Demographic Information Validation Rules
   dateOfBirth: (value) => {
-    if (!value) return { isValid: false, message: "Date of Birth is required" };
+    if (!value) return { isValid: false, message: "Date of Birth is required", messageFR: "La date de naissance est requise" };
     
     const today = new Date();
     const birthDate = new Date(value);
@@ -62,7 +62,8 @@ export const validationRules = {
 
     return {
       isValid: age >= CONSTANTS.AGE.MIN && age <= CONSTANTS.AGE.MAX,
-      message: `Age must be between ${CONSTANTS.AGE.MIN} and ${CONSTANTS.AGE.MAX} years`
+      message: `Age must be between ${CONSTANTS.AGE.MIN} and ${CONSTANTS.AGE.MAX} years`,
+      messageFR: `L'âge doit être compris entre ${CONSTANTS.AGE.MIN} et ${CONSTANTS.AGE.MAX} ans`
     };
   },
 
@@ -73,7 +74,8 @@ export const validationRules = {
 
     return {
       isValid: courtDate > today,
-      message: `Date must be in the future`
+      message: `Date must be in the future`,
+      messageFR: `La date doit être dans le futur`
     };
   },
 
@@ -84,7 +86,8 @@ export const validationRules = {
 
     return {
       isValid: courtDate < today,
-      message: `Date must be in the past`
+      message: `Date must be in the past`,
+      messageFR: `La date doit être dans le passé`
     };
   },
 
@@ -92,7 +95,8 @@ export const validationRules = {
     const postalCodeRegex = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/;
     return {
       isValid: postalCodeRegex.test(value),
-      message: "Please enter a valid postal code in format 'A1A 1A1'"
+      message: "Please enter a valid postal code in format 'A1A 1A1'",
+      messageFR: "Veuillez entrer un code postal valide au format 'A1A 1A1'"
     };
   },
 
@@ -100,7 +104,8 @@ export const validationRules = {
     const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     return {
       isValid: phoneRegex.test(value),
-      message: "Please enter a valid phone number"
+      message: "Please enter a valid phone number",
+      messageFR: "Veuillez entrer un numéro de téléphone valide"
     };
   },
 
@@ -108,7 +113,8 @@ export const validationRules = {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return {
       isValid: emailRegex.test(value),
-      message: "Please enter a valid email address"
+      message: "Please enter a valid email address",
+      messageFR: "Veuillez entrer une adresse e-mail valide"
     };
   },
 
@@ -123,7 +129,8 @@ export const validationRules = {
 
     return {
       isValid: totalIncome <= threshold.income,
-      message: `Total monthly income exceeds maximum threshold for household size of ${householdSize}`
+      message: `Total monthly income exceeds maximum threshold for household size of ${householdSize}`,
+      messageFR: `Le revenu mensuel total dépasse le seuil maximum pour une taille de ménage de ${householdSize}`
     };
   },
 
@@ -137,7 +144,8 @@ export const validationRules = {
 
     return {
       isValid: totalAssets <= threshold.assets,
-      message: `Total assets exceed maximum threshold for household size of ${householdSize}`
+      message: `Total assets exceed maximum threshold for household size of ${householdSize}`,
+      messageFR: `Le total des actifs dépasse le seuil maximum pour une taille de ménage de ${householdSize}`
     };
   },
 
@@ -146,7 +154,8 @@ export const validationRules = {
     if (!value) {
       return {
         isValid: false,
-        message: "You must confirm that you have submitted the required documents"
+        message: "You must confirm that you have submitted the required documents",
+        messageFR: "Vous devez confirmer que vous avez soumis les documents requis"
       };
     }
     return { isValid: true };
@@ -155,54 +164,64 @@ export const validationRules = {
   // Consent and Declaration Validation Rules
   intakeDisclaimer: (value) => ({
     isValid: value === "agree",
-    message: "You must agree to the intake disclaimer to continue"
+    message: "You must agree to the intake disclaimer to continue",
+    messageFR: "Vous devez accepter le disclaimer d'admission pour continuer"
   }),
 
   emailCommunicationConsent: (value) => ({
     isValid: value === "accept",
-    message: "You must accept email communication to continue"
+    message: "You must accept email communication to continue",
+    messageFR: "Vous devez accepter la communication par e-mail pour continuer"
   }),
 
   evaluationConsent: (value) => ({
     isValid: !!value,
-    message: "You must consent to service evaluation to continue"
+    message: "You must consent to service evaluation to continue",
+    messageFR: "Vous devez consentir à l'évaluation du service pour continuer"
   }),
 
   informationDeclaration: (value) => ({
     isValid: !!value,
-    message: "You must declare that the information provided is true and correct"
+    message: "You must declare that the information provided is true and correct",
+    messageFR: "Vous devez déclarer que les informations fournies sont vraies et correctes"
   }),
 
   // Legal Issue Validation Rules
   issueDescription: (value) => ({
     isValid: value && value.length >= 50,
-    message: "Please provide a detailed description of at least 50 characters"
+    message: "Please provide a detailed description of at least 50 characters",
+    messageFR: "Veuillez fournir une description détaillée d'au moins 50 caractères"
   }),
 
   opposingParties: (value) => ({
     isValid: !!value,
-    message: "Please provide information about opposing parties or indicate if none"
+    message: "Please provide information about opposing parties or indicate if none",
+    messageFR: "Veuillez fournir des informations sur les parties adverses ou indiquer si aucune"
   }),
 
   // Generic validation helper functions
   required: (value, fieldName) => ({
     isValid: !!value,
-    message: `${fieldName} is required`
+    message: `${fieldName} is required`,
+    messageFR: `${fieldName} est requis`
   }),
 
   minLength: (value, minLength) => ({
     isValid: value && value.length >= minLength,
-    message: `Must be at least ${minLength} characters long`
+    message: `Must be at least ${minLength} characters long`,
+    messageFR: `Doit comporter au moins ${minLength} caractères`
   }),
 
   maxLength: (value, maxLength) => ({
     isValid: value && value.length <= maxLength,
-    message: `Must not exceed ${maxLength} characters`
+    message: `Must not exceed ${maxLength} characters`,
+    messageFR: `Ne doit pas dépasser ${maxLength} caractères`
   }),
 
   numeric: (value) => ({
     isValid: !isNaN(value) && value >= 0,
-    message: "Please enter a valid number"
+    message: "Please enter a valid number",
+    messageFR: "Veuillez entrer un nombre valide"
   })
 };
 

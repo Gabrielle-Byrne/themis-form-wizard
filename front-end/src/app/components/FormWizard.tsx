@@ -28,6 +28,7 @@ import {
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import configData from '../lib/formConfig.json';
 import { validationRules, combineValidations } from '../lib/validationRules';
+import { steps } from 'framer-motion';
 
 export default function LegalClinicForm() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -47,6 +48,8 @@ export default function LegalClinicForm() {
   const [ formConfig , setConfig] = useState(configData.formConfig);
   const [RESOURCES, setResources] = useState(null);
   const [MONTHLY_THRESHOLDS, setThresholds] = useState(null);
+  const [language, setLanguage] = useState('en'); // Default language
+
 
   // Gets the form template from the api
   useEffect(() => {
@@ -128,7 +131,8 @@ export default function LegalClinicForm() {
     if (field.required && (!value || value === '')) {
       return {
         isValid: false,
-        message: `${field.label} is required`
+        message: `${field.label} is required`,
+        messageFR: `${field.labelFR} est requis`
       };
     }
   
@@ -159,7 +163,7 @@ export default function LegalClinicForm() {
     for (const field of step.fields) {
       const validation = validateField(field, formData[field.name]);
       if (!validation.isValid) {
-        newErrors[field.name] = validation.message;
+        newErrors[field.name] =  language === "fr" ? validation.messageFR : validation.message;
         isValid = false;
       }
     }
@@ -177,7 +181,7 @@ export default function LegalClinicForm() {
     const submitData = new FormData();
 
     for (const [key, value] of Object.entries(formData)) {
-      if (typeof value === 'string' || value instanceof Blob) {
+      if (typeof value === 'string') {
         submitData.append(key, value);
       } else {
         submitData.append(key, JSON.stringify(value)); 
@@ -227,7 +231,7 @@ export default function LegalClinicForm() {
       if (!validationResult.isValid) {
         setErrors(prev => ({
           ...prev,
-          [name]: validationResult.message
+          [name]: language === "fr" ? validationResult.messageFR : validationResult.message
         }));
       }
   
@@ -261,19 +265,19 @@ export default function LegalClinicForm() {
     }
   
     // Handle shelter needs
-    if (['shelterNeeded', 'housingStatus'].includes(name)) {
-      if (value === 'yes' || value === 'emergency') {
-        updatedResources.push(...filterResourcesByCategory(
-          RESOURCES.shelters,
-          'shelters',
-          {
-            gender: newData.gender,
-            isFirstNations: newData.indigenous === 'first-nations',
-            age: calculateAge(newData.dateOfBirth)
-          }
-        ));
-      }
-    }
+    // if (['shelterNeeded', 'housingStatus'].includes(name)) {
+    //   if (value === 'yes' || value === 'emergency') {
+    //     updatedResources.push(...filterResourcesByCategory(
+    //       RESOURCES.shelters,
+    //       'shelters',
+    //       {
+    //         gender: newData.gender,
+    //         isFirstNations: newData.indigenous === 'first-nations',
+    //         age: calculateAge(newData.dateOfBirth)
+    //       }
+    //     ));
+    //   }
+    // }
 
     // Handle legal issue type
     if (name === 'legalIssueType') {
@@ -379,19 +383,19 @@ export default function LegalClinicForm() {
     }
     
     // Handle housing status
-    if (name === 'housingStatus' && value === 'emergency') {
-      // Add shelter resources
-      updatedResources.push(...RESOURCES.shelters);
-    }
+    // if (name === 'housingStatus' && value === 'emergency') {
+    //   // Add shelter resources
+    //   updatedResources.push(...RESOURCES.shelters);
+    // }
     
     // Handle document submission step
-    if (name === 'documentsSubmitted') {
-      // Provide information resources
-      const informationResources = RESOURCES.legal.filter(resource => 
-        resource.name.includes("Public Legal Education")
-      );
-      updatedResources.push(...informationResources);
-    }
+    // if (name === 'documentsSubmitted') {
+    //   // Provide information resources
+    //   const informationResources = RESOURCES.legal.filter(resource => 
+    //     resource.name.includes("Public Legal Education")
+    //   );
+    //   updatedResources.push(...informationResources);
+    // }
     
     // Handle legal issue deadline
     if (name === 'hasDeadline' && value === 'yes') {
@@ -504,7 +508,7 @@ export default function LegalClinicForm() {
                 className="w-4 h-4 rounded border-gray-300 text-blue-600"
               />
               <label htmlFor={`${field.name}-${option.value}`}>
-                {option.label}
+                {language === "fr" ? option.labelFR : option.label}
               </label>
             </div>
           ))}
@@ -555,7 +559,7 @@ export default function LegalClinicForm() {
                     <div className="w-3 h-3 rounded-full bg-blue-500" />
                   )}
                 </div>
-                <span>{option.label}</span>
+                <span>{language === "fr" ? option.labelFR : option.label}</span>
               </div>
             ))}
           </div>
@@ -595,7 +599,7 @@ export default function LegalClinicForm() {
             <option value="">Select an option</option>
             {field.options.map(option => (
               <option key={option.value} value={option.value}>
-                {option.label}
+                {language === "fr" ? option.labelFR : option.label}
               </option>
             ))}
           </select>
@@ -725,6 +729,13 @@ export default function LegalClinicForm() {
                   {formConfig.metadata.clinic.address}
                 </span>
               </div>
+              <div className="flex flex-col items-center mb-2 mt-6">
+                  <div className="text-2xl font-semibold text-blue-800 mb-3 inline-flex rounded-xl bg-blue-50 p-1.5 gap-1 shadow-sm">
+                  <button
+                    onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+                  > {language === "fr" ? "English" : "Français"}</button>
+                </div>
+              </div>
             </CardDescription>
           </CardHeader>
         </Card>
@@ -738,10 +749,10 @@ export default function LegalClinicForm() {
                   <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2">
                     <CheckCircle className="w-4 h-4 text-blue-600" />
                   </div>
-                  <h3 className="text-sm font-medium text-gray-700">Your Progress</h3>
+                  <h3 className="text-sm font-medium text-gray-700">{language === "fr" ? "Votre progression" : "Your Progress"}</h3>
                 </div>
                 <span className="text-sm font-medium bg-blue-600 text-white px-3 py-1 rounded-full">
-                  Step {currentStep + 1} of {formConfig.steps.length}
+                  {language === "fr" ? `Étape ${currentStep + 1} sur ${formConfig.steps.length}` : `Step ${currentStep + 1} of ${formConfig.steps.length}`}
                 </span>
               </div>
               <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
@@ -779,9 +790,15 @@ export default function LegalClinicForm() {
                       index + 1
                     )}
                   </div>
-                  <span className="text-xs font-medium text-center max-w-22 truncate">
-                    {step.title}
-                  </span>
+                  {language === "fr" ? (
+                    <span className="text-xs font-medium text-center max-w-20 truncate">
+                      {step.titleFR}
+                    </span>
+                  ) : (
+                    <span className="text-xs font-medium text-center max-w-21 truncate">
+                      {step.title}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
@@ -804,7 +821,7 @@ export default function LegalClinicForm() {
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     className="flex items-center gap-2 text-gray-700 bg-gray-100 py-1 px-3 rounded-full"
                   >
-                    {currentStepConfig.title}
+                    {language === "fr" ? currentStepConfig.titleFR : currentStepConfig.title}
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -868,13 +885,13 @@ export default function LegalClinicForm() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-red-800 text-lg">
-                    Emergency Assistance Required
+                    {language === "fr" ? "Assistance d'urgence requise" : "Emergency Assistance Required"}
                   </h3>
                   <p className="text-red-700 mt-1">
-                    If you are in immediate danger, please call 911 or your local emergency services immediately.
+                    {language === "fr" ? "Si vous êtes en danger immédiat, veuillez composer le 911 ou vos services d'urgence locaux." : "If you are in immediate danger, please call 911 or your local emergency services immediately."}
                   </p>
                   <div className="mt-4 bg-white rounded-lg p-4 border border-red-200 shadow-inner">
-                    <h4 className="font-medium text-red-800 mb-2">Emergency Contacts:</h4>
+                    <h4 className="font-medium text-red-800 mb-2">{language === "fr" ? "Contacts d'urgence :" : "Emergency Contacts:"}</h4>
                     <div className="space-y-3">
                       {RESOURCES.emergency.map((resource, index) => (
                         <div key={index} className="flex items-start gap-3 p-2 border-b border-red-100 last:border-b-0">
@@ -917,22 +934,22 @@ export default function LegalClinicForm() {
                 <DollarSign className="w-5 h-5 text-blue-700" />
               </div>
               <div>
-                <h3 className="font-medium text-blue-800 mb-2">Financial Eligibility Guidelines</h3>
-                <p className="text-sm text-blue-700 mb-3">The following income and asset upper thresholds determine eligibility for our services:</p>
-                
+                <h3 className="font-medium text-blue-800 mb-2">{language==="fr" ? "Directives d'admissibilité financière" : "Financial Eligibility Guidelines"}</h3>
+                <p className="text-sm text-blue-700 mb-3">{language==="fr" ? "Les seuils de revenu et d'actif suivants déterminent l'admissibilité à nos services :" : "The following income and asset upper thresholds determine eligibility for our services:"}</p>
+
                 <div className="overflow-x-auto">
                   <table className="min-w-full bg-white border border-gray-200 rounded-lg">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="py-2 px-4 border-b text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Household Size</th>
-                        <th className="py-2 px-4 border-b text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monthly Income</th>
-                        <th className="py-2 px-4 border-b text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asset Limit</th>
+                        <th className="py-2 px-4 border-b text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{language==="fr" ? "Taille du ménage" : "Household Size"}</th>
+                        <th className="py-2 px-4 border-b text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{language==="fr" ? "Revenu mensuel" : "Monthly Income"}</th>
+                        <th className="py-2 px-4 border-b text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{language==="fr" ? "Limite d'actif" : "Asset Limit"}</th>
                       </tr>
                     </thead>
                     <tbody>
                       {Object.entries(MONTHLY_THRESHOLDS || {}).map(([size, thresholds]) => (
                         <tr key={size} className="border-b hover:bg-gray-50">
-                          <td className="py-2 px-4 text-sm">{size} {size === '1' ? 'person' : 'people'}</td>
+                          <td className="py-2 px-4 text-sm">{size} {language==="fr" ? (size === '1' ? 'personne' : 'personnes') : (size === '1' ? 'person' : 'people')}</td>
                           <td className="py-2 px-4 text-sm">${thresholds.income.toLocaleString()}</td>
                           <td className="py-2 px-4 text-sm">${thresholds.assets.toLocaleString()}</td>
                         </tr>
@@ -941,13 +958,12 @@ export default function LegalClinicForm() {
                   </table>
                 </div>
                 <p className="text-xs text-blue-700 mt-3">
-                  If your income or assets exceed these limits, we recommend contacting the 
-                    <a href="https://flac.cliogrow.com/" className='font-bold'> Fredericton Legal Advice Clinic</a> or 
+                  {language==="fr" ? "Si vos revenus ou actifs dépassent ces limites, nous vous recommandons de contacter le" : "If your income or assets exceed these limits, we recommend contacting the"}
+                    <a href="https://flac.cliogrow.com/" className='font-bold'> Fredericton Legal Advice Clinic</a> {language==="fr" ? "ou" : "or"}
                     <a href="https://www.legal-info-legale.nb.ca/" className='font-bold'> Public Legal Education</a>
                 </p>
                 <p className="text-sm text-blue-700 mt-3">
-                  Note: These thresholds may be adjusted based on special circumstances. 
-                  All financial information will be kept confidential.
+                  {language==="fr" ? "Remarque : Ces seuils peuvent être ajustés en fonction de circonstances particulières. Toutes les informations financières seront gardées confidentielles." : "Note: These thresholds may be adjusted based on special circumstances. All financial information will be kept confidential."}
                 </p>
               </div>
             </div>
@@ -962,32 +978,31 @@ export default function LegalClinicForm() {
                 <Scale className="w-5 h-5 text-blue-700" />
               </div>
               <div>
-                <h3 className="font-medium text-blue-800 mb-2">About Our Legal Services</h3>
+                <h3 className="font-medium text-blue-800 mb-2">{language==="fr" ? "À propos de nos services juridiques" : "About Our Legal Services"}</h3>
                 <p className="text-sm text-blue-700 mb-3">
-                  The UNB Legal Clinic provides assistance with various legal matters. 
-                  Based on your issue type, we'll connect you with appropriate resources and services.
+                  {language==="fr" ? "La Clinique juridique de l'UNB offre une assistance pour divers problèmes juridiques. En fonction de votre type de problème, nous vous mettrons en relation avec des ressources et des services appropriés." : "The UNB Legal Clinic provides assistance with various legal matters. Based on your issue type, we'll connect you with appropriate resources and services."}
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
                   <div className="bg-white rounded-lg p-3 border border-blue-200">
-                    <h4 className="text-sm font-medium text-gray-900">Services We Provide</h4>
+                    <h4 className="text-sm font-medium text-gray-900">{language==="fr" ? "Services Que Nous Offrons" : "Services We Provide"}</h4>
                     <ul className="mt-2 text-xs text-gray-700 space-y-1.5 list-disc pl-5">
-                      <li>Housing and tenancy disputes</li>
-                      <li>Provincial and federal benefits</li>
-                      <li>Employment law matters</li>
-                      <li>Human rights issues</li>
-                      <li>Small claims</li>
+                      <li>{language==="fr" ? "Litiges en matière de logement et de location" : "Housing and tenancy disputes"}</li>
+                      <li>{language==="fr" ? "Avantages provinciaux et fédéraux" : "Provincial and federal benefits"}</li>
+                      <li>{language==="fr" ? "Questions de droit du travail" : "Employment law matters"}</li>
+                      <li>{language==="fr" ? "Questions de droits de la personne" : "Human rights issues"}</li>
+                      <li>{language==="fr" ? "Petites créances" : "Small claims"}</li>
                     </ul>
                   </div>
                   
                   <div className="bg-white rounded-lg p-3 border border-blue-200">
-                    <h4 className="text-sm font-medium text-gray-900">Additional Services</h4>
+                    <h4 className="text-sm font-medium text-gray-900">{language==="fr" ? "Services Supplémentaires" : "Additional Services"}</h4>
                     <ul className="mt-2 text-xs text-gray-700 space-y-1.5 list-disc pl-5">
-                      <li>Notary/Commissioner services</li>
-                      <li>Uncontested divorce assistance</li>
-                      <li>Provincial offences (tickets)</li>
-                      <li>Immigration guidance</li>
-                      <li>Referrals to specialty legal resources</li>
+                      <li>{language==="fr" ? "Services de notaire/commissaire" : "Notary/Commissioner services"}</li>
+                      <li>{language==="fr" ? "Assistance pour divorce sans contestation" : "Uncontested divorce assistance"}</li>
+                      <li>{language==="fr" ? "Infractions provinciales (contraventions)" : "Provincial offences (tickets)"}</li>
+                      <li>{language==="fr" ? "Orientation en matière d'immigration" : "Immigration guidance"}</li>
+                      <li>{language==="fr" ? "Références à des ressources juridiques spécialisées" : "Referrals to specialty legal resources"}</li>
                     </ul>
                   </div>
                 </div>
@@ -1009,18 +1024,18 @@ export default function LegalClinicForm() {
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900">
-                    {currentStepConfig.title}
+                    {language === "fr" ? currentStepConfig.titleFR : currentStepConfig.title}
                   </h2>
                   <div className="flex flex-wrap items-center mt-1 gap-2">
                     {currentStepConfig.critical && (
                       <span className="bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded-full flex items-center">
                         <AlertCircle className="w-3 h-3 mr-1" />
-                        Critical
+                        {language === "fr" ? "Critique" : "Critical"}
                       </span>
                     )}
                     {currentStepConfig.guidance && (
                       <p className="text-gray-600 text-sm">
-                        {currentStepConfig.guidance}
+                        {language === "fr" ? currentStepConfig.guidanceFR : currentStepConfig.guidance}
                       </p>
                     )}
                   </div>
@@ -1036,7 +1051,7 @@ export default function LegalClinicForm() {
                     
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <label className="block text-sm font-medium text-gray-700">
-                        {field.label}
+                        {language === "fr" ? field.labelFR : field.label}
                         {field.required && (
                           <span className="text-red-500 ml-1">*</span>
                         )}
@@ -1047,7 +1062,7 @@ export default function LegalClinicForm() {
                           <div className="absolute right-0 w-64 p-3 bg-gray-800 text-white text-xs rounded-lg 
                             shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10 
                             pointer-events-none">
-                            {field.guidance}
+                            {language === "fr" ? field.guidanceFR : field.guidance}
                           </div>
                         </div>
                       )}
@@ -1057,11 +1072,17 @@ export default function LegalClinicForm() {
                     {field.name === 'intakeDisclaimer' && (
                       <div className="mb-4">
                         <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg mb-3">
-                          <p className="text-base text-gray-600">
-                            This form is for initial eligibility screening purposes only. Submitting this form does not create an 
-                            attorney-client relationship. The legal clinic will review your information and contact you regarding 
-                            your eligibility for services. Please note that our services are limited and not all applicants can be accepted.
-                          </p>
+                          {language === "fr" ? (
+                            <p className="text-base text-gray-600">
+                              Ce formulaire est uniquement destiné à des fins de dépistage préliminaire de l'admissibilité. La soumission de ce formulaire ne crée pas de relation avocat-client. La clinique juridique examinera vos informations et vous contactera concernant votre admissibilité aux services. Veuillez noter que nos services sont limités et que tous les demandeurs ne peuvent pas être acceptés.
+                            </p>
+                          ) : (
+                            <p className="text-base text-gray-600">
+                              This form is for initial eligibility screening purposes only. Submitting this form does not create an
+                              attorney-client relationship. The legal clinic will review your information and contact you regarding
+                              your eligibility for services. Please note that our services are limited and not all applicants can be accepted.
+                            </p>
+                          )}
                         </div>
                         {renderField(field)}
                       </div>
@@ -1071,11 +1092,19 @@ export default function LegalClinicForm() {
                     {field.name === 'emailCommunicationConsent' && (
                       <div className="mb-4">
                         <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg mb-3">
-                          <p className="text-base text-gray-600">
-                            Email is not a completely secure or confidential method of communication. By accepting, you acknowledge 
-                            the risks of email communication and authorize the legal clinic to communicate with you via email regarding 
-                            your case, including sending documents and information related to your matter.
-                          </p>
+                          {language === "fr" ? (
+                            <p className="text-base text-gray-600">
+                              L'e-mail n'est pas un moyen de communication complètement sécurisé ou confidentiel. En acceptant, vous reconnaissez
+                              les risques de la communication par e-mail et autorisez la clinique juridique à communiquer avec vous par e-mail concernant
+                              votre dossier, y compris l'envoi de documents et d'informations liés à votre affaire.
+                            </p>
+                          ) : (
+                            <p className="text-base text-gray-600">
+                              Email is not a completely secure or confidential method of communication. By accepting, you acknowledge
+                              the risks of email communication and authorize the legal clinic to communicate with you via email regarding
+                              your case, including sending documents and information related to your matter.
+                            </p>
+                          )}
                         </div>
                         {renderField(field)}
                       </div>
@@ -1111,7 +1140,7 @@ export default function LegalClinicForm() {
                   `}
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  Previous
+                  {language === "fr" ? "Précédent" : "Previous"}
                 </button>
 
                 {currentStep === formConfig.steps.length - 1 ? (
@@ -1126,11 +1155,11 @@ export default function LegalClinicForm() {
                     {submitStatus.loading ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        Submitting...
+                        {language === "fr" ? "Soumission en cours..." : "Submitting..."}
                       </>
                     ) : (
                       <>
-                        Submit Application
+                        {language === "fr" ? "Soumettre la demande" : "Submit Application"}
                         <ChevronRight className="w-4 h-4" />
                       </>
                     )}
@@ -1143,7 +1172,7 @@ export default function LegalClinicForm() {
                       rounded-lg hover:bg-blue-700 disabled:opacity-50 flex items-center gap-2
                       shadow-sm transition-all hover:shadow focus:ring-2 focus:ring-blue-300"
                   >
-                    Next
+                    {language === "fr" ? "Suivant" : "Next"}
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 )}
