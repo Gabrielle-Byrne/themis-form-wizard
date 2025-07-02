@@ -78,7 +78,22 @@
                 "email": "maisonnotredame@nb.aibn.com",
                 "website": "https://www.facebook.com/maisonnotredamehouse/",
                 "notesFR": "Réservé aux femmes, Services bilingues",
-                "notes": "Women Only, Bilingual Services"
+                "notes": "Women Only, Bilingual Services",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
+            },
+            {
+                "name": "Maison Passage House",
+                "descriptionFR": "Offre des logements de soutien pour les personnes confrontées ou ayant vécu l'itinérance",
+                "description": "Shelter for women and their children who are victims of family violence/intimate partner violence",
+                "location": "Bathurst",
+                "phoneNumber": "(506) 546-9540",
+                "email": "info@maisonpassagehouse.ca",
+                "website": "https://www.maisonpassagehouse.ca/",
+                "notesFR": "Réservé aux femmes, Services bilingues",
+                "notes": "Women Only, Bilingual Services",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             },
             {
                 "name": "Miramichi Emergency Center for Women",
@@ -89,7 +104,9 @@
                 "email": "nholmes@miramichitransitionhouse.ca",
                 "website": "https://www.emergencycentreforwomen.com/",
                 "notesFR": "Réservé aux femmes, Accessible en fauteuil roulant",
-                "notes": "Women Only, Wheelchair Accessible"
+                "notes": "Women Only, Wheelchair Accessible",
+                "category":"Shelters",
+                "categoryFR": "Refuges"
             },
             {
                 "name": "Oak Centre",
@@ -109,8 +126,8 @@
                 "location": "Saint John",
                 "phoneNumber": "(506)-658-8050",
                 "website": "https://outflowsj.com/",
-                "notesFR": "Religieuse",
-                "notes": "Faith-based",
+                "notesFR": "Religieuse, Réservé aux hommes",
+                "notes": "Faith-based, Men Only",
                 "category":"Shelters",
                 "categoryFR": "Refuges"
             },
@@ -139,6 +156,19 @@
                 "notes": "Women Only"
             },
             {
+                "name": "Sussex Vale Transition House",
+                "descriptionFR": "Logement temporaire pour femmes et enfants victimes de violence domestique",
+                "description": "Safe and confidential short-term housing for women and their children affected by domestic violence",
+                "location": "Sussex",
+                "email": "info@svth.ca",
+                "phoneNumber": "(506) 432-6999",
+                "website": "https://www.svth.ca/",
+                "category":"Shelters",
+                "categoryFR": "Refuges",
+                "notesFR": "Réservé aux femmes",
+                "notes": "Women Only"
+            },
+            {
                 "name": "Women in Transition",
                 "descriptionFR": "Refuge pour femmes ayant subi des violences domestiques et de partenaires intimes, pouvant accueillir jusqu'à 19 femmes et leurs enfants",
                 "description": "Shelter for women who have experienced domestic and intimate partner violence, provides accommodations for up to 19 women and their children",
@@ -158,7 +188,6 @@
         "icon": "BookOpen",
         "fields": [
             {
-                "nameFR": "",
                 "name": "Harvest House - Community Centre & Shelter",
                 "descriptionFR": "Centre communautaire offrant trois repas par jour et un abri d'urgence",
                 "description": "Community center offering three meals a day and emergency shelter",
@@ -169,7 +198,6 @@
                 "categoryFR": "Réhabilitation"
             },
             {
-                "nameFR": "Naomi & Ruth",
                 "name": "Naomi & Ruth",
                 "descriptionFR": "Réservé aux femmes, Programme d'un an basé sur la foi offrant un environnement de soutien avec traitement médical, thérapie, mentorat, counseling financier, programmes de conditionnement physique, gestion du stress et formation aux compétences de vie",
                 "description": "Faith-based one year program offering a supportive environment with  medical treatment, therapy, mentorship, financial counseling, fitness programs, stress management, and life skills training",
@@ -182,7 +210,6 @@
                 "categoryFR": "Réhabilitation"
             },
             {
-                "nameFR": "Portage",
                 "name": "Portage",
                 "descriptionFR": "Centre de réhabilitation de la toxicomanie résidentiel pour les jeunes entre 14 et 21 ans",
                 "description": "Residential drug addiction rehabilitation centre for youth between 14 and 21",
@@ -195,7 +222,6 @@
                 "categoryFR": "Réhabilitation"
             },
             {
-                "nameFR": "Riverstone Recovery Outpatient",
                 "name": "Riverstone Recovery Outpatient",
                 "descriptionFR": "Services ambulatoires pour les personnes aux prises avec des problèmes de consommation de substances",
                 "description": "Outpatient services for individuals struggling with substance use",
@@ -206,7 +232,6 @@
                 "categoryFR": "Réhabilitation"
             },
             {
-                "nameFR": "Teen Challenge",
                 "name": "Teen Challenge",
                 "descriptionFR": "12 mois de programmes de réhabilitation en résidence pour les adultes de 18 ans ou plus aux prises avec des problèmes d'alcool et de toxicomanie",
                 "description": "12-month in-residence alcohol and drug addiction rehabilitation programs for adults 18 or older",
@@ -219,7 +244,6 @@
                 "categoryFR": "Réhabilitation"
             },
             {
-                "nameFR": "Village of Hope",
                 "name": "Village of Hope",
                 "descriptionFR": "Programme de 10 mois basé sur le christianisme axé sur la réhabilitation de la toxicomanie et de l'alcoolisme",
                 "description": "10-month Christianity-based program centred on drug and alcohol addiction recovery",
@@ -233,7 +257,6 @@
                 "categoryFR": "Réhabilitation"
             },
             {
-                "nameFR": "Youth Impact Jeunesse",
                 "name": "Youth Impact Jeunesse",
                 "descriptionFR": "Offre des services résidentiels pour les jeunes de deux à vingt-cinq ans, ainsi que des programmes de sensibilisation pour les jeunes de 16 ans ou plus",
                 "description": "Offers residential services for youths between two and twenty-five, as well as outreach programs for youths aged 16 or older",
@@ -252,7 +275,6 @@
         "icon": "Info",
         "fields": [
             {
-                "nameFR": "Addictions/Mental-Wellness St Mary's",
                 "name": "Addictions/Mental-Wellness St Mary's",
                 "descriptionFR": "Services de santé centrés sur les valeurs autochtones, y compris les visites médicales en personne au St. Mary’s Veterans Memorial Health Centre et le counseling de crise",
                 "description": "Healthcare services centered on indigenous values, including in-person medical visits at the St. Mary’s Veterans Memorial Health Centre and crisis counseling ",
@@ -263,7 +285,6 @@
                 "categoryFR": "Premières Nations"
             },
             {
-                "nameFR": "Apatawsuwikuwam",
                 "name": "Apatawsuwikuwam",
                 "descriptionFR": "Stratégie et rétablissement en matière de dépendance pour les individus autochtones",
                 "description": "Addiction strategy and recovery for Indigenous individuls",
@@ -275,7 +296,6 @@
                 "categoryFR": "Premières Nations"
             },
             {
-                "nameFR": "Elsipogtog Health & Wellness Centre",
                 "name": "Elsipogtog Health & Wellness Centre",
                 "descriptionFR": "Centre de santé et de bien-être d'Elsipogtog",
                 "description": "Healthcare services to the Elsipogtog First Nation community",
@@ -308,7 +328,7 @@
             }
         ]},
         {
-        "nameFR": "Services juridiques",
+        "nameFR": "Services Juridiques",
         "name": "Legal and Referral Services",
         "icon": "Scale",
         "fields": [
@@ -319,7 +339,7 @@
                 "phoneNumber": "855-266-0266",
                 "website": "https://www.legalaid-aidejuridique-nb.ca/family-law-advice-lawyer/",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "Fine Option Program",
@@ -328,7 +348,7 @@
                 "email": "DPS-MSP.Information@gnb.ca",
                 "website": "https://www2.gnb.ca/content/gnb/en/services/services_renderer.201050.Fine_Option_Program.html",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "Fredericton Legal Advice Clinic",
@@ -338,7 +358,7 @@
                 "email": "flac.nb@gmail.com",
                 "website": "https://flac.cliogrow.com/",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "Investigations of Complaints - Employment Standards",
@@ -348,7 +368,7 @@
                 "email": "employmentstandards@gnb.ca",
                 "website": "https://www.gnb.ca/en/topic/jobs-workplaces/labour-market-workforce/employment-standards.html",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "New Brunswick Human Rights Commission",
@@ -358,7 +378,7 @@
                 "email": "hrc.cdp@gnb.ca",
                 "website":"https://www2.gnb.ca/content/gnb/en/departments/nbhrc.html",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques",
+                "categoryFR": "Services Juridiques",
                 "notesFR": "Services bilingues",
                 "notes":"Bilingual Services"
             },
@@ -372,7 +392,7 @@
                 "notesFR": "Services bilingues",
                 "notes": "Bilingual Services",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "Public Legal Education Information Services NB (PLEIS)",
@@ -384,7 +404,7 @@
                 "notesFR": "Services bilingues",
                 "notes": "Bilingual Services",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "New Brunswick Real Estate Association (NBREA)",
@@ -396,7 +416,7 @@
                 "notesFR": "Services bilingues",
                 "notes": "Bilingual Services",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "Stewart McKelvey - Will Project",
@@ -406,7 +426,7 @@
                 "email": "willsproject@unb.ca",
                 "website": "https://unbprobono.ca/wills-project/",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "Public Trustee",
@@ -418,7 +438,7 @@
                 "notes": "Bilingual Services",
                 "website": "https://socialsupportsnb.ca/en/program/public-trustee-new-brunswick",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             },
             {
                 "name": "NB Refugee Clinic",
@@ -428,7 +448,7 @@
                 "email": "info@nbrc-crnb.ca",
                 "website": "https://nbrc-crnb.ca/",
                 "category":"Legal And Referral Services",
-                "categoryFR": "Services juridiques"
+                "categoryFR": "Services Juridiques"
             }
         ]
     }]
