@@ -21,11 +21,14 @@ export default function AdminEditor() {
   
   // Tab state for editor sections
   const [activeTab, setActiveTab] = useState('general');
+  const [language, setLanguage] = useState('en'); 
   
   // State for new announcement
   const [newAnnouncement, setNewAnnouncement] = useState({
     title: '',
+    titleFR: '',
     content: '',
+    contentFR: '',
     type: 'info',
     active: true
   });
@@ -130,8 +133,8 @@ export default function AdminEditor() {
   };
 
   const handleAddAnnouncement = () => {
-    if (!newAnnouncement.title || !newAnnouncement.content) {
-      setMessage('Title and content are required for announcements');
+    if (!newAnnouncement.title || !newAnnouncement.content ||!newAnnouncement.titleFR || !newAnnouncement.contentFR) {
+      setMessage('Title and content (both languages) are required for announcements');
       return;
     }
     
@@ -153,7 +156,9 @@ export default function AdminEditor() {
     // Reset the form
     setNewAnnouncement({
       title: '',
+      titleFR
       content: '',
+      contentFR: '',
       type: 'info',
       active: true
     });
@@ -721,91 +726,9 @@ const handleToggleAnnouncementActive = async (id) => {
                   </div>
                 </div>
               </div>
-
-            {/* French Services*/}
-              <div>
-                <h3 className="text-sm font-medium text-gray-700 mb-2">Contact Information (French)</h3>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="block text-xs text-gray-500 mb-1">Adresse</label>
-                    <input
-                      type="text"
-                      value={content.clinicInfo?.contactInfo?.addressFR || ''}
-                      onChange={(e) => setContent({
-                        ...content,
-                        clinicInfo: {
-                          ...content.clinicInfo,
-                          contactInfo: {
-                            ...(content.clinicInfo?.contactInfo || {}),
-                            addressFR: e.target.value
-                          }
-                        }
-                      })}
-                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-xs text-gray-500 mb-1">Phone</label>
-                    <input
-                      type="text"
-                      value={content.clinicInfo?.contactInfo?.phoneFR || ''}
-                      onChange={(e) => setContent({
-                        ...content,
-                        clinicInfo: {
-                          ...content.clinicInfo,
-                          contactInfo: {
-                            ...(content.clinicInfo?.contactInfo || {}),
-                            phoneFR: e.target.value
-                          }
-                        }
-                      })}
-                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-xs text-gray-500 mb-1">Email</label>
-                    <input
-                      type="text"
-                      value={content.clinicInfo?.contactInfo?.emailFR || ''}
-                      onChange={(e) => setContent({
-                        ...content,
-                        clinicInfo: {
-                          ...content.clinicInfo,
-                          contactInfo: {
-                            ...(content.clinicInfo?.contactInfo || {}),
-                            emailFR: e.target.value
-                          }
-                        }
-                      })}
-                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-xs text-gray-500 mb-1">Heures</label>
-                    <input
-                      type="text"
-                      value={content.clinicInfo?.contactInfo?.hoursFR || ''}
-                      onChange={(e) => setContent({
-                        ...content,
-                        clinicInfo: {
-                          ...content.clinicInfo,
-                          contactInfo: {
-                            ...(content.clinicInfo?.contactInfo || {}),
-                            hoursFR: e.target.value
-                          }
-                        }
-                      })}
-                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-          </div>
+        </div>
         )}
 
         {/* Announcements Tab */}
@@ -824,6 +747,16 @@ const handleToggleAnnouncementActive = async (id) => {
                     type="text"
                     value={newAnnouncement.title}
                     onChange={(e) => setNewAnnouncement({...newAnnouncement, title: e.target.value})}
+                    className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Title (French)</label>
+                  <input
+                    type="text"
+                    value={newAnnouncement.titleFR}
+                    onChange={(e) => setNewAnnouncement({...newAnnouncement, titleFR: e.target.value})}
                     className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
@@ -852,6 +785,16 @@ const handleToggleAnnouncementActive = async (id) => {
                   ></textarea>
                 </div>
                 
+                <div className="sm:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Content (French)</label>
+                  <textarea
+                    rows="3"
+                    value={newAnnouncement.contentFR}
+                    onChange={(e) => setNewAnnouncement({...newAnnouncement, contentFR: e.target.value})}
+                    className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                  ></textarea>
+                </div>
+
                 <div className="sm:col-span-2 flex items-center">
                   <input
                     type="checkbox"
@@ -899,10 +842,21 @@ const handleToggleAnnouncementActive = async (id) => {
                         : 'bg-gray-50 border-gray-200'
                     }`}
                   >
+
+                    <button onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}>Switch Language</button>
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="text-sm font-medium">{announcement.title}</h4>
-                        <p className="text-sm mt-1">{announcement.content}</p>
+                        {language === 'fr' ? (
+                          <>
+                            <h4 className="text-sm font-medium">{announcement.titleFR}</h4>
+                            <p className="text-sm mt-1">{announcement.contentFR}</p>
+                          </>
+                        ) : (
+                          <>
+                            <h4 className="text-sm font-medium">{announcement.title}</h4>
+                            <p className="text-sm mt-1">{announcement.content}</p>
+                          </>
+                        )}
                         <div className="mt-2 flex items-center text-xs text-gray-500">
                           <span className={`mr-2 px-2 py-0.5 rounded-full ${
                             announcement.type === 'info' 
