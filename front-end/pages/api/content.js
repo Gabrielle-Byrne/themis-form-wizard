@@ -39,10 +39,10 @@ const defaultContent = {
   announcements: [
     {
       id: "1",
-      title: "Holiday Hours",
-      titleFR: "Heures de vacances",
-      content: "Our clinic will be closed on April 15th for staff training.",
-      contentFR: "Notre clinique sera fermée le 15 avril pour une formation du personnel.",
+      title: "Legal Clinic Screening Open",
+      titleFR: "Ouverture de la clinique juridique",
+      content: "Complete the online screening form to determine your eligibility for legal services.",
+      contentFR: "Veuillez remplir le formulaire de présélection en ligne pour déterminer votre admissibilité aux services juridiques.",
       type: "info",
       active: true
     }

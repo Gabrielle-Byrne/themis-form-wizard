@@ -88,9 +88,9 @@ export default function Home() {
   const tabItems = [
     {
       id: 0,
-      label: "Home",
+      label: {language === "fr" ? "Accueil" : "Home"},
       icon: "🏠",
-      description: "Welcome to our clinic",
+      description: {language === "fr" ? "Bienvenue dans notre clinique" : "Welcome to our clinic"},
       component: () => (
         <div className="space-y-6">
           {/* About section */}
@@ -214,16 +214,16 @@ export default function Home() {
     },
     {
       id: 1,
-      label: "Intake Form",
+      label: language === "fr" ? "Formulaire d'admission" : "Intake Form",
       icon: "📝",
-      description: "Check if you qualify for our services",
+      description: language === "fr" ? "Vérifiez si vous êtes admissible à nos services" : "Check if you qualify for our services",
       component: () => <FormWizard language={language} />
     },
     {
       id: 2,
-      label: "Resources",
+      label: language === "fr" ? "Ressources" : "Resources",
       icon: "📚",
-      description: "Access helpful legal resources",
+      description: language === "fr" ? "Accédez à des ressources juridiques utiles" : "Access helpful legal resources",
       component: () => <AdditionalResources resources={resourceData} lang={language} />
     }
   ];

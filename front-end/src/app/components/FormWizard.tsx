@@ -705,7 +705,7 @@ export default function LegalClinicForm({ language }) {
           <div className="h-2 bg-gradient-to-r from-blue-600 via-red-500 to-blue-600 w-fulll"></div>
           <CardHeader className="pb-6 pt-6">
             <CardTitle className="text-2xl md:text-3xl text-center text-blue-800 font-bold">
-              {formConfig.metadata.clinic.name}
+             {language === "fr" ? "Formulaire de présélection" : "Eligibility Screening Form"}
             </CardTitle>
             <CardDescription className="text-center text-gray-600 mt-2">
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
