@@ -88,9 +88,9 @@ export default function Home() {
   const tabItems = [
     {
       id: 0,
-      label: {language === "fr" ? "Accueil" : "Home"},
+      label: language === "fr" ? "Accueil" : "Home",
       icon: "🏠",
-      description: {language === "fr" ? "Bienvenue dans notre clinique" : "Welcome to our clinic"},
+      description: language === "fr" ? "Bienvenue dans notre clinique" : "Welcome to our clinic",
       component: () => (
         <div className="space-y-6">
           {/* About section */}
