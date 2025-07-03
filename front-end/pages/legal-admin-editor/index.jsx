@@ -156,7 +156,7 @@ export default function AdminEditor() {
     // Reset the form
     setNewAnnouncement({
       title: '',
-      titleFR
+      titleFR: '',
       content: '',
       contentFR: '',
       type: 'info',
