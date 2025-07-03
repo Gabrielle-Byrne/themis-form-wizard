@@ -97,13 +97,30 @@ export default function Home() {
           <div className="bg-blue-50 p-6 rounded-lg shadow-sm">
             <h2 className="text-xl font-bold text-blue-800 mb-3">{language === "fr" ? "À Propos de Nous" : "About Us"}</h2>
             <pre className="text-gray-700 whitespace-pre-wrap">
-              {content?.clinicInfo?.aboutText || (language === "fr" ? "Information non disponible." : "Information not available.")}
+              {language === "fr" ? content?.clinicInfo?.aboutTextFR : content?.clinicInfo?.aboutText || (language === "fr" ? "Information non disponible." : "Information not available.")}
             </pre>
           </div>
-          
+
           {/* Services section */}
+          {language === "fr" ? (
           <div>
-            <h2 className="text-xl font-bold text-blue-800 mb-3">{language === "fr" ? "Nos Services" : "Our Services"}</h2>
+            <h2 className="text-xl font-bold text-blue-800 mb-3">Nos Services</h2>
+            {content?.clinicInfo?.servicesFR && content.clinicInfo.servicesFR.length > 0 ? (
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {content.clinicInfo.servicesFR.map((serviceFR, index) => (
+                  <li key={index} className="bg-white p-3 rounded border border-gray-200 shadow-sm flex items-start">
+                    <span className="text-blue-600 mr-2">✓</span>
+                    {serviceFR}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-gray-500">Aucun service listé pour le moment.</p>
+            )}
+          </div>
+          ) : (
+            <div>
+            <h2 className="text-xl font-bold text-blue-800 mb-3">Our Services</h2>
             {content?.clinicInfo?.services && content.clinicInfo.services.length > 0 ? (
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {content.clinicInfo.services.map((service, index) => (
@@ -114,10 +131,11 @@ export default function Home() {
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-500">{language === "fr" ? "Aucun service listé pour le moment." : "No services listed at this time."}</p>
+              <p className="text-gray-500">No services listed at this time.</p>
             )}
           </div>
-          
+          )}
+
           {/* Contact information */}
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
             <h2 className="text-xl font-bold text-blue-800 mb-3">{language === "fr" ? "Contactez-Nous" : "Contact Us"}</h2>
@@ -146,7 +164,21 @@ export default function Home() {
         <div className="bg-gray-50 py-2">
           <h2 className="text-xl font-bold text-blue-800 mb-3 px-3">{language === "fr" ? "Annonces" : "Announcements"}</h2>
           <div className="container mx-auto px-4 max-w-5xl">
+            {language === "fr" ? (
             <div className="space-y-2">
+              {content.announcements
+                .filter(announcement => announcement.active)
+                .map(announcement => (
+                  <Announcement 
+                    key={announcement.id} 
+                    title={announcement.titleFR || ""}
+                    content={announcement.contentFR || ""}
+                    type={announcement.type}
+                  />
+                ))
+              }
+            </div>) : (
+              <div className="space-y-2">
               {content.announcements
                 .filter(announcement => announcement.active)
                 .map(announcement => (
@@ -159,6 +191,7 @@ export default function Home() {
                 ))
               }
             </div>
+            )}
           </div>
         </div>
       )}

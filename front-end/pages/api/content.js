@@ -1,5 +1,6 @@
 // pages/api/content.js
 import { list, put } from '@vercel/blob';
+import { title } from 'process';
 
 // Secret code for admin access
 //const secretCode = process.env.LEG_PASSWORD;
@@ -9,13 +10,22 @@ const contentKey = 'content.json';
 const defaultContent = {
   clinicInfo: {
     name: "Legal Clinic Services",
+    nameFR: "Services de la Clinique Juridique",
     aboutText: "The UNB Legal Clinic, located at 750 Brunswick Street, Fredericton, NB, provides free legal services to individuals who cannot afford representation and do not qualify for legal aid. Services include assistance with housing and tenancy issues, employment law, human rights, small claims, immigration, uncontested divorce, and more. The clinic operates Monday to Friday, 8:30 a.m. to 4:30 p.m., and offers in-person, phone, and virtual appointments. Financial eligibility is assessed using a means test, focusing on those with low or no income. Clients should bring identification, proof of income, and relevant legal documents to appointments. Contact: 506-452-6313 or lawclinic@unb.ca.",
+    aboutTextFR: "La Clinique Juridique de l'UNB, située au 750, rue Brunswick, Fredericton, NB, offre des services juridiques gratuits aux personnes qui ne peuvent pas se permettre une représentation et qui ne sont pas admissibles à l'aide juridique. Les services comprennent l'assistance en matière de logement et de location, le droit du travail, les droits de la personne, les petites créances, l'immigration, le divorce non contesté, et plus encore. La clinique est ouverte du lundi au vendredi, de 8 h 30 à 16 h 30, et propose des rendez-vous en personne, par téléphone et virtuels. L'admissibilité financière est évaluée à l'aide d'un test de moyens, en se concentrant sur les personnes à faible revenu ou sans revenu. Les clients doivent apporter une pièce d'identité, une preuve de revenu et des documents juridiques pertinents lors des rendez-vous. Contact : 506-452-6313 ou lawclinic@unb.ca.",
     services: [
       "Family law consultations",
       "Landlord-tenant dispute resolution",
       "Immigration assistance",
       "Small claims court representation",
       "Document review and preparation"
+    ],
+    servicesFR: [
+      "Consultations en droit de la famille",
+      "Résolution des conflits entre locataires et propriétaires",
+      "Assistance en matière d'immigration",
+      "Représentation devant la Cour des petites créances",
+      "Révision et préparation de documents"
     ],
     contactInfo: {
       address: "123 Legal Street, Suite 101",
@@ -24,13 +34,15 @@ const defaultContent = {
       hours: "Mon-Fri, 9am-5pm"
     },
     calendlyLink: "https://calendly.com/your-account/your-event",
-    logoUrl: "../../src/app/components/legallogo.png" // Updated to your actual logo path
+    logoUrl: "../../src/app/components/legallogo.png"
   },
   announcements: [
     {
       id: "1",
       title: "Holiday Hours",
+      titleFR: "Heures de vacances",
       content: "Our clinic will be closed on April 15th for staff training.",
+      contentFR: "Notre clinique sera fermée le 15 avril pour une formation du personnel.",
       type: "info",
       active: true
     }
