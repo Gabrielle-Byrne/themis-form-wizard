@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
+import { getValidationRules, combineValidations } from '../lib/validationRules';
 import clsx from 'clsx';
 import { 
   AlertCircle,
@@ -27,7 +28,6 @@ import {
 
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import configData from '../lib/formConfig.json';
-import { validationRules, combineValidations } from '../lib/validationRules';
 import { steps } from 'framer-motion';
 
 export default function LegalClinicForm({ language }) {
@@ -48,7 +48,9 @@ export default function LegalClinicForm({ language }) {
   const [ formConfig , setConfig] = useState(configData.formConfig);
   const [RESOURCES, setResources] = useState(null);
   const [MONTHLY_THRESHOLDS, setThresholds] = useState(null);
-
+  const [validationRules, setValidationRules] = useState<{
+  [ruleName: string]: (value: any, formData: any) => any;
+} | null>(null);
 
   // Gets the form template from the api
   useEffect(() => {
@@ -63,6 +65,8 @@ export default function LegalClinicForm({ language }) {
         setThresholds(dataForm.MONTHLY_THRESHOLDS);
         setResources(dataForm.RESOURCES);
         setConfig({...dataForm.formConfig});
+        const rules = await getValidationRules(dataForm.CONSTANTS, dataForm.RESOURCES);
+        setValidationRules(rules);
       } catch (error) {
         console.error('Failed to fetch eligibility data:', error);
       }
@@ -136,23 +140,25 @@ export default function LegalClinicForm({ language }) {
     }
   
     // Check if field has validation rules defined
-    if (field.validation?.rules) {
-      // Get the validation rule for this field
-      if (typeof field.validation.rules === 'string') {
-        // Single rule
-        const rule = validationRules[field.validation.rules];
-        if (rule) {
-          return rule(value, allData);
-        }
-      } else if (Array.isArray(field.validation.rules)) {
-        // Multiple rules
-        const rules = field.validation.rules.map(ruleName => validationRules[ruleName]);
-        return combineValidations(rules)(value, allData);
-      }
-    }
   
-    return { isValid: true };
-  };
+  if (!validationRules) return { isValid: true }; // Fallback until rules are loaded
+
+  else if (field.validation?.rules) {
+    if (typeof field.validation.rules === 'string') {
+      const rule = validationRules[field.validation.rules];
+      if (rule) {
+        return rule(value, allData);
+      }
+    } else if (Array.isArray(field.validation.rules)) {
+      const rules = field.validation.rules
+        .map(ruleName => validationRules[ruleName])
+        .filter(Boolean); // Remove any undefined rules
+      return combineValidations(rules)(value, allData);
+    }
+  }
+
+  return { isValid: true };
+};
 
   const validateStep = (stepIndex) => {
     const step = formConfig.steps[stepIndex];

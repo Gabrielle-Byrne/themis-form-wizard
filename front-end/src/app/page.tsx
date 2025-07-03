@@ -10,6 +10,8 @@ import FormWizard from './components/FormWizard';
 import HomeHeader from './components/Home';
 import AdditionalResources from './components/AdditionalResources';
 import resourceData from "./lib/additional.json";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
 
 // Added for announcements display
 const Announcement = ({ title, content, type = 'info' }) => {
@@ -67,7 +69,7 @@ export default function Home() {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await fetch('/api/content');
+        const response = await fetch(`/api/content`);
         if (!response.ok) {
           throw new Error(`Failed to fetch: ${response.status}`);
         }

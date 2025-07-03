@@ -1,22 +1,16 @@
-// validationRules.js
-
-// Import config for constants and resources
-import configData from './formConfig.json';
-
-  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:4000';
-
-  const configet = await fetch(`${BASE_URL}/api/eligibility`);
-  const data = await configet.json();
-  if (!configet.ok) {
-    throw new Error(`Error fetching data: ${data || 'Unknown error'}`);
-  }
-  const dataForm = data[data.length-1];
-
-  const { CONSTANTS, RESOURCES } = dataForm;
-
-export const validationRules = {
-  // Emergency Assessment Validation Rules
-  immediateRisk: (value, formData) => {
+export async function getValidationRules(CONSTANTS, RESOURCES) {
+  return {
+    immediateRisk: (value, formData) => {
+      if (value === "yes") {
+        return {
+          isValid: true,
+          resources: RESOURCES.emergency,
+          terminateIfInvalid: true,
+        };
+      }
+      return { isValid: true };
+    },
+    immediateRisk: (value, formData) => {
     if (value === "yes") {
       return {
         isValid: true,
@@ -67,8 +61,8 @@ export const validationRules = {
     };
   },
 
-  isInFuture: (value) => {    
-    if (!value) return { isValid: true }
+  isInFuture: (value) => {
+    if (!value) return { isValid: true };
     const courtDate = new Date(value);
     const today = new Date();
 
@@ -80,7 +74,7 @@ export const validationRules = {
   },
 
   isInPast: (value) => {    
-    if (!value) return { isValid: true }
+    if (!value) return { isValid: true };
     const courtDate = new Date(value);
     const today = new Date();
 
@@ -223,7 +217,8 @@ export const validationRules = {
     message: "Please enter a valid number",
     messageFR: "Veuillez entrer un nombre valide"
   })
-};
+  };
+}
 
 // Helper function to combine multiple validation rules
 export const combineValidations = (rules) => (value, formData) => {
@@ -234,18 +229,4 @@ export const combineValidations = (rules) => (value, formData) => {
     }
   }
   return { isValid: true };
-};
-
-// Export individual validation functions for reuse
-export const {
-  required,
-  minLength,
-  maxLength,
-  numeric,
-  email,
-  phoneNumber,
-  dateOfBirth,
-  isInFuture,
-  isInPast,
-  postalCode
-} = validationRules;
+}

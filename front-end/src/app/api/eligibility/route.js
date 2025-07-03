@@ -1,4 +1,5 @@
 // /src/app/api/eligibility/route.js
+import dummy from './dummy.json';
 import clientPromise from '@/lib/mongodb';
 
 export async function POST(req) {
@@ -7,7 +8,6 @@ export async function POST(req) {
     const client = await clientPromise;
     const db = client.db();
     const collection = db.collection('eligibility'); 
-    // Delete all but latest document
     const recentDocs = await collection.find()
       .sort({ _id: -1 }) 
       .limit(1)
@@ -32,6 +32,6 @@ export async function GET() {
     const data = await db.collection('eligibility').find().sort({ _id: -1}).limit(1).toArray();
     return new Response(JSON.stringify(data), { status: 200 });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'Failed to fetch data' }), { status: 500 });
+    return new Response(JSON.stringify(dummy), { status: 200 });
   }
 }

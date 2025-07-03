@@ -1,4 +1,5 @@
 import clientPromise from '@/lib/mongodb';
+import dummy from './dummy.json';
 
 export async function POST(req) {
   try {
@@ -31,6 +32,6 @@ export async function GET() {
     const data = await db.collection('resources').find().sort({ _id: -1}).limit(1).toArray();
     return new Response(JSON.stringify(data), { status: 200 });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'Failed to fetch data' }), { status: 500 });
+    return new Response(JSON.stringify(dummy), { status: 200 });
   }
 }

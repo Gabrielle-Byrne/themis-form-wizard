@@ -1,6 +1,7 @@
 // Pushes form data to the server and retrieves it.
 import sanitizeFormConfig from './sanitize';
 const allowedOrigin = '/api/eligibility';
+const backup = './api/dummy.json';
 
 export async function saveFormData(formData) {
   try {
