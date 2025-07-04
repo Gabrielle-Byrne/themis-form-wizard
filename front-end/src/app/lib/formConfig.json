@@ -510,22 +510,22 @@
             "options": [
               {
                 "value": "female",
-                "labelFR": "féminin",
+                "labelFR": "Féminin",
                 "label": "Female"
               },
               {
                 "value": "male",
-                "labelFR": "masculin",
+                "labelFR": "Masculin",
                 "label": "Male"
               },
               {
                 "value": "nonbinary",
-                "labelFR": "non-binaire",
+                "labelFR": "Non-binaire",
                 "label": "Non-binary"
               },
               {
                 "value": "prefer-not-to-say",
-                "labelFR": "je préfère ne pas le dire",
+                "labelFR": "Je préfère ne pas le dire",
                 "label": "Prefer not to say"
               },
               {

@@ -65,7 +65,7 @@ export default function LegalClinicForm({ language }) {
         setThresholds(dataForm.MONTHLY_THRESHOLDS);
         setResources(dataForm.RESOURCES);
         setConfig({...dataForm.formConfig});
-        const rules = await getValidationRules(dataForm.CONSTANTS, dataForm.RESOURCES);
+        const rules = await getValidationRules(dataForm.CONSTANTS, dataForm.RESOURCES, dataForm.MONTHLY_THRESHOLDS);
         setValidationRules(rules);
       } catch (error) {
         console.error('Failed to fetch eligibility data:', error);
@@ -590,7 +590,7 @@ export default function LegalClinicForm({ language }) {
                 <CheckCircle className="w-4 h-4 text-white" />
               )}
             </div>
-            <span>{field.label}</span>
+            <span>{language === "fr" ? field.labelFR : field.label}</span>
           </div>
         );
 
@@ -637,26 +637,25 @@ export default function LegalClinicForm({ language }) {
   const FileUploadSection = () => (
     <div className="mt-8 p-6 border border-dashed border-gray-300 rounded-lg bg-gray-50">
       <div className="flex flex-col items-center">
-        <h4 className="font-medium text-gray-900 mb-2">Supporting Documents Submission</h4>
+        <h4 className="font-medium text-gray-900 mb-2">{language === "fr" ? "Soumission de documents justificatifs" : "Supporting Documents Submission"}</h4>
         <p className="text-sm text-gray-500 text-center mb-4">
-          Any supporting documents related to this matter must be sent to 
-          <a href="mailto:lawclinic@unb.ca" className="text-blue-600 hover:underline"> lawclinic@unb.ca </a> 
-          with the email subject formatted as your First Name, Last Name - Issue's Category. 
-          For example: John Doe - Housing and Tenancy.
+          {language === "fr" ? "Tous les documents justificatifs relatifs à cette affaire doivent être envoyés à" : "Any supporting documents related to this matter must be sent to"}
+          <a href="mailto:lawclinic@unb.ca" className="text-blue-600 hover:underline"> lawclinic@unb.ca </a>
+          {language === "fr" ? "avec l'objet de l'email formaté comme suit : Votre Prénom, Nom - Catégorie du problème." : "with the email subject formatted as your First Name, Last Name - Issue's Category."}
+          {language === "fr" ? "Par exemple : John Doe - Logement et location." : "For example: John Doe - Housing and Tenancy."}
         </p>
         <p className="text-sm text-gray-500 text-center mb-4">
-          Additionally, it is mandatory to send the following information:
+          {language === "fr" ? "De plus, il est obligatoire d'envoyer les informations suivantes :" : "Additionally, it is mandatory to send the following information:"}
         </p>
         <ul className="list-disc text-sm text-gray-500 pl-5">
-          <li>Proof of identification</li>
+          <li>{language === "fr" ? "Preuve d'identité" : "Proof of identification"}</li>
           <li>
-            Supporting documents for your financial eligibility, including monthly income, 
-            allowable deductions, and assets.
+            {language === "fr" ? "Documents justificatifs de votre éligibilité financière, y compris le revenu mensuel," : "Supporting documents for your financial eligibility, including monthly income,"}
+            {language === "fr" ? "les déductions autorisées et les actifs." : "allowable deductions, and assets."}
           </li>
         </ul>
         <p className="text-sm text-gray-500 text-center mt-4">
-          Please note that applications will not be reviewed without the required supporting 
-          documents or mandatory documents.
+          {language === "fr" ? "Veuillez noter que les demandes ne seront pas examinées sans les documents justificatifs requis ou les documents obligatoires." : "Please note that applications will not be reviewed without the required supporting documents or mandatory documents."}
         </p>
       </div>
     </div>
@@ -670,10 +669,10 @@ export default function LegalClinicForm({ language }) {
             <CheckCircle className="w-8 h-8 text-blue-600" />
           </div>
           <h2 className="mt-4 text-2xl font-bold text-gray-900">
-            Application Submitted Successfully
+            {language === "fr" ? "Demande soumise avec succès" : "Application Submitted Successfully"}  
           </h2>
           <p className="mt-2 text-gray-600">
-            Your application has been received. Reference ID: {submissionId}
+            {language === "fr" ? "Votre demande a été reçue. ID de référence : " : "Your application has been received. Reference ID: "} {submissionId}
           </p>
           <div className="mt-6 space-y-3">
             <button
@@ -683,7 +682,7 @@ export default function LegalClinicForm({ language }) {
               className="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 
                 rounded-lg hover:bg-blue-700"
             >
-              Continue to Thank You Page
+              {language === "fr" ? "Continuer vers la page de remerciement" : "Continue to Thank You Page"}
             </button>
             <button
               onClick={() => {
@@ -694,7 +693,7 @@ export default function LegalClinicForm({ language }) {
                 rounded-lg hover:bg-gray-200 flex items-center justify-center gap-2"
             >
               <RefreshCcw className="w-4 h-4" />
-              Submit Another Application
+              {language === "fr" ? "Soumettre une autre demande" : "Submit Another Application"}
             </button>
           </div>
         </div>
@@ -703,7 +702,7 @@ export default function LegalClinicForm({ language }) {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b  md:py-6 px-4 md:px-8">
+    <div className="min-h-screen bg-gradient-to-b  md:py-6 md:px-4">
       {showSuccess && <SuccessModal />}
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -1185,7 +1184,7 @@ export default function LegalClinicForm({ language }) {
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-sm font-medium text-gray-900 mb-4 flex items-center gap-2">
                   <FileText className="w-4 h-4 text-blue-500" />
-                  Required Documents
+                  {language === "fr" ? "Documents requis" : "Required Documents"}
                 </h3>
                 <ul className="space-y-3">
                   {currentStepConfig.requiredDocuments.map((doc, index) => (

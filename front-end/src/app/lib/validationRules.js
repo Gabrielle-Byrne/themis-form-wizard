@@ -1,4 +1,4 @@
-export async function getValidationRules(CONSTANTS, RESOURCES) {
+export async function getValidationRules(CONSTANTS, RESOURCES, MONTHLY_THRESHOLDS) {
   return {
     immediateRisk: (value, formData) => {
       if (value === "yes") {
@@ -118,8 +118,8 @@ export async function getValidationRules(CONSTANTS, RESOURCES) {
     const householdSize = parseInt(formData.householdSize) || 1;
     
     // Check against monthly thresholds
-    const threshold = configData.MONTHLY_THRESHOLDS[householdSize] || 
-                     configData.MONTHLY_THRESHOLDS[configData.CONSTANTS.HOUSEHOLD.MAX_SIZE];
+    const threshold = MONTHLY_THRESHOLDS[householdSize] || 
+                     MONTHLY_THRESHOLDS[CONSTANTS.HOUSEHOLD.MAX_SIZE];
 
     return {
       isValid: totalIncome <= threshold.income,
@@ -133,8 +133,8 @@ export async function getValidationRules(CONSTANTS, RESOURCES) {
     const householdSize = parseInt(formData.householdSize) || 1;
     
     // Check against asset thresholds
-    const threshold = configData.MONTHLY_THRESHOLDS[householdSize] || 
-                     configData.MONTHLY_THRESHOLDS[configData.CONSTANTS.HOUSEHOLD.MAX_SIZE];
+    const threshold =   MONTHLY_THRESHOLDS[householdSize] || 
+                     MONTHLY_THRESHOLDS[CONSTANTS.HOUSEHOLD.MAX_SIZE];
 
     return {
       isValid: totalAssets <= threshold.assets,
